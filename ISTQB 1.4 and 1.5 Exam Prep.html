@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ISTQB 1.4 and 1.5: Exam Prep</title>
+<style>
+:root{--bg:#f2f5f8;--card:#fff;--ink:#14263a;--mute:#56687b;--line:#d5dde6;--acc:#0f766e;--accbg:#d9f0ec;--hi:#ffe27a;--bad:#b4231a;--badbg:#fbe1de;--ok:#14702f;--okbg:#dcf3e2;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d1822;--card:#14232f;--ink:#e6eef5;--mute:#9bb0c2;--line:#27394a;--acc:#4fd1c0;--accbg:#12373a;--hi:#6b5a10;--bad:#ff8f86;--badbg:#3b1c1c;--ok:#6fdc8c;--okbg:#14331f}}
+:root[data-theme="dark"]{--bg:#0d1822;--card:#14232f;--ink:#e6eef5;--mute:#9bb0c2;--line:#27394a;--acc:#4fd1c0;--accbg:#12373a;--hi:#6b5a10;--bad:#ff8f86;--badbg:#3b1c1c;--ok:#6fdc8c;--okbg:#14331f}
+*{box-sizing:border-box}html{scroll-padding-top:70px}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.65 Georgia,"Iowan Old Style",serif}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line);padding:10px 16px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+header h1{font:700 18px/1.2 system-ui,sans-serif;margin:0;flex:1 1 200px}
+nav{display:flex;gap:6px;flex-wrap:wrap}
+button{font:600 14px system-ui,sans-serif;border:1px solid var(--line);background:var(--card);color:var(--ink);padding:7px 13px;border-radius:8px;cursor:pointer}
+button:hover{border-color:var(--acc)}button:focus-visible,summary:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+nav button.on{background:var(--acc);color:var(--bg);border-color:var(--acc)}
+main{max-width:860px;margin:0 auto;padding:20px 16px 60px}
+section{display:none}section.on{display:block}
+h2{font:700 26px/1.25 system-ui,sans-serif;margin:8px 0 14px}h3{font:700 18px system-ui,sans-serif;margin:0}
+details{background:var(--card);border:1px solid var(--line);border-radius:10px;margin:0 0 12px}
+summary{cursor:pointer;padding:13px 16px;font:700 17px system-ui,sans-serif;list-style:none;display:flex;justify-content:space-between;gap:10px}
+summary::after{content:"+";color:var(--acc)}details[open] summary::after{content:"\2212"}
+.b{padding:0 16px 14px}.b p{margin:.5em 0}.b ul{padding-left:20px;margin:.4em 0}
+mark{background:var(--hi);color:inherit;padding:0 3px;border-radius:3px}
+.def{border-left:4px solid var(--acc);background:var(--accbg);padding:8px 12px;margin:10px 0;border-radius:0 8px 8px 0}
+.ana{border-left:4px solid var(--mute);padding:4px 12px;margin:10px 0;color:var(--mute);font-style:italic}
+.trap{border-left:4px solid var(--bad);background:var(--badbg);padding:8px 12px;margin:10px 0;border-radius:0 8px 8px 0}
+.mn{font:700 18px system-ui,sans-serif;color:var(--acc)}
+table{border-collapse:collapse;width:100%;font:15px/1.45 system-ui,sans-serif}th,td{border:1px solid var(--line);padding:7px 9px;text-align:left;vertical-align:top}th{background:var(--accbg)}
+.wrap{overflow-x:auto}
+.q{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin:0 0 14px}
+.q p{margin:0 0 10px;font-weight:600}.tag{font:12px system-ui,sans-serif;color:var(--mute)}
+.o{display:block;width:100%;text-align:left;margin:6px 0;font-weight:400;font-family:system-ui,sans-serif;line-height:1.4}
+.o.ok{background:var(--okbg);border-color:var(--ok)}.o.no{background:var(--badbg);border-color:var(--bad)}
+.ex{display:none;margin-top:8px;padding:8px 12px;background:var(--accbg);border-radius:8px;font-size:15px}.ex.show{display:block}
+#score{font:700 16px system-ui,sans-serif;margin-bottom:12px}
+.sheet{background:var(--card);border:2px solid var(--acc);border-radius:12px;padding:6px 18px 14px;font-size:15.5px;line-height:1.55}
+.sheet h3{margin:14px 0 4px;color:var(--acc)}
+@media (prefers-reduced-motion:no-preference){.ex.show{animation:f .25s}@keyframes f{from{opacity:0;transform:translateY(-4px)}}}
+</style></head><body>
+<header><h1>ISTQB Ch.1: Test Process and Psychology of Testing (1.4, 1.5)</h1>
+<nav id="nav"></nav><button id="th" aria-label="Toggle dark or light mode">Dark / Light</button></header>
+<main>
+<section id="explain"></section><section id="summary"></section><section id="mcq"></section><section id="written"></section><section id="rev"></section>
+</main>
+<script>
+const $=s=>document.querySelector(s);
+const D=(t,b,o)=>`<details${o?' open':''}><summary>${t}</summary><div class="b">${b}</div></details>`;
+const def=t=>`<div class="def">${t}</div>`,ana=t=>`<div class="ana">Analogy: ${t}</div>`,trap=t=>`<div class="trap"><b>Trap:</b> ${t}</div>`;
+
+/* ---------- EXPLANATION ---------- */
+const EX=[
+['Part A. The Test Process (1.4)',
+D('1. Big picture: what is a test process?',
+def('There is <mark>no one universal test process</mark>, but there are <mark>common sets of test activities</mark>. Without them, testing is less likely to achieve its objectives. These sets of activities <b>are</b> the test process.')+
+`<p>Think of it as a recipe skeleton: every kitchen adapts it, but skipping steps ruins the dish.</p>`+ana('A hospital has no single treatment, yet every patient goes through triage, diagnosis, treatment, discharge. The steps are common; the details differ.'),1)+
+D('2. Test process in context (what shapes it)',
+`<p><b>Contextual factors</b> (not limited to):</p><ul><li>Software development lifecycle model and project methodology (e.g. Agile vs sequential)</li><li>Test levels and test types considered</li><li>Product and project risks</li><li>Business domain</li></ul>
+<p><b>Operational constraints</b> (not limited to):</p><ul><li>Budgets and resources</li><li>Timescales</li><li>Complexity</li><li>Contractual and regulatory requirements</li><li>Organizational policies and practices</li><li>Required internal and external standards</li></ul>
+<p>The sections that follow describe the process in terms of: <mark>test activities and tasks</mark>, <mark>test work products</mark>, and <mark>traceability</mark> between the test basis and test work products.</p>`)+
+D('3. The seven groups of test activities',
+`<p class="mn">Mnemonic: "Please Make A Decent Impression Every Class" = Planning, Monitoring and control, Analysis, Design, Implementation, Execution, Completion.</p>
+<div class="wrap"><table><tr><th>Activity</th><th>Core idea</th><th>Key tasks</th></tr>
+<tr><td><b>Test planning</b></td><td>Define <mark>objectives</mark> and the <mark>approach</mark> within context constraints</td><td>Choose techniques and tasks, formulate a schedule to meet a deadline. Plans may be revisited after monitoring and control feedback.</td></tr>
+<tr><td><b>Monitoring and control</b></td><td><b>Monitoring</b> = ongoing comparison of actual progress vs the plan using defined metrics. <b>Control</b> = actions needed to meet the plan's objectives (plan may be updated).</td><td>Measure, compare, correct.</td></tr>
+<tr><td><b>Test analysis</b></td><td><mark>WHAT to test</mark>: analyze the test basis, identify testable features, define test conditions (in terms of measurable coverage criteria)</td><td>See detail below.</td></tr>
+<tr><td><b>Test design</b></td><td><mark>HOW to test</mark>: elaborate conditions into high-level test cases and other testware</td><td>Design and prioritize test cases, identify test data, design environment, tools and infrastructure.</td></tr>
+<tr><td><b>Test implementation</b></td><td>Get everything ready to run</td><td>Develop and prioritize test procedures, create automated scripts, create test suites, order them in an execution schedule, build the environment, prepare and load test data.</td></tr>
+<tr><td><b>Test execution</b></td><td>Run suites per the schedule</td><td>Record IDs and versions, run tests (manual or tool), compare actual vs expected, analyze anomalies, report defects, log outcomes, repeat tests.</td></tr>
+<tr><td><b>Test completion</b></td><td>Collect data to consolidate experience and testware</td><td>Close defect reports, test summary report, archive testware, hand over, lessons learned, improve process maturity.</td></tr></table></div>`,1)+
+D('4. Test analysis in depth (WHAT to test)',
+`<p><b>Step 1. Analyze the test basis</b> for the level being tested. Examples of test basis:</p><ul>
+<li><b>Requirements</b>: business, functional, system requirements, user stories, epics, use cases (functional and non-functional behavior)</li>
+<li><b>Design and implementation info</b>: architecture diagrams, design specs, call flows, UML or ER diagrams, interface specs (component or system structure)</li>
+<li><b>The implementation itself</b>: code, database metadata and queries, interfaces</li>
+<li><b>Risk analysis reports</b>: functional, non-functional, structural aspects</li></ul>
+<p><b>Step 2. Evaluate the test basis and test items to find defects</b>: <mark>ambiguities, omissions, inconsistencies, inaccuracies, contradictions</mark> (mnemonic <b>AOIIC</b>).</p>
+<p>Course example: "The system should send a confirmation message when the user completes the payment." Vague: what kind of message? Within what time? On failure?</p>
+<p><b>Step 3. Identify features</b> and sets of features to be tested.</p>
+<p><b>Step 4. Define and prioritize test conditions</b> per feature, considering functional, non-functional and structural characteristics, business and technical factors, and risk levels.</p>
+<div class="def"><b>Example (course):</b> Feature = Password reset. Conditions: (1) valid registered email, (2) invalid email, (3) reset link expires after X minutes.</div>`)+
+D('5. Test design vs implementation vs execution (often confused)',
+`<ul><li><b>Analysis</b> answers "what to test?" and produces <i>test conditions</i>.</li><li><b>Design</b> answers "how to test?" and produces <i>high-level test cases</i>, test data, environment design.</li><li><b>Implementation</b> builds procedures, scripts, suites, schedule and the actual environment and data.</li><li><b>Execution</b> runs it all.</li></ul>
+<p>Test design and implementation tasks are <mark>often combined</mark>.</p>`+ana('Cooking: analysis = decide the dishes; design = write recipes; implementation = shop, prep, set the kitchen; execution = cook and taste.')+trap('Building the test environment belongs to implementation, but <i>designing</i> it belongs to design.'))+
+D('6. Test execution and completion details',
+`<p><b>Execution</b>: record IDs/versions of test item(s), tools and testware; execute manually or with tools; compare actual vs expected; analyze anomalies to find likely causes (a failure may be a code defect, but <mark>false positives</mark> also occur); report defects; log outcomes (pass, fail, blocked); repeat (corrected test, <mark>confirmation testing</mark>, <mark>regression testing</mark>).</p>
+<p><b>Completion occurs at milestones</b>: system release, test project completed or cancelled, Agile iteration finished (retrospective), test level completed, maintenance release completed.</p>
+<p><b>Completion tasks</b>: check all defect reports are closed; raise change requests or product backlog items for unresolved defects; create the test summary report; finalize and archive environment, data, infrastructure and testware for reuse; hand over testware to maintenance or other teams; analyze lessons learned; improve test process maturity.</p>`)+
+D('7. Test work products and traceability',
+`<div class="wrap"><table><tr><th>Activity</th><th>Work products</th></tr>
+<tr><td>Planning</td><td>One or more <b>test plans</b>: test basis (for traceability) and <mark>exit criteria / definition of done</mark> used in monitoring and control</td></tr>
+<tr><td>Monitoring and control</td><td><b>Test progress reports</b> (ongoing or regular) and <b>test summary reports</b> (at completion milestones). Audience-relevant; also cover task completion, resource allocation and usage, effort.</td></tr>
+<tr><td>Analysis</td><td>Defined, prioritized <b>test conditions</b>, ideally <mark>bidirectionally traceable</mark> to the test basis elements they cover</td></tr>
+<tr><td>Design</td><td><b>Test cases</b> and sets (good practice: <mark>high-level, without concrete input values and expected results</mark>), test data design, environment design, infrastructure and tools</td></tr>
+<tr><td>Implementation</td><td>Test procedures and their sequencing, test suites, test execution schedule</td></tr>
+<tr><td>Execution</td><td>Status of test cases/procedures (ready to run, pass, fail, blocked, deliberately skipped), defect reports, documentation of which items, tools and testware were involved</td></tr>
+<tr><td>Completion</td><td>Test summary reports, improvement action items, change requests or backlog items, finalized testware</td></tr></table></div>
+<p><b>Traceability</b> links test basis, conditions, cases, results and defects both ways. It supports impact analysis and coverage evaluation.</p>`)],
+['Part B. Psychology of Testing (1.5)',
+D('8. Human psychology and testing',
+`<p>Finding defects (static: requirements review, user story refinement; dynamic: failures in execution) may be <mark>perceived as criticism</mark> of the product and its author. Some see testing as <i>destructive</i>, though it contributes greatly to project progress and product quality.</p>
+<p>So testers and test managers need <mark>good interpersonal skills</mark> to communicate about defects, failures, results, progress and risks, and to build positive relationships.</p>
+<p><b>Ways to communicate well:</b></p><ul>
+<li>Start with <b>collaboration</b>, not battles. Remind everyone of the common goal: better quality.</li>
+<li><b>Emphasize benefits</b>: authors improve work and skills; the organization saves time and money and reduces risk.</li>
+<li>Communicate <b>neutrally and fact-focused</b>, without criticizing the person. Objective, factual defect reports and review findings.</li>
+<li>Try to <b>understand how the other person feels</b> and why they react negatively.</li>
+<li><b>Confirm</b> mutual understanding.</li></ul><p class="mn">Mnemonic: C-E-N-U-C = Collaborate, Emphasize benefits, Neutral facts, Understand feelings, Confirm.</p>`,1)+
+D('9. Tester and developer mindsets',
+`<p>Developers' primary objective: <b>design and build</b> a product. Testers' objectives: <b>verify and validate</b>, find defects before release. Different objectives need different mindsets; combining them gives higher quality.</p>
+<p><b>Tester mindset</b>: <mark>curiosity, professional pessimism, a critical eye, attention to detail</mark>, motivation for good and positive communication and relationships.</p>
+<p><b>Independence</b>: testing by independent testers <mark>increases defect detection effectiveness</mark>, especially for <b>large, complex or safety-critical systems</b>. Independent testers have a different perspective and different <b>cognitive biases</b> from the authors (business analysts, product owners, designers, programmers).</p>`+trap('Independence improves effectiveness at finding defects. It does not replace developer testing, and it is not about blame.'))]
+];
+$('#explain').innerHTML='<h2>Explanation</h2>'+EX.map(e=>`<h3 style="margin:18px 0 10px">${e[0]}</h3>${e[1]}`).join('');
+
+/* ---------- SUMMARY ---------- */
+$('#summary').innerHTML='<h2>Smart summary</h2>'+
+D('High-yield outline',`<ul>
+<li><b>Test process</b> = common set of activities; <mark>not universal</mark>; shaped by context (SDLC, levels/types, risks, domain) and constraints (budget, time, complexity, contracts/regulation, policies, standards)</li>
+<li><b>7 activity groups</b>: Planning, Monitoring and control, Analysis, Design, Implementation, Execution, Completion
+<ul><li>Planning: objectives plus approach within constraints</li><li>Monitoring = compare actual vs plan; Control = take actions</li><li>Analysis = <mark>what</mark> (test conditions); Design = <mark>how</mark> (test cases, data, environment)</li><li>Implementation = procedures, scripts, suites, schedule, build environment and data</li><li>Execution = run, compare, analyze anomalies, report, log, retest</li><li>Completion = close reports, summary, archive, hand over, lessons learned</li></ul></li>
+<li><b>Defects in basis</b>: ambiguity, omission, inconsistency, inaccuracy, contradiction</li>
+<li><b>Work products</b>: plan (exit criteria) / reports / conditions (bidirectional traceability) / test cases (high-level) / procedures, suites, schedule / status, defect reports / summary report, testware</li>
+<li><b>Psychology</b>: defect info can feel like criticism; be collaborative, factual, neutral, empathic, confirm understanding</li>
+<li><b>Mindset</b>: curiosity, professional pessimism, critical eye, detail, good communication; <mark>independence</mark> improves defect detection, key for large, complex, safety-critical systems</li></ul>`,1)+
+D('Compare: easily confused pairs',`<div class="wrap"><table><tr><th>A</th><th>B</th><th>Difference</th></tr>
+<tr><td>Test analysis</td><td>Test design</td><td>What to test (conditions) vs how to test (test cases)</td></tr>
+<tr><td>Test design</td><td>Test implementation</td><td>High-level cases, data and environment <i>designed</i> vs procedures, scripts, suites, schedule <i>built</i>, environment <i>set up</i></td></tr>
+<tr><td>Monitoring</td><td>Control</td><td>Comparing progress vs taking corrective action</td></tr>
+<tr><td>Progress report</td><td>Summary report</td><td>Ongoing or regular vs at completion milestones</td></tr>
+<tr><td>Developer mindset</td><td>Tester mindset</td><td>Design and build vs verify, validate, find defects</td></tr>
+<tr><td>Confirmation testing</td><td>Regression testing</td><td>Was the fix successful vs did the change break something else</td></tr></table></div>`)+
+D('Common mistakes and traps',`<div class="trap">Saying "a universal test process exists". It does not.</div><div class="trap">Mixing up analysis (what) and design (how).</div><div class="trap">Thinking test completion happens only once at project end. It happens at <i>several</i> milestones (iteration, level, release, maintenance release, cancellation).</div><div class="trap">Forgetting that a failure can be a <i>false positive</i>, not a code defect.</div><div class="trap">Writing defect reports about the person ("your code is bad") instead of the product.</div>`)+
+D('Spaced repetition plan',`<p>Day 0: read the explanation once and do the MCQs. Day 1: recite the 7 activities and their work products from memory. Day 3: redo missed MCQs, write one model answer without looking. Day 7: do the revision sheet cold. Day before exam: revision sheet only.</p>`);
+
+/* ---------- MCQ ---------- */
+const M=[
+['Which statement about the test process is correct?',['One universal test process fits all projects','There are common sets of test activities, without which testing is less likely to achieve its objectives','Test process is fixed by ISTQB for every organization','Test process only exists in sequential lifecycles'],1,'No universal process exists, but common activity sets do.','E'],
+['Which is NOT a contextual factor influencing the test process?',['SDLC model','Product and project risks','Business domain','The tester\u2019s personal hobbies'],3,'The listed contextual factors are lifecycle, levels/types, risks, domain.','E'],
+['Which is an operational constraint?',['Business domain','Contractual and regulatory requirements','Test types considered','Project methodology'],1,'Budgets, timescales, complexity, contractual/regulatory requirements, policies and standards are constraints.','M'],
+['How many main groups of test activities does the syllabus list?',['5','6','7','8'],2,'Planning, monitoring and control, analysis, design, implementation, execution, completion.','E'],
+['Test planning primarily defines:',['Test data values','The objectives of testing and the approach to meet them within constraints','Defect reports','Lessons learned'],1,'Planning = objectives + approach within context constraints.','E'],
+['Test monitoring is:',['Taking corrective actions','Ongoing comparison of actual progress against the test plan using defined metrics','Building the test environment','Archiving testware'],1,'Taking actions is test control.','E'],
+['Which question does test analysis answer?',['How to test?','What to test?','Who should test?','When to release?'],1,'Analysis = what; design = how.','E'],
+['Which is part of the test basis?',['Test summary report','Defect report','Requirement specifications and user stories','Test execution log'],2,'Test basis = requirements, design info, implementation, risk analysis reports.','M'],
+['"The system should send a confirmation message when the user completes the payment." What is the main problem for test analysis?',['It is too long','It is ambiguous and incomplete (message type, timing, failure cases unspecified)','It contains code','It is a test case'],1,'Test analysis evaluates the basis for ambiguities, omissions, etc.','M'],
+['Which is NOT a defect type to look for when evaluating the test basis?',['Ambiguity','Omission','Contradiction','Regression'],3,'The five: ambiguities, omissions, inconsistencies, inaccuracies, contradictions.','M'],
+['"Verify the reset email link expires after X minutes" is best described as a:',['Test condition','Test suite','Defect report','Exit criterion'],0,'Conditions are identified during analysis for a feature (Password reset).','M'],
+['Test conditions should ideally be:',['Unrelated to the test basis','Bidirectionally traceable to the test basis elements they cover','Written only after execution','Executed without prioritization'],1,'Bidirectional traceability is a work-product goal of analysis.','M'],
+['Test design elaborates test conditions into:',['Defect reports','High-level test cases, sets of test cases and other testware','Lessons learned','Progress metrics'],1,'','E'],
+['Which activity includes identifying necessary test data and designing the test environment?',['Test analysis','Test design','Test completion','Test control'],1,'Design also identifies infrastructure and tools.','M'],
+['Which is a test implementation task?',['Defining test conditions','Analyzing lessons learned','Arranging test suites in an execution schedule','Creating the test summary report'],2,'Implementation: procedures, scripts, suites, schedule, environment, data.','M'],
+['Which statement is TRUE about design and implementation?',['They can never overlap','Design and implementation tasks are often combined','Implementation comes before analysis','Design is part of completion'],1,'','M'],
+['Which is a test execution activity?',['Archiving the test environment','Comparing actual results with expected results','Choosing test techniques for the plan','Creating the test plan'],1,'','E'],
+['A test fails but the code is correct. This is called a:',['Regression','False positive','Confirmation','Blocked test'],1,'Anomaly analysis must consider false positives, not only code defects.','H'],
+['Re-running a corrected test to check that a fix worked is:',['Regression testing','Confirmation testing','Smoke planning','Test control'],1,'Regression checks that changes did not break other parts.','M'],
+['Which is NOT a typical test completion activity?',['Checking all defect reports are closed','Creating a test summary report','Handing over testware to maintenance teams','Defining test conditions'],3,'Conditions are defined in analysis.','M'],
+['At which point do test completion activities occur?',['Only at the end of the whole project','At milestones such as release, iteration end, test level completion or project cancellation','Only before test planning','Only when no defects remain'],1,'Several milestones, including cancelled projects and maintenance releases.','H'],
+['Which work product contains the exit criteria (definition of done)?',['Test summary report','Test plan','Defect report','Test suite'],1,'','E'],
+['Which reports are produced at completion milestones?',['Test progress reports','Test summary reports','Defect reports','Test procedures'],1,'Progress reports are ongoing or regular.','M'],
+['Good practice in test design is to create:',['Only low-level cases with concrete values','High-level test cases without concrete input data and expected results','No test cases at all','Only automated scripts'],1,'','H'],
+['Which is a test execution work product?',['Test conditions','Test execution schedule','Defect reports','Exit criteria'],2,'Schedule is an implementation work product.','M'],
+['Why may testing be perceived negatively by authors?',['Testing is slow','Defects/failures may be seen as criticism of the product and its author','Testers earn more','Testing is not needed'],1,'','E'],
+['Which is the best way to report a defect?',['"You wrote buggy code."','A neutral, factual description without criticizing the author','Verbally in a meeting only','Skipping it to avoid conflict'],1,'','E'],
+['Which is part of the tester mindset in the syllabus?',['Blind optimism','Curiosity and professional pessimism','Avoiding detail','Ignoring communication'],1,'Plus a critical eye, attention to detail, positive communication.','E'],
+['Independent testing is especially important for:',['Small prototypes','Large, complex or safety-critical systems','Documentation only','Systems with no users'],1,'Independence increases defect detection effectiveness.','M'],
+['Why do independent testers find different defects?',['They have different cognitive biases from the authors','They work faster','They write the code','They skip requirements'],0,'','H'],
+['Primary objective of development vs testing (syllabus view)?',['Both find defects','Development designs and builds; testing verifies, validates and finds defects','Development finds defects; testing builds','They are identical'],1,'','M']
+];
+let sc=0,ans=0;
+$('#mcq').innerHTML='<h2>MCQs ('+M.length+')</h2><div id="score">Score: 0 / 0. Tap an option to answer.</div>'+M.map((m,i)=>`<div class="q" data-i="${i}"><span class="tag">Q${i+1} · ${({E:'Easy',M:'Medium',H:'Tricky'})[m[4]]}</span><p>${m[0]}</p>${m[1].map((o,j)=>`<button class="o" data-j="${j}">${'ABCD'[j]}. ${o}</button>`).join('')}<div class="ex"></div></div>`).join('')+'<button id="rs">Reset quiz</button>';
+$('#mcq').addEventListener('click',e=>{const b=e.target.closest('.o');if(!b)return;const q=b.closest('.q');if(q.dataset.done)return;q.dataset.done=1;const m=M[q.dataset.i],j=+b.dataset.j;ans++;if(j===m[2])sc++;
+q.querySelectorAll('.o').forEach((x,k)=>{if(k===m[2])x.classList.add('ok');else if(x===b)x.classList.add('no')});
+const ex=q.querySelector('.ex');ex.innerHTML=`<b>${j===m[2]?'Correct.':'Answer: '+'ABCD'[m[2]]+'.'}</b> ${m[3]||'See the explanation section.'}`;ex.classList.add('show');$('#score').textContent=`Score: ${sc} / ${ans} (of ${M.length})`});
+document.addEventListener('click',e=>{if(e.target.id==='rs'){sc=ans=0;document.querySelectorAll('.q').forEach(q=>{delete q.dataset.done;q.querySelectorAll('.o').forEach(o=>o.className='o');q.querySelector('.ex').className='ex'});$('#score').textContent='Score: 0 / 0. Tap an option to answer.'}});
+
+/* ---------- WRITTEN ---------- */
+const W=[
+['Short','Define "test process" and name its seven groups of activities.','There is no universal test process, but there are common sets of test activities without which testing is less likely to meet its objectives; these sets form the test process. The seven groups are: test planning, test monitoring and control, test analysis, test design, test implementation, test execution and test completion.'],
+['Short','Distinguish test analysis from test design.','Test analysis answers "what to test": the test basis is analyzed to identify testable features and define prioritized test conditions. Test design answers "how to test": conditions are elaborated into high-level test cases, test data needs, and environment and tool design.'],
+['Short','What defects can be found when evaluating the test basis? Give an example.','Ambiguities, omissions, inconsistencies, inaccuracies and contradictions. Example: "The system should send a confirmation message when the user completes the payment" does not say what message, when, or what happens if payment fails.'],
+['Short','Differentiate test monitoring and test control.','Monitoring is the ongoing comparison of actual progress against the test plan using defined metrics. Control is taking the actions necessary to meet the plan\u2019s objectives, and the plan may be updated as a result.'],
+['Short','List four test completion activities.','Check defect reports are closed and raise change requests or backlog items for unresolved ones; create a test summary report; archive the environment, data and testware; hand over testware; analyze lessons learned and improve process maturity (any four).'],
+['Short','Why is independence of testing valuable?','Independent testers have different cognitive biases and perspectives from authors, which increases defect detection effectiveness, particularly for large, complex or safety-critical systems.'],
+['Long','Explain the test activities and tasks of a test process, and the work product each produces.','Planning: define objectives and approach within constraints, choose techniques, schedule; work product: test plan(s) with test basis and exit criteria. Monitoring and control: compare actual progress with the plan using metrics and act to meet objectives; work products: progress reports and summary reports, also covering task completion, resources and effort. Analysis: analyze the test basis (requirements, design information, implementation, risk reports), find defects such as ambiguities and omissions, identify features and define and prioritize conditions; work product: test conditions, ideally bidirectionally traceable to the basis. Design: elaborate conditions into high-level test cases, identify test data, design environment and tools; work products: test cases, data and environment designs. Implementation: develop procedures and automated scripts, build suites, order them in an execution schedule, build the environment and load data; work products: procedures, suites, schedule. Execution: run suites, record IDs and versions, compare actual with expected, analyze anomalies (including false positives), report defects, log outcomes, retest (confirmation and regression); work products: test status, defect reports, item documentation. Completion: close defect reports, raise change requests, write a summary report, archive and hand over testware, learn lessons and improve maturity; work products: summary report, improvement actions, finalized testware.'],
+['Long','Discuss the factors that influence a test process in an organization.','Contextual factors: the SDLC model and methodology (e.g. Agile or sequential), test levels and types considered, product and project risks, and the business domain. Operational constraints: budgets and resources, timescales, complexity, contractual and regulatory requirements, organizational policies and practices, and required internal and external standards. Together they determine which activities are emphasized, how formal documents are, and how traceability is maintained. For example, a safety-critical project with regulatory demands needs strong traceability and independence, while a small Agile project may combine design and implementation and use lighter reports.'],
+['Long','Explain the psychology of testing and how testers should communicate defects.','Finding defects, in static testing (reviews, refinement) or dynamic testing (failures), may be seen as criticism of the product and its author, so some perceive testing as destructive, although it greatly contributes to progress and quality. Testers therefore need good interpersonal skills. Recommended approach: start with collaboration, reminding everyone of the common goal of quality; emphasize benefits (authors improve skills; the organization saves time and money and reduces risk); communicate neutrally and factually without criticizing the person, with objective defect reports; try to understand how the other person feels and why they react negatively; and confirm that both sides understood each other. The tester mindset adds curiosity, professional pessimism, a critical eye and attention to detail, and independent testers increase effectiveness because their cognitive biases differ from those of authors, which matters most for large, complex or safety-critical systems.']
+];
+$('#written').innerHTML='<h2>Written questions</h2>'+W.map((w,i)=>D(`${w[0]} Q${i+1}. ${w[1]}`,`<p><b>Model answer:</b> ${w[2]}</p>`)).join('');
+
+/* ---------- REVISION ---------- */
+$('#rev').innerHTML='<h2>Night-before sheet</h2><div class="sheet">'+
+`<h3>Definition</h3><p>No universal test process; common activity sets. Context: SDLC, levels/types, risks, domain. Constraints: budget, time, complexity, contract/regulation, policies, standards.</p>
+<h3>7 activities (PMADIEC: "Please Make A Decent Impression Every Class")</h3><ul><li><b>P</b>lanning: objectives + approach → <i>test plan, exit criteria</i></li><li><b>M</b>onitoring (compare) and control (act) → <i>progress and summary reports</i></li><li><b>A</b>nalysis: WHAT → <i>test conditions</i> (traceable both ways)</li><li><b>D</b>esign: HOW → <i>high-level test cases</i>, data, environment design</li><li><b>I</b>mplementation: procedures, scripts, suites, schedule, build environment, load data</li><li><b>E</b>xecution: run, compare, analyze anomalies (false positives!), report, log, retest → <i>defect reports, status</i></li><li><b>C</b>ompletion: close defects, summary report, archive, hand over, lessons, maturity</li></ul>
+<h3>Basis defects (AOIIC)</h3><p>Ambiguities, Omissions, Inconsistencies, Inaccuracies, Contradictions.</p>
+<h3>Completion happens at</h3><p>Release, project end or cancellation, Agile iteration, test level done, maintenance release.</p>
+<h3>Psychology (C-E-N-U-C)</h3><p>Collaborate, Emphasize benefits, Neutral facts, Understand feelings, Confirm understanding.</p>
+<h3>Mindset</h3><p>Curiosity, professional pessimism, critical eye, detail, good communication. Independence = higher defect detection, vital for large, complex, safety-critical systems (different cognitive biases).</p>
+<h3>Top traps</h3><ul><li>Analysis = what, Design = how</li><li>Design and implementation often combined</li><li>Test cases in design: high-level, no concrete values</li><li>Report the defect, not the person</li></ul></div>`;
+
+/* ---------- NAV + THEME ---------- */
+const T=[['explain','Explanation'],['summary','Summary'],['mcq','MCQs'],['written','Written'],['rev','Revision']];
+$('#nav').innerHTML=T.map(t=>`<button data-t="${t[0]}">${t[1]}</button>`).join('');
+function show(id){T.forEach(t=>{$('#'+t[0]).classList.toggle('on',t[0]===id)});document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('on',b.dataset.t===id));scrollTo(0,0)}
+$('#nav').onclick=e=>{if(e.target.dataset.t)show(e.target.dataset.t)};
+$('#th').onclick=()=>{const r=document.documentElement,d=r.dataset.theme==='dark'||(!r.dataset.theme&&matchMedia('(prefers-color-scheme:dark)').matches);r.dataset.theme=d?'light':'dark'};
+show('explain');
+</script></body></html>
