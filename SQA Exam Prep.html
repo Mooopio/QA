@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SQA Exam Prep</title>
+<style>
+:root{--bg:#f7f8fa;--card:#fff;--tx:#1d2330;--mu:#5d6678;--ac:#3b5bdb;--ok:#2b8a3e;--no:#c92a2a;--hl:#fff3bf;--bd:#e3e6ec;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#12151c;--card:#1b2030;--tx:#e8ebf2;--mu:#9aa3b5;--ac:#7c9cff;--ok:#51cf66;--no:#ff6b6b;--hl:#4a4318;--bd:#2c3347}}
+:root[data-theme="dark"]{--bg:#12151c;--card:#1b2030;--tx:#e8ebf2;--mu:#9aa3b5;--ac:#7c9cff;--ok:#51cf66;--no:#ff6b6b;--hl:#4a4318;--bd:#2c3347}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.65 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+header{position:sticky;top:env(safe-area-inset-top,0px);background:var(--card);border-bottom:1px solid var(--bd);z-index:5;padding:10px 14px}
+.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap;max-width:900px;margin:auto}
+h1{font-size:1.05rem;margin:0;flex:1}
+nav{display:flex;gap:6px;overflow-x:auto;max-width:900px;margin:8px auto 0}
+button{font:inherit;cursor:pointer;border:1px solid var(--bd);background:var(--bg);color:var(--tx);border-radius:8px;padding:6px 12px;transition:.2s}
+nav button.on,button.pri{background:var(--ac);color:#fff;border-color:var(--ac)}
+main{max-width:900px;margin:auto;padding:16px}
+section{display:none;animation:f .3s}section.on{display:block}@keyframes f{from{opacity:0;transform:translateY(6px)}to{opacity:1}}
+details,.card{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 16px;margin:10px 0}
+summary{cursor:pointer;font-weight:650}
+mark{background:var(--hl);color:inherit;padding:0 3px;border-radius:3px}
+.tip{border-left:4px solid var(--ac);padding:6px 12px;margin:8px 0;color:var(--mu)}
+.trap{border-left:4px solid var(--no);padding:6px 12px;margin:8px 0}
+.wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;min-width:520px}th,td{border:1px solid var(--bd);padding:7px 10px;text-align:left;vertical-align:top}th{background:var(--bg)}
+.opt{display:block;width:100%;text-align:left;margin:6px 0}.opt.ok{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 18%,transparent)}.opt.no{border-color:var(--no);background:color-mix(in srgb,var(--no) 18%,transparent)}
+.ex{display:none;margin-top:8px;color:var(--mu)}.ex.show{display:block}
+.score{font-weight:700}li{margin:3px 0}
+</style>
+</head>
+<body>
+<header><div class="row"><h1>📘 Software Quality Assurance — Exam Prep</h1><button id="th" aria-label="Toggle theme">🌓</button></div>
+<nav id="nav"></nav></header>
+<main>
+<section id="explain"></section><section id="summary"></section><section id="memory"></section>
+<section id="mcq"></section><section id="written"></section><section id="rev"></section>
+</main>
+<script>
+const $=s=>document.querySelector(s);
+const tabs=[["explain","Explanation"],["summary","Summary"],["memory","Memory"],["mcq","MCQs"],["written","Written"],["rev","Revision"]];
+$("#nav").innerHTML=tabs.map(t=>`<button data-t="${t[0]}">${t[1]}</button>`).join("");
+function go(id){document.querySelectorAll("section").forEach(s=>s.classList.toggle("on",s.id===id));document.querySelectorAll("nav button").forEach(b=>b.classList.toggle("on",b.dataset.t===id));scrollTo(0,0);try{history.replaceState(null,"","#"+id)}catch(e){}}
+$("#nav").onclick=e=>{if(e.target.dataset.t)go(e.target.dataset.t)};
+$("#th").onclick=()=>{const r=document.documentElement,d=r.dataset.theme==="dark"||(!r.dataset.theme&&matchMedia("(prefers-color-scheme:dark)").matches);r.dataset.theme=d?"light":"dark"};
+
+const explain=[
+["1. Big idea: what is quality & SQA?",`<p>Quality is <mark>not an accident</mark> and <mark>cannot be added after the fact</mark>. You must <b>plan for it from the beginning</b> and <b>monitor it daily</b> (this takes discipline). The study of methods and disciplines for this is <b>Quality Assurance (QA)</b>.</p><p><b>SQA</b> = a means of <b>monitoring the software engineering processes and methods</b> to ensure quality. It is a <mark>supporting process</mark> giving <mark>independent assurance</mark> that all work products, activities and processes comply with predefined plans. It covers the <i>entire</i> lifecycle: requirements definition, design, coding, source code control, code reviews, configuration management, testing, release management, product integration. SQA is organized into <b>goals, commitments, abilities, activities, measurements, verifications</b>.</p><div class="tip">Analogy: quality is like a building’s foundation — you can’t bolt it on after the roof is up.</div>`],
+["2. McCall’s Factor Model",`<p>Developed in the <mark>1970s for the US Air Force</mark>, for software <b>designers and engineers</b>. Classifies <b>all software requirements into 11 factors</b> in <b>3 categories</b>:</p><ul><li><b>Product operation</b> – requirements affecting daily operation</li><li><b>Product revision</b> – requirements affecting maintenance</li><li><b>Product transition</b> – requirements affecting adaptation to other platforms/environments and interaction with other software</li></ul><div class="tip">Analogy (a car): <i>operation</i> = driving it; <i>revision</i> = repairing/upgrading it; <i>transition</i> = moving it to another country (different roads, plugs, fuel).</div>`],
+["3. Product operation factors (5)",`<ul><li><b>Correctness</b> – required outputs (e.g. sales invoice printout; red alarm when temperature &gt; 250°F); <b>completeness</b> of output (hurt by incomplete data); <b>up-to-dateness</b> of information; required <b>standards and guidelines</b>.</li><li><b>Reliability</b> – failures to provide service; sets the <mark>maximum allowed failure rate</mark>, for the whole system or specific functions.</li><li><b>Efficiency</b> – <mark>hardware resources</mark> needed to perform all functions while meeting other requirements.</li><li><b>Integrity</b> – <mark>security</mark>: prevent access by unauthorized persons.</li><li><b>Usability</b> – <mark>staff resources</mark> needed to train a new employee and operate the system.</li></ul>`],
+["4. Product revision factors (3)",`<ul><li><b>Maintainability</b> – effort to <b>identify causes of failures, correct them, and verify the corrections</b>. Depends on <mark>modular structure, internal program documentation, programmer’s manual</mark>.</li><li><b>Flexibility</b> – capability/effort for <b>adaptive maintenance</b>; supports <b>perfective maintenance</b> (changes/additions to improve service and adapt to technical or commercial changes).</li><li><b>Testability</b> – ease of testing the system and its operation; special program features helping the tester, e.g. <mark>predefined intermediate results and log files</mark>.</li></ul>`],
+["5. Product transition factors (3)",`<ul><li><b>Portability</b> – adapting to <b>different hardware, operating systems</b>; keep using the same basic software in diverse situations, or <b>simultaneously</b> on diverse platforms.</li><li><b>Reusability</b> – using modules from one project in a new one; lets future projects reuse modules. Benefits: <b>saves resources, shortens development, higher-quality modules</b> — <mark>assuming most faults were already found by QA on the original</mark>.</li><li><b>Interoperability</b> – <b>interfaces</b> with other software or equipment firmware; can name the required software/firmware and the <b>industry-standard output structure</b>.</li></ul>`],
+["6. Achieving quality: 3 QA principles",`<ol><li><b>Know what you are doing</b> – continuously understand what you build, how, and what it currently does. Needs organization: management structure, reporting policies, regular meetings/reviews, frequent test runs. Address with a <b>software process</b> with milestones, planning, scheduling, reporting, tracking.</li><li><b>Know what you should be doing</b> – explicit <b>requirements and specifications</b>, continuously updated and tracked. Address with requirements &amp; use-case analysis, explicit acceptance tests with expected results, prototypes, frequent user feedback.</li><li><b>Know how to measure the difference</b> – explicit measures comparing <i>what we do</i> vs <i>what we should do</i>, via four methods (next).</li></ol>`],
+["7. The four measuring methods",`<ul><li><b>Formal methods</b> – mathematical models to verify mathematically specified properties: <i>formal verification</i> (proofs of correctness), <i>abstract interpretation</i> (simulated execution in another semantic domain, e.g. data kind not value), <i>state modeling</i> (track state transitions). Needs mathematically sophisticated programmers; slow, careful, <b>very expensive</b>; used in a small but important fraction of systems — mainly <mark>safety-critical (e.g. onboard flight control)</mark>.</li><li><b>Testing</b> – explicit inputs/environments exercising the software and measuring success. <mark>Over 99%</mark> of SQA uses testing, inspection and metrics. Example: <mark>Bank of Nova Scotia: over 80% of development effort is testing</mark>. Types by basis: requirements → <i>acceptance</i>; specification/design → <i>functionality &amp; interface</i>; history → <i>regression</i>; code structure → <i>path</i>.</li><li><b>Inspection</b> – regular <b>human reviews</b> of requirements, design, architecture, schedules, code (design reviews, walkthroughs). Finds potential problems <b>before they arise</b>.</li><li><b>Metrics</b> – tools instrument code/execution to count simple properties and compare to standards: code size (source lines), code complexity (parameters, decisions, function points, modules), structural complexity (call depth), design complexity. Exposes anomalies hurting <b>reliability and maintainability</b>.</li></ul>`],
+["8. Software process, standards & disciplines",`<p>Quality is achieved by applying these techniques inside a <b>software process</b> (many exist; <b>extreme programming</b> is a more recent one). Because of software’s poor track record, standards enforce quality practice: <b>TQM</b> (Total Quality Management), <b>CMM</b> (Capability Maturity Model), <b>PSP</b> (Personal Software Process), <b>SDP</b> (Microsoft Shared Development Process), <b>RUP</b> (Rational Unified Process), <b>ISO 9000</b>.</p>`]
+];
+$("#explain").innerHTML=`<p>Tap a card to expand/collapse.</p>`+explain.map((e,i)=>`<details ${i<2?"open":""}><summary>${e[0]}</summary>${e[1]}</details>`).join("");
+
+$("#summary").innerHTML=`<div class="card"><h3>High-yield summary</h3><ul>
+<li><b>Quality</b> = planned from the start + monitored daily (not added later)</li>
+<li><b>McCall</b> (1970s, US Air Force) → <b>11 factors / 3 categories</b>
+<ul><li><b>Operation (5)</b>: Correctness, Reliability, Efficiency, Integrity, Usability</li><li><b>Revision (3)</b>: Maintainability, Flexibility, Testability</li><li><b>Transition (3)</b>: Portability, Reusability, Interoperability</li></ul></li>
+<li><b>3 QA principles</b>: know what you <b>do</b> → know what you <b>should do</b> → <b>measure</b> the difference</li>
+<li><b>4 measuring methods</b>: Formal methods (safety-critical, costly) · Testing (&gt;99% use; &gt;80% effort at Bank of Nova Scotia) · Inspection (human reviews) · Metrics (counting properties)</li>
+<li><b>Standards</b>: TQM, CMM, PSP, SDP, RUP, ISO 9000; process example: extreme programming</li>
+<li><b>SQA</b> = monitoring process, <b>independent assurance</b>, whole lifecycle; organized into goals, commitments, abilities, activities, measurements, verifications</li></ul></div>`;
+
+$("#memory").innerHTML=`<div class="card"><h3>Mnemonics</h3><ul>
+<li><b>Operation = “CREIU”</b> → <i>“Cats Really Enjoy Itchy Umbrellas”</i> (Correctness, Reliability, Efficiency, Integrity, Usability)</li>
+<li><b>Revision = “MFT”</b> → <i>“Mend, Flex, Test”</i> (Maintainability, Flexibility, Testability)</li>
+<li><b>Transition = “PRI”</b> → <i>“Please Reuse &amp; Interface”</i> (Portability, Reusability, Interoperability)</li>
+<li><b>3 principles</b> → <i>Do · Should · Diff</i></li>
+<li><b>4 methods = “FTIM”</b> → <i>“Fix Things In Machines”</i> (Formal, Testing, Inspection, Metrics)</li>
+<li><b>Counts</b>: 3 categories · 11 factors (5+3+3) · 3 principles · 4 methods</li></ul>
+<p><b>Spaced repetition:</b> review this tab today, tomorrow, in 3 days, in 7 days; re-take the MCQs each time and focus on the ones you missed.</p></div>
+<div class="card"><h3>Compare the four methods</h3><div class="wrap"><table><tr><th></th><th>Formal</th><th>Testing</th><th>Inspection</th><th>Metrics</th></tr>
+<tr><td><b>How</b></td><td>Math models/proofs</td><td>Run example inputs</td><td>Human review</td><td>Tool-counted properties</td></tr>
+<tr><td><b>Examples</b></td><td>Verification, abstract interp., state modeling</td><td>Acceptance, regression, path</td><td>Walkthroughs, design reviews</td><td>LOC, function points, call depth</td></tr>
+<tr><td><b>Notes</b></td><td>Expensive; safety-critical</td><td>&gt;99% use; huge effort</td><td>Finds problems early</td><td>Exposes anomalies</td></tr></table></div></div>
+<div class="card"><h3>Compare similar factors</h3><div class="wrap"><table><tr><th>Pair</th><th>Difference</th></tr>
+<tr><td>Maintainability vs Flexibility</td><td>Maintainability = find &amp; fix failures, verify fix. Flexibility = adaptive/perfective changes.</td></tr>
+<tr><td>Portability vs Interoperability</td><td>Portability = run on other hardware/OS. Interoperability = interface with other systems/firmware.</td></tr>
+<tr><td>Reliability vs Correctness</td><td>Reliability = allowed failure rate. Correctness = right, complete, current outputs.</td></tr>
+<tr><td>Integrity vs Usability</td><td>Integrity = security. Usability = training/operation effort.</td></tr></table></div></div>
+<div class="trap"><b>Common traps:</b> Portability &amp; Reusability are <i>transition</i>, not operation · Testability is <i>revision</i> · Integrity means <i>security</i>, not “data completeness” · Formal methods are <i>rare</i>, testing is dominant · Quality cannot be “added after”.</div>`;
+
+const mcq=[
+["McCall’s model was originally developed for:",["Microsoft","The US Air Force","NASA","ISO"],1,"1970s, for the United States Air Force."],
+["How many factors does McCall’s model have?",["7","9","11","15"],2,"11 factors: 5 + 3 + 3."],
+["Which is NOT a product operation factor?",["Integrity","Usability","Efficiency","Portability"],3,"Portability is a product transition factor."],
+["Requirements preventing unauthorized access belong to:",["Reliability","Integrity","Correctness","Flexibility"],1,"Integrity = software system security."],
+["Modular structure and internal program documentation mainly support:",["Maintainability","Portability","Efficiency","Usability"],0,"They reduce effort to find, fix and verify failures."],
+["Which factor sets the maximum allowed failure rate?",["Correctness","Efficiency","Reliability","Testability"],2,"Reliability deals with failures to provide service."],
+["Predefined intermediate results and log files improve:",["Testability","Integrity","Reusability","Interoperability"],0,"Special features that help the tester = testability."],
+["Adaptive and perfective maintenance is supported by:",["Flexibility","Correctness","Efficiency","Integrity"],0,"Flexibility = capabilities/efforts for these activities."],
+["Reuse benefits assume that:",["Code is short","Most faults were already found by QA on the original","Hardware is identical","No documentation is needed"],1,"Higher quality of reused modules depends on prior QA."],
+["Creating interfaces with other software or firmware is:",["Portability","Reusability","Interoperability","Usability"],2,"Interoperability. Portability concerns other environments."],
+["Hardware resources needed to run all functions relate to:",["Efficiency","Integrity","Usability","Correctness"],0,"Efficiency."],
+["Which factor concerns training a new employee?",["Reliability","Usability","Flexibility","Integrity"],1,"Usability: staff resources to train and operate."],
+["QA Principle 1 (“know what you are doing”) is addressed mainly by:",["Formal proofs","A software process with milestones and tracking","Acceptance tests","Code metrics"],1,"Process, planning, scheduling, reporting, tracking."],
+["Explicit requirements, use-case analysis and acceptance tests address:",["Know what you are doing","Know what you should be doing","Know how to measure","None"],1,"Principle 2."],
+["Which is NOT one of the four measuring methods?",["Formal methods","Inspection","Metrics","Prototyping"],3,"The four are formal methods, testing, inspection, metrics."],
+["Formal methods have mostly been used in:",["Web apps","Safety-critical systems such as flight control","Games","Spreadsheets"],1,"Expensive and slow, so reserved for safety-critical systems."],
+["Roughly what share of SQA uses testing, inspection and metrics instead of formal methods?",["50%","75%","Over 90%","Over 99%"],3,"Over 99%."],
+["Regression testing is based on:",["Requirements","History","Code structure","Design reviews"],1,"Requirements→acceptance; history→regression; code structure→path."],
+["Counting source lines and function points is an example of:",["Inspection","Formal verification","Metrics","Acceptance testing"],2,"Metrics measure size/complexity."],
+["Which is NOT listed as a quality standard/discipline?",["CMM","RUP","ISO 9000","Six Sigma"],3,"Listed: TQM, CMM, PSP, SDP, RUP, ISO 9000."],
+["SQA is best described as:",["A coding phase","A supporting process giving independent assurance","Only final testing","Only documentation"],1,"It monitors processes across the whole lifecycle."],
+["Tricky: Quality in software can be reliably…",["Added at the end","Planned from the beginning and monitored continuously","Ignored until release","Guaranteed by testing alone"],1,"It does not happen by accident nor after the fact."]
+];
+let sc=0,ans=0;
+$("#mcq").innerHTML=`<p class="score" id="sc">Score: 0 / ${mcq.length}</p>`+mcq.map((q,i)=>`<div class="card" data-i="${i}"><b>${i+1}. ${q[0]}</b>${q[1].map((o,j)=>`<button class="opt" data-j="${j}">${"ABCD"[j]}. ${o}</button>`).join("")}<div class="ex"></div></div>`).join("")+`<button class="pri" id="rs">Reset</button>`;
+$("#mcq").onclick=e=>{const b=e.target.closest(".opt"),r=e.target.id==="rs";if(r){go("mcq");document.querySelectorAll("#mcq .opt").forEach(o=>o.className="opt");document.querySelectorAll(".ex").forEach(x=>x.classList.remove("show"));document.querySelectorAll("#mcq .card").forEach(c=>delete c.dataset.d);sc=0;ans=0;$("#sc").textContent=`Score: 0 / ${mcq.length}`;return}
+if(!b)return;const c=b.closest(".card");if(c.dataset.d)return;c.dataset.d=1;const q=mcq[c.dataset.i],j=+b.dataset.j;
+c.querySelectorAll(".opt").forEach((o,k)=>{if(k===q[2])o.classList.add("ok")});if(j!==q[2])b.classList.add("no");else sc++;
+const x=c.querySelector(".ex");x.textContent=(j===q[2]?"✅ Correct. ":"❌ Incorrect. ")+q[3];x.classList.add("show");$("#sc").textContent=`Score: ${sc} / ${mcq.length}`};
+
+const wr=[
+["Short: List McCall’s three factor categories and their factors.","<b>Operation</b>: correctness, reliability, efficiency, integrity, usability. <b>Revision</b>: maintainability, flexibility, testability. <b>Transition</b>: portability, reusability, interoperability (11 total)."],
+["Short: State the three general principles of QA.","(1) Know what you are doing; (2) know what you should be doing; (3) know how to measure the difference between the two."],
+["Short: Why is reuse said to give higher-quality modules?","Reused modules have already passed the QA activities of the original project, so most faults are assumed to be found; reuse also saves resources and shortens development."],
+["Short: Why are formal methods rarely used?","They need mathematically sophisticated programmers, are slow and careful, and very expensive, so they are used mainly in safety-critical systems such as onboard flight control."],
+["Long: Explain how QA principles and the four methods work together to achieve software quality.","Quality must be planned from the start and monitored daily. <b>Principle 1</b> needs a software process (milestones, planning, reporting, tracking, reviews). <b>Principle 2</b> needs explicit requirements, use cases, acceptance tests and user feedback. <b>Principle 3</b> compares the two using <b>formal methods</b> (proofs, abstract interpretation, state modeling; costly, safety-critical), <b>testing</b> (acceptance, functionality/interface, regression, path; the dominant method, e.g. over 80% of effort at Bank of Nova Scotia), <b>inspection</b> (reviews and walkthroughs that find problems early) and <b>metrics</b> (size and complexity counts exposing anomalies hurting reliability and maintainability). All sit inside a process and standards such as TQM, CMM, PSP, SDP, RUP, ISO 9000."],
+["Long: Define SQA and describe its scope.","SQA is a means of monitoring the software engineering processes and methods to ensure quality. It is a supporting process providing independent assurance that all work products, activities and processes comply with predefined plans. It spans requirements definition, design, coding, source code control, code reviews, configuration management, testing, release management and product integration, and is organized into goals, commitments, abilities, activities, measurements and verifications."],
+["Long: Describe the product revision and transition factors with examples.","<b>Revision</b> (maintenance): maintainability (find, fix, verify; modularity and documentation), flexibility (adaptive/perfective maintenance), testability (intermediate results, log files). <b>Transition</b> (adaptation): portability (other hardware/OS), reusability (modules reused in new projects), interoperability (interfaces with other software or firmware, industry-standard outputs)."]
+];
+$("#written").innerHTML=`<p>Try answering first, then expand the model answer.</p>`+wr.map(w=>`<details><summary>${w[0]}</summary><p>${w[1]}</p></details>`).join("");
+
+$("#rev").innerHTML=`<div class="card"><h3>🌙 Night-before cheat sheet</h3><ul>
+<li><mark>McCall</mark>: 1970s · US Air Force · <b>11 factors · 3 categories</b></li>
+<li><b>Operation</b> CREIU: Correctness · Reliability · Efficiency · Integrity (security) · Usability</li>
+<li><b>Revision</b> MFT: Maintainability · Flexibility · Testability</li>
+<li><b>Transition</b> PRI: Portability · Reusability · Interoperability</li>
+<li><b>Principles</b>: know what you DO · SHOULD do · measure the DIFFERENCE</li>
+<li><b>Methods</b> FTIM: Formal (safety-critical, costly) · Testing (&gt;99%, &gt;80% effort at BNS) · Inspection (human) · Metrics (counts)</li>
+<li><b>Testing types</b>: acceptance (requirements) · functionality/interface (spec/design) · regression (history) · path (code structure)</li>
+<li><b>Standards</b>: TQM · CMM · PSP · SDP · RUP · ISO 9000 · process: extreme programming</li>
+<li><b>SQA</b>: monitors process · independent assurance · goals, commitments, abilities, activities, measurements, verifications</li>
+<li><b>Quality</b>: planned early, monitored daily — never added after</li></ul></div>`;
+go((location.hash||"").slice(1)&&tabs.some(t=>t[0]===location.hash.slice(1))?location.hash.slice(1):"explain");
+</script>
+</body>
+</html>
