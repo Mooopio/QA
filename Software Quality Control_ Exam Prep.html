@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Software Quality Control: Exam Prep</title>
+<style>
+:root{--bg:#f4f6f8;--card:#fff;--ink:#14212b;--mute:#52636f;--line:#d8e0e6;--acc:#0b6e7f;--accbg:#dff1f4;--hi:#fde68a;--ok:#177245;--okbg:#dcf3e6;--bad:#b3261e;--badbg:#fbe3e1;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1a21;--card:#16262f;--ink:#e6eef2;--mute:#9fb3be;--line:#294250;--acc:#5cc4d6;--accbg:#173a44;--hi:#6b5a12;--ok:#6fdc9d;--okbg:#14382a;--bad:#ff8a80;--badbg:#42211f}}
+:root[data-theme="dark"]{--bg:#0e1a21;--card:#16262f;--ink:#e6eef2;--mute:#9fb3be;--line:#294250;--acc:#5cc4d6;--accbg:#173a44;--hi:#6b5a12;--ok:#6fdc9d;--okbg:#14382a;--bad:#ff8a80;--badbg:#42211f}
+*{box-sizing:border-box}html{scroll-padding-top:70px}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.65 system-ui,-apple-system,"Segoe UI",sans-serif}
+h1,h2,h3{font-family:Georgia,"Times New Roman",serif;line-height:1.25;margin:0 0 .5em}
+header{padding:28px 20px 8px;max-width:860px;margin:auto;display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+header h1{font-size:1.9rem;margin:0}header p{margin:.3em 0 0;color:var(--mute);font-size:.95rem}
+nav{position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);z-index:5;display:flex;gap:6px;overflow-x:auto;padding:10px 20px;max-width:860px;margin:auto;border-bottom:1px solid var(--line)}
+button{font:inherit;cursor:pointer;color:var(--ink)}
+nav button,.tg{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 16px;white-space:nowrap}
+nav button.on{background:var(--acc);color:var(--bg);border-color:var(--acc);font-weight:600}
+button:focus-visible,summary:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+main{max-width:860px;margin:auto;padding:20px}
+section{display:none}section.on{display:block}
+details{background:var(--card);border:1px solid var(--line);border-radius:10px;margin:0 0 12px}
+summary{cursor:pointer;padding:12px 16px;font-weight:600;font-family:Georgia,serif;font-size:1.1rem}
+details>div{padding:0 16px 14px;animation:o .2s}
+@keyframes o{from{opacity:0;transform:translateY(-4px)}}
+mark{background:var(--hi);color:inherit;padding:0 3px;border-radius:3px}
+.def{border-left:4px solid var(--acc);background:var(--accbg);padding:8px 12px;margin:10px 0;border-radius:0 8px 8px 0}
+.trap{border-left:4px solid var(--bad);background:var(--badbg);padding:8px 12px;margin:10px 0;border-radius:0 8px 8px 0}
+.mem{border-left:4px solid #c98a00;background:var(--hi);padding:8px 12px;margin:10px 0;border-radius:0 8px 8px 0}
+table{border-collapse:collapse;width:100%;font-size:.95rem;margin:10px 0}th,td{border:1px solid var(--line);padding:7px 10px;text-align:left;vertical-align:top}th{background:var(--accbg)}
+.wrap{overflow-x:auto}
+ul{padding-left:1.2em}li{margin:.25em 0}
+.q{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin:0 0 14px}
+.q b.n{color:var(--acc)}
+.o{display:block;width:100%;text-align:left;background:none;border:1px solid var(--line);border-radius:8px;padding:8px 12px;margin:6px 0;transition:background .15s}
+.o:hover{background:var(--accbg)}.o.ok{background:var(--okbg);border-color:var(--ok)}.o.no{background:var(--badbg);border-color:var(--bad)}
+.ex{display:none;margin-top:8px;color:var(--mute);font-size:.95rem}.ex.s{display:block;animation:o .2s}
+.bar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:14px}
+.score{font-weight:700;color:var(--acc)}
+.sheet{border:2px solid var(--acc);border-radius:12px;padding:6px 18px 12px;background:var(--card)}
+.sheet h3{margin-top:1em;color:var(--acc)}
+.ans{background:var(--accbg);border-radius:8px;padding:8px 12px;margin-top:8px}
+@media print{header button,nav{display:none}section{display:block!important}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header>
+<div><h1>Software Quality Control</h1><p>Exam prep for ISTQB Chapter 1: sections 1.1 to 1.3, plus QC vs QA</p></div>
+<button class="tg" id="th" aria-label="Toggle dark or light mode">Dark / Light</button>
+</header>
+<nav id="nav"></nav>
+<main>
+
+<section id="explain">
+<h2>Explanation</h2>
+<div class="bar"><button class="tg" onclick="all_(true)">Expand all</button><button class="tg" onclick="all_(false)">Collapse all</button></div>
+
+<details open><summary>1. What is software testing?</summary><div>
+<div class="def"><b>Definition:</b> Software testing is an activity that checks whether the <mark>actual results match the expected results</mark>. It helps discover defects and reduce uncertainty about software quality.</div>
+<p>Testing is the process of identifying the <mark>accuracy and quality</mark> of a software product or service. It exists to validate that the product fulfills the prerequisites, needs and desires of the client.</p>
+<p><i>Analogy:</i> a taster at a restaurant compares what the kitchen served (actual) with what the menu promised (expected). Any mismatch is reported.</p>
+<p><b>Objectives of testing (from the slides):</b></p>
+<ul><li>Uncover <mark>as many errors (bugs) as possible</mark> in a given product.</li><li>Demonstrate that the product <mark>matches its requirement specifications</mark>.</li><li>Validate quality using the <mark>minimum cost and effort</mark>.</li><li>Generate <mark>high-quality test cases</mark>, perform effective tests, and issue correct and helpful problem reports.</li></ul>
+</div></details>
+
+<details><summary>2. Quality Control (QC) vs Quality Assurance (QA)</summary><div>
+<div class="def"><b>QA</b> is the process used to <mark>create</mark> the deliverables; it is <mark>managing for quality</mark>. It can be done by a manager, client, or third-party reviewer. Examples: process checklists, project audits, methodology and standards development.</div>
+<div class="def"><b>QC</b> covers quality-related activities <mark>associated with the creation</mark> of deliverables. It <mark>verifies the quality of the output</mark>: that deliverables are acceptable, complete and correct. Examples: inspection, deliverable peer reviews, and the testing process.</div>
+<p>Both are an integral part of the organization’s <b>quality management plan</b>. Testing should be integrated as one of the QA activities.</p>
+<p><i>Analogy:</i> in a car factory, QA designs and audits the assembly-line process; QC inspects each finished car before it leaves.</p>
+</div></details>
+
+<details><summary>3. 1.1 Why is testing necessary?</summary><div>
+<p><b>Software systems context.</b> Most people have used software that did not work as expected. Faulty software can cause <mark>loss of money, time or business reputation</mark>, and could even cause <mark>injury or death</mark>.</p>
+<p><b>Causes of software defects.</b> A human makes an <mark>error (mistake)</mark>, which produces a <mark>defect (fault, bug)</mark> in code or a document. If that defect is executed, the system may fail to do what it should: a <mark>failure</mark>.</p>
+<div class="mem"><b>Error → Defect → Failure</b>. The person errs, the artifact holds the defect, the running system shows the failure.</div>
+<p>Defects occur because humans are fallible and because of: <mark>time pressure, complex code, complexity of infrastructure, changing technologies, many system interactions</mark>.</p>
+<p><b>Note:</b> failures can also be caused by <mark>environmental conditions</mark> such as <mark>radiation and magnetism</mark>. These are failures without a human error in the code.</p>
+<p><b>Testing and quality.</b></p>
+<ul><li>Testing lets us <mark>measure quality</mark> for both functional and non-functional requirements.</li><li>Finding few or no defects gives <mark>confidence</mark> in quality.</li><li>When defects are found and fixed, quality <mark>increases</mark>.</li><li>Learn lessons from previous projects: find the <mark>root cause</mark> of defects, improve processes, prevent recurrence.</li></ul>
+<p><b>How much testing is enough?</b> It depends on the <mark>level of risk</mark> (technical, safety, business) and <mark>project constraints</mark> (time, budget). Testing must give stakeholders enough information to <mark>decide on release</mark>.</p>
+</div></details>
+
+<details><summary>4. 1.2 What is testing? (it is more than running tests)</summary><div>
+<p>A common belief is that testing only means executing the software. That is part of it, not all. Testing activities exist <mark>before and after</mark> execution:</p>
+<ul><li>Planning and control</li><li>Choosing test conditions</li><li>Designing and executing test cases</li><li>Checking results</li><li>Evaluating exit criteria</li><li>Reporting on the testing process and the system under test</li><li>Finalizing or completing closure activities after a test phase</li><li>Reviewing documents (including source code) and conducting <mark>static analysis</mark></li></ul>
+<p><b>Dynamic vs static testing:</b> both can reach similar objectives and provide information to improve the system and the development and testing processes.</p>
+<p><b>Objectives of testing:</b> <mark>finding defects</mark>, <mark>gaining confidence</mark> about quality, <mark>providing information for decision-making</mark>, <mark>preventing defects</mark>.</p>
+<p><b>Preventing defects:</b> designing tests early (verifying the test basis via test design) helps prevent defects entering code. Reviewing requirements and resolving issues also prevents defects.</p>
+<p>Sometimes the main objective is only to <mark>assess quality</mark> (with no intention of fixing defects), to tell stakeholders the <mark>risk of releasing</mark> at a given time.</p>
+<div class="def"><b>Debugging vs testing.</b> Dynamic testing <mark>shows failures</mark> caused by defects. <mark>Debugging</mark> is the development activity that <mark>finds, analyzes and removes the cause</mark> of the failure. <mark>Re-testing</mark> by a tester confirms the fix resolves the failure. <b>Testers test; developers debug.</b></div>
+</div></details>
+
+<details><summary>5. 1.3 The seven testing principles</summary><div>
+<p>Suggested over the past 40 years; general guidelines common to all testing.</p>
+<p><b>1. Testing shows the presence of defects, not their absence.</b> Testing reduces the probability of undiscovered defects, but finding none is <mark>not proof of correctness</mark>.</p>
+<p><b>2. Exhaustive testing is impossible.</b> Testing all input and precondition combinations is not feasible except for trivial cases. Use <mark>risk analysis, test techniques and priorities</mark> to focus effort.</p>
+<p><b>3. Early testing saves time and money.</b> Start <mark>static and dynamic</mark> activities as early as possible in the lifecycle. Also called <mark>shift left</mark>. It reduces or eliminates costly changes.</p>
+<p><b>4. Defects cluster together.</b> A <mark>small number of modules</mark> usually holds most pre-release defects or causes most operational failures. Predicted and observed clusters feed risk analysis to focus testing.</p>
+<p><b>5. Beware of the pesticide paradox.</b> Repeating the same tests eventually finds <mark>no new defects</mark>, like pesticide losing effect on insects. Change existing tests and data, and write new tests. In <mark>automated regression testing</mark> the effect is beneficial: a low number of regression defects.</p>
+<p><b>6. Testing is context dependent.</b> Safety-critical industrial control software is tested differently from an e-commerce mobile app; Agile differs from sequential lifecycles.</p>
+<p><b>7. Absence-of-error fallacy.</b> It is a mistaken belief that finding and fixing many defects ensures success. A system can pass all specified requirements and still be <mark>hard to use, not meet users’ needs, or be inferior to competitors</mark>. Organizations that expect testers to run all tests and find all defects ignore principles 2 and 1.</p>
+</div></details>
+</section>
+
+<section id="summary">
+<h2>Smart summary</h2>
+<ul>
+<li><b>Testing</b> = compare <mark>actual vs expected</mark>; finds defects, reduces uncertainty.
+ <ul><li>Goals: find many bugs, match requirements, low cost, good test cases and reports.</li></ul></li>
+<li><b>QA</b> = process, <i>managing for quality</i> (audits, checklists, standards). <b>QC</b> = product, <i>verifying output</i> (inspection, peer review, testing).</li>
+<li><b>1.1 Why test?</b>
+ <ul><li>Bad software costs <mark>money, time, reputation, even lives</mark>.</li><li><mark>Error → Defect → Failure</mark>; environment (radiation, magnetism) can also cause failure.</li><li>Causes: time pressure, complex code, complex infrastructure, changing technology, many interactions.</li><li>How much? Depends on <mark>risk</mark> + <mark>time/budget</mark>; give stakeholders release information.</li></ul></li>
+<li><b>1.2 What is testing?</b>
+ <ul><li>Not only execution: planning, conditions, design, run, check, exit criteria, report, closure, reviews and static analysis.</li><li>4 objectives: <mark>find, confidence, decide, prevent</mark>.</li><li>Dynamic shows failures; debugging removes causes; re-testing confirms fix. Testers test, developers debug.</li></ul></li>
+<li><b>1.3 Seven principles:</b> presence not absence; exhaustive impossible; early saves; clustering; pesticide; context; absence-of-error fallacy.</li>
+</ul>
+</section>
+
+<section id="memory">
+<h2>Memory lab</h2>
+<div class="mem"><b>Seven principles: “Please Eat Early, Don’t Pick Cold Apples”</b><br>P resence · E xhaustive · E arly · D efects cluster · P esticide · C ontext · A bsence-of-error</div>
+<div class="mem"><b>Four objectives: “FGIP”</b>: Find defects, Gain confidence, Inform decisions, Prevent defects.</div>
+<div class="mem"><b>Chain: “EDF”</b>: Error (human) → Defect (in code/doc) → Failure (at run time).</div>
+<div class="mem"><b>Causes of defects: “T-C-I-C-M”</b>: Time pressure, Code complexity, Infrastructure complexity, Changing technology, Many interactions.</div>
+<p><b>Chunking:</b> study in 4 chunks: (1) definition + objectives, (2) QA vs QC, (3) 1.1 and 1.2, (4) the seven principles. <b>Spaced repetition:</b> review after 1 day, 3 days, 7 days, then the night before.</p>
+<h3>Compare similar concepts</h3>
+<div class="wrap"><table><tr><th></th><th>QA</th><th>QC</th></tr>
+<tr><td>Focus</td><td>Process</td><td>Product / output</td></tr><tr><td>Idea</td><td>Managing for quality</td><td>Verifying quality</td></tr><tr><td>Examples</td><td>Checklists, audits, standards</td><td>Inspection, peer review, testing</td></tr></table></div>
+<div class="wrap"><table><tr><th>Term</th><th>Meaning</th><th>Where</th></tr>
+<tr><td>Error / mistake</td><td>Human slip</td><td>In a person</td></tr><tr><td>Defect / fault / bug</td><td>Flaw in code or document</td><td>In the artifact</td></tr><tr><td>Failure</td><td>Wrong behavior when defect is executed</td><td>At run time</td></tr></table></div>
+<div class="wrap"><table><tr><th></th><th>Testing</th><th>Debugging</th></tr>
+<tr><td>Who</td><td>Tester</td><td>Developer</td></tr><tr><td>Job</td><td>Shows failures; re-tests fixes</td><td>Finds, analyzes, removes the cause</td></tr></table></div>
+<h3>Common mistakes and traps</h3>
+<div class="trap">“Testing proves software is correct.” <b>False.</b> It shows defects exist; it cannot prove none exist.</div>
+<div class="trap">“Testing = running the program.” <b>False.</b> Planning, design, reviews, static analysis and reporting are testing too.</div>
+<div class="trap">“Testers fix bugs.” <b>False.</b> Developers debug; testers re-test.</div>
+<div class="trap">“Finding and fixing all defects guarantees success.” <b>False.</b> That is the absence-of-error fallacy.</div>
+<div class="trap">Pesticide paradox is <b>not always bad</b>: in automated regression it gives few regression defects.</div>
+<div class="trap">Do not mix QA (process) and QC (output).</div>
+</section>
+
+<section id="mcq">
+<h2>Practice MCQs</h2>
+<div class="bar"><span class="score" id="sc">Score: 0 / 0</span><button class="tg" onclick="buildQ()">Reset</button></div>
+<div id="ql"></div>
+</section>
+
+<section id="written">
+<h2>Written questions</h2>
+<p>Try answering on paper first, then reveal the model answer.</p>
+<div id="wl"></div>
+</section>
+
+<section id="rev">
+<h2>Revision sheet</h2>
+<div class="sheet">
+<h3>Definitions</h3>
+<ul><li><b>Testing:</b> check actual = expected; finds defects, reduces uncertainty.</li><li><b>QA:</b> process to create deliverables (managing for quality). <b>QC:</b> verify quality of output.</li><li><b>Error → Defect → Failure.</b> Environment (radiation, magnetism) can also cause failures.</li><li><b>Debugging:</b> find, analyze, remove cause. <b>Re-testing:</b> confirm fix.</li></ul>
+<h3>Lists to recite</h3>
+<ul><li><b>Causes:</b> time pressure, complex code, complex infrastructure, changing technologies, many interactions.</li><li><b>Objectives (FGIP):</b> find defects, gain confidence, inform decisions, prevent defects.</li><li><b>How much testing:</b> risk (technical, safety, business) + constraints (time, budget).</li><li><b>Activities:</b> plan/control, conditions, design/execute, check results, exit criteria, report, closure, reviews/static analysis.</li></ul>
+<h3>Seven principles (PEEDPCA)</h3>
+<ol><li>Presence of defects, not absence: no proof of correctness.</li><li>Exhaustive testing impossible: use risk and priorities.</li><li>Early testing saves time and money (shift left).</li><li>Defects cluster in few modules.</li><li>Pesticide paradox: update tests; automated regression benefits.</li><li>Context dependent (safety-critical vs e-commerce; Agile vs sequential).</li><li>Absence-of-error fallacy: bug-free but unusable still fails.</li></ol>
+<h3>Night-before checklist</h3>
+<ul><li>Say the 7 principles aloud without notes.</li><li>Write Error → Defect → Failure with one example.</li><li>Explain QA vs QC in two sentences.</li><li>Redo every MCQ you missed.</li><li>Sleep. Recall beats cramming.</li></ul>
+</div>
+</section>
+</main>
+
+<script>
+const $=s=>document.querySelector(s);
+const tabs=[["explain","Explanation"],["summary","Summary"],["memory","Memory lab"],["mcq","MCQs"],["written","Written"],["rev","Revision"]];
+const nav=$("#nav");
+tabs.forEach(([id,l])=>{const b=document.createElement("button");b.textContent=l;b.dataset.id=id;b.onclick=()=>show(id);nav.appendChild(b)});
+function show(id){document.querySelectorAll("section").forEach(s=>s.classList.toggle("on",s.id===id));nav.querySelectorAll("button").forEach(b=>b.classList.toggle("on",b.dataset.id===id));window.scrollTo({top:0,behavior:"smooth"})}
+function all_(o){document.querySelectorAll("#explain details").forEach(d=>d.open=o)}
+$("#th").onclick=()=>{const r=document.documentElement,d=r.dataset.theme?r.dataset.theme==="dark":matchMedia("(prefers-color-scheme:dark)").matches;r.dataset.theme=d?"light":"dark"};
+
+// [question, options, correct index, explanation]
+const Q=[
+["Software testing is best described as an activity that checks whether…",["the code is written quickly","actual results match expected results","developers follow a process","the client likes the colors"],1,"Testing compares actual with expected results and reduces uncertainty about quality."],
+["Which sequence is correct?",["Failure → Defect → Error","Defect → Error → Failure","Error → Defect → Failure","Error → Failure → Defect"],2,"A human error produces a defect; executing the defect may cause a failure."],
+["Quality Control (QC) mainly…",["manages how deliverables are created","verifies the quality of the output","writes company standards","replaces testing"],1,"QC verifies output. QA is the process of managing for quality."],
+["Which is an example of QA, not QC?",["Peer review of a deliverable","Inspection","Project audit","Executing test cases"],2,"Audits, checklists and standards are QA. Inspection, peer review and testing are QC."],
+["Which is NOT listed as a cause of software defects?",["Time pressure","Complex code","Many system interactions","Reviewing requirements early"],3,"Early review helps prevent defects; it does not cause them."],
+["A failure can be caused by environmental conditions such as…",["radiation and magnetism","slow typing","missing coffee","long meetings"],0,"The slides note radiation and magnetism as environmental causes."],
+["Which is NOT an objective of testing?",["Finding defects","Gaining confidence in quality","Proving that no defects exist","Providing information for decisions"],2,"Principle 1: testing cannot prove absence of defects."],
+["“Testing shows the presence of defects, not their absence” means…",["no defects found proves correctness","testing reduces the probability of undiscovered defects but is not proof","testing finds all defects","only developers can find defects"],1,"Even with zero defects found, correctness is not proven."],
+["Why is exhaustive testing impossible in practice?",["Testers are lazy","All input/precondition combinations are infeasible except trivial cases","Tools are missing","It is illegal"],1,"Use risk analysis, techniques and priorities instead."],
+["“Shift left” refers to…",["testing late","testing early in the lifecycle","moving testers to another team","deleting tests"],1,"Early testing (static and dynamic) reduces costly changes."],
+["Most defects found before release are usually in…",["all modules equally","a small number of modules","only the UI","only documents"],1,"Defect clustering: a few modules hold most defects or failures."],
+["The pesticide paradox suggests that…",["repeated identical tests stop finding new defects","pesticide should be used on bugs","tests never need changing","automation is useless"],0,"Update tests and data, and write new tests."],
+["In which case does the pesticide paradox have a beneficial outcome?",["Exploratory testing","Automated regression testing","Usability testing","Code review"],1,"Automated regression gives a relatively low number of regression defects."],
+["Safety-critical control software versus an e-commerce app illustrates…",["context-dependent testing","defect clustering","shift left","absence-of-error fallacy"],0,"Testing is done differently in different contexts."],
+["A system passes all requirements tests and all bugs are fixed, yet users find it hard to use. This is…",["exhaustive testing","the pesticide paradox","the absence-of-error fallacy","defect clustering"],2,"Fixing defects does not guarantee the system meets users’ needs."],
+["Who performs debugging?",["Testers","Developers","Customers","Auditors"],1,"Testers test and developers debug."],
+["What is the purpose of re-testing?",["Find new defect types","Confirm the fix resolved the failure","Measure team speed","Replace regression testing"],1,"Re-testing by a tester ensures the fix resolves the failure."],
+["How much testing is enough depends on…",["the tester’s mood","risk level and project constraints","the number of testers only","the programming language"],1,"Technical, safety and business risk plus time and budget."],
+["Which is a testing activity, per the slides?",["Choosing test conditions","Writing marketing copy","Hiring staff","Purchasing hardware"],0,"Others: planning, design, execution, checking results, exit criteria, reporting, closure, reviews."],
+["Which statement about static testing is correct?",["It requires running the code","Reviewing documents and source code and static analysis are testing activities","It is not testing","It only applies after release"],1,"Static testing needs no execution and also helps prevent defects."],
+["Sometimes the main objective of testing is to…",["hide defects","assess quality without intending to fix defects, informing stakeholders of release risk","write code","delete requirements"],1,"It informs stakeholders about the risk of releasing at a given time."],
+["How many testing principles does the syllabus list here?",["Five","Six","Seven","Ten"],2,"Seven principles (PEEDPCA)."]
+];
+let done=0,right=0;
+function buildQ(){done=right=0;sc();const L=$("#ql");L.innerHTML="";
+Q.forEach((q,i)=>{const d=document.createElement("div");d.className="q";
+d.innerHTML=`<p><b class="n">Q${i+1}.</b> ${q[0]}</p>`;
+const ex=document.createElement("div");ex.className="ex";ex.innerHTML="<b>Why:</b> "+q[3];
+q[1].forEach((o,j)=>{const b=document.createElement("button");b.className="o";b.textContent="ABCD"[j]+") "+o;
+b.onclick=()=>{if(d.dataset.d)return;d.dataset.d=1;done++;if(j===q[2])right++;
+d.querySelectorAll(".o").forEach((x,k)=>{if(k===q[2])x.classList.add("ok");else if(k===j)x.classList.add("no")});ex.classList.add("s");sc()};d.appendChild(b)});
+d.appendChild(ex);L.appendChild(d)})}
+function sc(){$("#sc").textContent=`Score: ${right} / ${done} (of ${Q.length})`}
+
+const W=[
+["Short: Define software testing and state its objectives.","Software testing is an activity that checks whether actual results match expected results, helping to discover defects and reduce uncertainty about quality. Objectives: uncover as many errors as possible; demonstrate the product matches its requirement specifications; validate quality with minimum cost and effort; produce high-quality test cases and correct, helpful problem reports."],
+["Short: Distinguish error, defect and failure.","An error (mistake) is a human action that produces a defect (fault, bug) in code or a document. A failure occurs when a defect is executed and the system does not do what it should. Example: a developer misreads a requirement (error), the code has a wrong condition (defect), and the user sees a wrong total (failure)."],
+["Short: Differentiate between QA and QC.","QA is the process used to create deliverables and is about managing for quality (checklists, audits, standards). QC verifies the quality of the output, that deliverables are complete and correct (inspection, peer review, testing). Both are part of the quality management plan."],
+["Short: Differentiate between testing and debugging.","Dynamic testing shows failures caused by defects. Debugging is the development activity that finds, analyzes and removes the cause of the failure. Re-testing by a tester confirms the fix. Testers test; developers debug."],
+["Long: Why is testing necessary, and how much testing is enough?","Faulty software can cause loss of money, time or reputation, and in the worst cases injury or death. Defects arise because humans are fallible and because of time pressure, complex code, complex infrastructure, changing technologies and many system interactions; environmental conditions such as radiation and magnetism can also cause failures. Testing measures quality for functional and non-functional requirements, gives confidence when few or no defects are found, and raises quality when found defects are fixed. Root-cause analysis lets us improve processes so defects do not recur, and testing is one of the QA activities. How much testing is enough depends on the level of risk (technical, safety, business) and project constraints (time, budget). Testing must give stakeholders enough information to decide whether to release."],
+["Long: Explain the seven testing principles.","1) Testing shows presence of defects, not absence: it lowers the probability of hidden defects but is no proof of correctness. 2) Exhaustive testing is impossible: use risk analysis, techniques and priorities. 3) Early testing saves time and money: start static and dynamic activities early (shift left). 4) Defects cluster together: a few modules hold most defects, which guides risk-based focus. 5) Pesticide paradox: repeated tests stop finding new defects, so revise tests and data; in automated regression it helps keep regression defects low. 6) Testing is context dependent: safety-critical control software differs from an e-commerce app, and Agile from sequential lifecycles. 7) Absence-of-error fallacy: fixing many defects does not guarantee success if the system is hard to use, fails users’ needs, or is inferior to competitors."]
+];
+const wl=$("#wl");
+W.forEach(([q,a])=>{const d=document.createElement("details");d.innerHTML=`<summary>${q}</summary><div><p class="ans">${a}</p></div>`;wl.appendChild(d)});
+buildQ();show("explain");
+</script>
+</body>
+</html>
