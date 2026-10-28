@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><title>SQA Lecture 3 — Software Process Models · Exam Prep</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>
+:root{--bg:#faf8f4;--card:#fff;--tx:#201c17;--mu:#6b6258;--ac:#c2410c;--ac2:#ffedd5;--ok:#16a34a;--bad:#dc2626;--hl:#fff3b0;--bd:#eadfd2;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#17130f;--card:#221c16;--tx:#f3ece4;--mu:#b5a898;--ac:#fb923c;--ac2:#3a2412;--hl:#5a4b00;--bd:#3a3026;color-scheme:dark}}
+:root[data-theme=dark]{--bg:#17130f;--card:#221c16;--tx:#f3ece4;--mu:#b5a898;--ac:#fb923c;--ac2:#3a2412;--hl:#5a4b00;--bd:#3a3026;color-scheme:dark}
+*{box-sizing:border-box}html{scroll-padding-top:70px}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.65 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--card);border-bottom:1px solid var(--bd);padding:10px 14px;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+header h1{font-size:15px;margin:0 auto 0 0}
+button{font:inherit;cursor:pointer;border:1px solid var(--bd);background:var(--card);color:var(--tx);border-radius:10px;padding:6px 12px;transition:.2s}
+button:hover{border-color:var(--ac)}button.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+main{max-width:860px;margin:0 auto;padding:16px}
+section{display:none;animation:f .35s}section.on{display:block}@keyframes f{from{opacity:0;transform:translateY(6px)}}
+.card,details{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:14px 16px;margin:12px 0}
+summary{cursor:pointer;font-weight:650;color:var(--ac)}details[open] summary{margin-bottom:8px}
+h2{margin:6px 0}h3{margin:14px 0 4px}mark{background:var(--hl);color:inherit;padding:0 3px;border-radius:4px}
+.def{border-left:4px solid var(--ac);background:var(--ac2);padding:8px 12px;border-radius:8px;margin:8px 0}
+.warn{border-left:4px solid var(--bad);padding:8px 12px;border-radius:8px;margin:8px 0}
+.tw{overflow-x:auto}table{border-collapse:collapse;width:100%;min-width:460px}td,th{border:1px solid var(--bd);padding:6px 8px;text-align:left;vertical-align:top}th{background:var(--ac2)}
+svg{max-width:100%;height:auto;display:block;margin:8px auto}svg text{fill:var(--tx);font:13px system-ui}svg .b{fill:var(--card);stroke:var(--ac);stroke-width:2}svg .l{stroke:var(--tx);stroke-width:2;fill:none}
+.opt{display:block;width:100%;text-align:left;margin:6px 0}.opt.ok{background:var(--ok);color:#fff;border-color:var(--ok)}.opt.no{background:var(--bad);color:#fff;border-color:var(--bad)}
+.ex{display:none;margin-top:8px;color:var(--mu)}.ex.show{display:block}.sc{font-weight:700;color:var(--ac)}
+</style></head><body>
+<header><h1>🏗️ SQA Lecture 3 · Software Process Models</h1>
+<button data-t="e" class="on">Explain</button><button data-t="s">Summary</button><button data-t="m">Memory</button><button data-t="q">MCQs</button><button data-t="w">Written</button><button data-t="r">Revision</button><button id="th" aria-label="theme">🌓</button></header>
+<main>
+
+<section id="e" class="on"><h2>Deep Explanation</h2><p>Tap blocks to expand. <mark>Highlighted</mark> = exam favourites. Source: Software Quality Assurance, Dr. Hanan Fahmy.</p>
+
+<details open><summary>1 · Why process models? (Slides 3–4)</summary>
+<p>To understand the role of <b>quality assurance</b> in software development, you must first understand how software development works.</p>
+<div class="def"><b>Software development process</b> = a method for developing software that organizes the effort into a number of separate <mark>tasks and steps</mark>. It lets many people build large systems in an <mark>organized, manageable and trackable</mark> way, retaining control.</div>
+<h3>Four fundamental process activities</h3>
+<p>All process models share these; they <mark>differ only in how the four are organized and interleaved</mark>.</p>
+<div class="tw"><table><tr><th>Activity</th><th>Meaning</th></tr><tr><td><b>Specification</b></td><td>Define requirements, functionality and constraints</td></tr><tr><td><b>Development</b></td><td>Build the software to meet the specification</td></tr><tr><td><b>Validation</b></td><td>Check it does what the customer wants</td></tr><tr><td><b>Evolution</b></td><td>Evolve to meet changing needs and expectations</td></tr></table></div>
+<p>💡 <i>Analogy:</i> four ingredients in every recipe (S-D-V-E); each model is a different way of cooking them: all in a row, in loops, around a risk spiral…</p></details>
+
+<details open><summary>2 · The Waterfall Model (Slides 5–11)</summary>
+<div class="def">The <mark>first</mark> process model introduced; the earliest SDLC approach. <b>Sequential</b>: each phase must be <mark>completed (and signed off) before the next begins; no overlap</mark>. Output of one phase = input of the next; progress flows steadily downwards like a waterfall.</div>
+<svg viewBox="0 0 640 250" role="img" aria-label="Waterfall"><g font-size="13">
+<rect class="b" x="5" y="5" width="170" height="34" rx="8"/><text x="90" y="27" text-anchor="middle">1 Requirements</text>
+<rect class="b" x="85" y="48" width="170" height="34" rx="8"/><text x="170" y="70" text-anchor="middle">2 System Design</text>
+<rect class="b" x="165" y="91" width="170" height="34" rx="8"/><text x="250" y="113" text-anchor="middle">3 Implementation</text>
+<rect class="b" x="245" y="134" width="190" height="34" rx="8"/><text x="340" y="156" text-anchor="middle">4 Integration &amp; Testing</text>
+<rect class="b" x="345" y="177" width="170" height="34" rx="8"/><text x="430" y="199" text-anchor="middle">5 Deployment</text>
+<rect class="b" x="435" y="215" width="190" height="32" rx="8"/><text x="530" y="236" text-anchor="middle">6 Maintenance</text></g></svg>
+<p><b>How to read it:</b> each box hands its deliverable down-and-right; no arrows back up (that is the weakness).</p>
+<div class="tw"><table><tr><th>Phase</th><th>What happens</th></tr>
+<tr><td><b>Requirements</b></td><td>Understand what must be designed: function, purpose; study and mark the specifications of <b>input and output</b> / final product.</td></tr>
+<tr><td><b>System Design</b></td><td>Study requirement specs, prepare the design; specify <b>hardware &amp; system requirements</b>, define <b>overall system architecture</b>; the code to be written next is planned here.</td></tr>
+<tr><td><b>Implementation</b></td><td>Develop the system as small programs called <mark>units</mark>; each unit developed and tested = <mark>Unit Testing</mark>.</td></tr>
+<tr><td><b>Integration &amp; Testing</b></td><td>Units integrated into a system after unit tests; constant testing to find flaws so the client has no problems at installation.</td></tr>
+<tr><td><b>Deployment</b></td><td>After <b>functional and non-functional</b> testing, deploy to the customer environment or release to market.</td></tr>
+<tr><td><b>Maintenance</b></td><td>After installation: modify system/components to alter attributes or improve performance. Triggered by <b>customer change requests</b> or <b>defects found in live use</b>. Client gets regular maintenance and support.</td></tr></table></div>
+<div class="tw"><table><tr><th>✅ Advantages</th><th>❌ Disadvantages</th></tr><tr><td>Schedule with deadlines per stage<br>Easy to understand, explain and use<br>Easy to manage: rigid; each phase has deliverables and a review process<br>Phases done one at a time, no overlap<br>Works well for <b>smaller projects with well-understood requirements</b></td><td>Hard to estimate time and cost per phase<br>Once in testing, very hard to go back and change a poorly thought-out concept<br>Not good for <b>complex and object-oriented</b> projects<br>Not suitable when requirements are at <b>moderate to high risk of changing</b></td></tr></table></div></details>
+
+<details open><summary>3 · The Prototyping Model (Slides 12–15)</summary>
+<div class="def">Addresses the <mark>requirements difficulty</mark> by adding an iterative, <i>by-example</i> requirements stage. A <b>prototype</b> = a <mark>partial implementation</mark> of the system with <mark>all external interfaces</mark> presented. Users try it and give feedback; real requirements are gradually refined. The final prototype serves as an example of the intended system.</div>
+<svg viewBox="0 0 640 190" role="img" aria-label="Prototyping loop"><defs><marker id="a" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0L8,4L0,8z" fill="currentColor"/></marker></defs><g style="color:var(--tx)">
+<rect class="b" x="5" y="20" width="125" height="45" rx="8"/><text x="67" y="40" text-anchor="middle">Requirements</text><text x="67" y="56" text-anchor="middle">gathering</text>
+<rect class="b" x="165" y="20" width="110" height="45" rx="8"/><text x="220" y="48" text-anchor="middle">Quick design</text>
+<rect class="b" x="310" y="20" width="120" height="45" rx="8"/><text x="370" y="48" text-anchor="middle">Build prototype</text>
+<rect class="b" x="465" y="20" width="165" height="45" rx="8"/><text x="547" y="40" text-anchor="middle">Customer</text><text x="547" y="56" text-anchor="middle">evaluation</text>
+<rect class="b" x="310" y="115" width="140" height="45" rx="8"/><text x="380" y="143" text-anchor="middle">Design refinement</text>
+<rect class="b" x="5" y="115" width="200" height="45" rx="8"/><text x="105" y="143" text-anchor="middle">Full-scale development</text>
+<path class="l" d="M130 42H163M275 42H308M430 42H463M547 65V90H380V113" marker-end="url(#a)"/><path class="l" d="M310 138H207" marker-end="url(#a)"/><path class="l" stroke-dasharray="5 4" d="M310 125L240 68" marker-end="url(#a)"/></g>
+<text x="420" y="110">loop until user is satisfied</text></svg>
+<div class="tw"><table><tr><th>Step</th><th>Meaning</th></tr>
+<tr><td>Requirements gathering &amp; analysis</td><td>Like waterfall but <b>less stringent</b>: the prototype exposes inadequacies.</td></tr>
+<tr><td>Quick design</td><td>Simple approximate initial design, refined during prototype iteration.</td></tr>
+<tr><td>Build prototype</td><td>Quickly “hack together” approximate implementation showing <b>salient external features</b>.</td></tr>
+<tr><td>Customer evaluation</td><td>Users validate prototype, report inadequacies.</td></tr>
+<tr><td>Design refinement</td><td>Refine design in response to feedback.</td></tr>
+<tr><td>Full-scale development</td><td>Remaining stages of the <b>traditional waterfall</b>.</td></tr></table></div>
+<div class="warn"><b>Disadvantages</b><br>1. <b>Waste work:</b> prototypes built with <mark>substandard quality controls</mark> (“thrown together”) to speed iteration; they <mark>must be discarded</mark> after prototyping even if they solve significant problems.<br>2. <b>Incomplete prototypes:</b> full prototypes of complex systems are hard/impossible to build quickly; done in parts, so they may <mark>miss critical requirements at integration</mark>.</div></details>
+
+<details open><summary>4 · The Spiral Model (Slides 16–21)</summary>
+<div class="def"><mark>Combines prototyping + waterfall</mark>; favoured for <b>large, expensive, complicated</b> projects. Supports <mark>risk handling</mark>; drawn as a spiral with many loops. A refinement of waterfall built on <b>continuous documentation and evaluation of risk</b>, from experience with waterfall on large projects.</div>
+<svg viewBox="0 0 640 260" role="img" aria-label="Spiral quadrants"><line class="l" x1="320" y1="10" x2="320" y2="250"/><line class="l" x1="60" y1="130" x2="580" y2="130"/>
+<ellipse cx="320" cy="130" rx="80" ry="55" class="l" stroke-dasharray="4 4"/><ellipse cx="320" cy="130" rx="190" ry="105" class="l" stroke-dasharray="4 4"/>
+<text x="75" y="38">① Determine objectives,</text><text x="75" y="55">alternatives, constraints</text>
+<text x="345" y="38">② Assess &amp; reduce risks</text><text x="345" y="55">(analysis, prototype)</text>
+<text x="345" y="205">③ Develop &amp; validate</text><text x="345" y="222">(choose model by risk)</text>
+<text x="75" y="205">④ Review &amp; plan next</text><text x="75" y="222">layer (or stop)</text>
+<text x="320" y="128" text-anchor="middle" style="font-weight:700">start</text></svg>
+<p><b>Read it:</b> each loop = one phase (layer) passing through the 4 quadrants; the radius grows with cost; repeat until the product is done.</p>
+<h3>For each layer</h3>
+<ol><li><b>Determine objectives:</b> specific objectives; constraints on process and product; alternatives; <mark>potential risks of each alternative</mark>.</li>
+<li><b>Assess &amp; reduce risks:</b> detailed analysis of each risk; reduce it (e.g. <mark>create a prototype to check</mark>); choose alternatives that minimize risk.</li>
+<li><b>Develop &amp; validate:</b> choose/modify the development model from the risk analysis:
+<ul><li><mark>UI risks dominate → evolutionary prototyping</mark></li><li><mark>Safety risks major → formal methods</mark></li><li><mark>Integration problems → waterfall</mark></li></ul></li>
+<li><b>Review &amp; plan:</b> evaluate results; decide whether <b>another layer</b> is needed; plan next phase.</li></ol>
+<div class="warn"><b>Disadvantages</b><br>• <b>Heavyweight:</b> lots of overhead (documentation, meetings) ⇒ slow; suited to large projects with long timelines.<br>• <b>Not really a development model:</b> a <mark>“meta-model”</mark>: describes <i>how</i> to carry out stages, not <i>what</i> the stages are. (Strength: finds problems early at every stage ⇒ high quality.)<br>• <b>Depends on risk analysis:</b> needs a very experienced team; high dependency on people quality (itself a risk!).<br>• <b>Not for beginners:</b> layers are flexible, not explicitly laid out; each layer’s goals and plan decided by the team.</div></details>
+
+<details open><summary>5 · The Iterative Development Model (Slides 22–23)</summary>
+<div class="def">Breaks development of a large application into <mark>smaller chunks</mark>; feature code is <b>designed, developed and tested in repeated cycles</b>.</div>
+<svg viewBox="0 0 640 130" role="img" aria-label="Iterative cycle"><defs><marker id="c" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0L8,4L0,8z" fill="currentColor"/></marker></defs><g style="color:var(--tx)"><rect class="b" x="5" y="20" width="120" height="40" rx="8"/><text x="65" y="45" text-anchor="middle">Design subset</text><rect class="b" x="170" y="20" width="120" height="40" rx="8"/><text x="230" y="45" text-anchor="middle">Develop</text><rect class="b" x="335" y="20" width="100" height="40" rx="8"/><text x="385" y="45" text-anchor="middle">Test</text><rect class="b" x="480" y="20" width="150" height="40" rx="8"/><text x="555" y="45" text-anchor="middle">Analyse feedback</text><path class="l" d="M125 40H168M290 40H333M435 40H478M555 60V100H65V62" marker-end="url(#c)"/></g><text x="320" y="120" text-anchor="middle">new subset product → refined design &amp; requirements</text></svg>
+<p>The <b>subset</b> should: (1) satisfy immediate user needs; (2) serve as a <mark>vehicle of training for customers and learning for developers</mark>. Analysing the subset leads to changes to design and requirements, from which a <b>new subset product</b> is built. Over many iterations: a system meeting <b>evolving</b> needs with improved design.</p>
+<div class="warn"><b>Disadvantages</b><br>• <b>Needs a small team:</b> no large-scale parallel development; focuses on <mark>one remaining risk at a time</mark>; works best with relatively small teams.<br>• <b>Needs early architecture:</b> overall architecture must be designed early; hard to change later. If it can be settled early, very successful at producing high-quality products.</div></details>
+
+<details open><summary>6 · Side-by-side comparison</summary><div class="tw"><table>
+<tr><th></th><th>Waterfall</th><th>Prototyping</th><th>Spiral</th><th>Iterative</th></tr>
+<tr><td>Structure</td><td>Sequential, no overlap</td><td>Iterative requirements by example</td><td>Loops of 4 steps</td><td>Repeated design-develop-test cycles</td></tr>
+<tr><td>Strength</td><td>Simple, manageable</td><td>Exposes requirement gaps</td><td>Risk handling, high quality</td><td>Feedback &amp; evolving needs</td></tr>
+<tr><td>Best for</td><td>Small, stable requirements</td><td>Unclear requirements</td><td>Large, costly, complex</td><td>Small teams, early architecture</td></tr>
+<tr><td>Weakness</td><td>Rigid; late change hard</td><td>Wasted/incomplete prototypes</td><td>Heavy, needs experts, meta-model</td><td>Needs small team + early architecture</td></tr></table></div></details>
+</section>
+
+<section id="s"><h2>Smart Summary</h2><div class="card"><ul>
+<li><b>Process model</b> = organizes development into tasks and steps (organized, manageable, trackable).
+<ul><li>All share 4 activities: <b>Specification, Development, Validation, Evolution</b>; differ in organization/interleaving.</li></ul></li>
+<li><b>Waterfall:</b> first model; sequential, no overlap; 6 phases: Requirements → Design → Implementation (unit testing) → Integration &amp; Testing → Deployment → Maintenance.
+<ul><li>+ simple, manageable, small/well-understood projects. − hard to change, hard estimates, not for complex/OO or changing requirements.</li></ul></li>
+<li><b>Prototyping:</b> partial implementation with all external interfaces; iterate with user feedback; then waterfall stages.
+<ul><li>− wasted work (substandard, discarded); incomplete prototypes miss requirements.</li></ul></li>
+<li><b>Spiral:</b> prototyping + waterfall + <b>risk handling</b>; 4 steps per layer (Objectives → Assess risks → Develop &amp; validate → Review &amp; plan).
+<ul><li>− heavyweight, meta-model, needs experienced team, not for beginners.</li></ul></li>
+<li><b>Iterative:</b> small chunks, repeated cycles; subset trains users and developers.
+<ul><li>− small team only, needs early architecture.</li></ul></li></ul></div></section>
+
+<section id="m"><h2>Memory Optimization</h2>
+<div class="card"><h3>Mnemonics</h3>
+<p><b>S-D-V-E</b> (4 activities): <i>“Software Developers Value Evolution.”</i></p>
+<p><b>Waterfall phases R-D-I-I-D-M:</b> <i>“Really Deep Ideas Improve Delivered Machines”</i> (Requirements, Design, Implementation, Integration &amp; testing, Deployment, Maintenance).</p>
+<p><b>Spiral O-A-D-R:</b> <i>“Objectives, Assess, Develop, Review”</i> → “<b>O</b>ur <b>A</b>pp <b>D</b>eserves <b>R</b>isk-checks.”</p>
+<p><b>Spiral choice:</b> <b>U-I → prototype · S-afety → formal methods · I-ntegration → waterfall</b> (“UI-Safe-Int: <i>Pro-Formal-Fall</i>”).</p></div>
+<div class="card"><h3>Common mistakes &amp; traps</h3><ul>
+<li>Waterfall is <b>not</b> iterative and has <b>no overlap</b> of phases.</li>
+<li>Unit testing happens in <b>Implementation</b>; system testing in Integration &amp; Testing.</li>
+<li>Prototype = <b>partial</b> implementation, <b>all external interfaces</b>; it is usually <b>discarded</b>.</li>
+<li>Spiral is a <b>meta-model</b>; it does not name the stages.</li>
+<li>Spiral for <b>large, expensive</b> projects, not beginners or small ones.</li>
+<li>Iterative’s weakness: team size and <b>early architecture</b>.</li>
+<li>Maintenance is triggered by <b>change requests or defects in live use</b>.</li>
+<li>Waterfall is the <b>earliest</b>/first process model.</li></ul></div>
+<div class="card"><h3>Spaced repetition</h3><p>Day 0 read + MCQs · Day 1 redraw the 4 diagrams · Day 3 comparison table from memory · Day 7 written answers · Night before: Revision tab.</p></div></section>
+
+<section id="q"><h2>MCQs <span class="sc" id="sc"></span></h2><p>Click an answer. 🟢 easy · 🟡 medium · 🔴 hard.</p><div id="qs"></div><button id="rs">Reset</button></section>
+<section id="w"><h2>Written Questions</h2><div id="ws"></div></section>
+
+<section id="r"><h2>Rapid Revision · Night-Before Sheet</h2><div class="card">
+<b>4 activities:</b> Specification · Development · Validation · Evolution<br>
+<b>Waterfall:</b> first model · sequential · no overlap · sign-off · Requirements → System Design → Implementation (unit tests) → Integration &amp; Testing → Deployment → Maintenance<br>
+&nbsp;&nbsp;+ simple, manageable, small/well-defined &nbsp; − late change hard, cost estimates hard, not complex/OO/changing reqs<br>
+<b>Prototyping:</b> partial implementation + all external interfaces · feedback refines requirements<br>
+&nbsp;&nbsp;Steps: Req gathering → Quick design → Build prototype → Customer evaluation → Design refinement → Full-scale (waterfall)<br>
+&nbsp;&nbsp;− Waste work (substandard, discarded) · Incomplete prototypes miss critical requirements<br>
+<b>Spiral:</b> prototyping + waterfall + risk · large/expensive/complex<br>
+&nbsp;&nbsp;1 Objectives · 2 Assess &amp; reduce risks · 3 Develop &amp; validate (UI→prototype, safety→formal, integration→waterfall) · 4 Review &amp; plan<br>
+&nbsp;&nbsp;− Heavyweight · meta-model · needs experts · not for beginners<br>
+<b>Iterative:</b> small chunks · design-develop-test cycles · subset trains customers &amp; developers<br>
+&nbsp;&nbsp;− small team (one risk at a time) · early architecture needed</div></section>
+</main>
+<script>
+const $=s=>document.querySelector(s);
+document.querySelectorAll("header [data-t]").forEach(b=>b.onclick=()=>{document.querySelectorAll("header [data-t]").forEach(x=>x.classList.toggle("on",x==b));document.querySelectorAll("section").forEach(s=>s.classList.toggle("on",s.id==b.dataset.t));scrollTo(0,0)});
+$("#th").onclick=()=>{const r=document.documentElement,d=r.dataset.theme?r.dataset.theme=="dark":matchMedia("(prefers-color-scheme:dark)").matches;r.dataset.theme=d?"light":"dark"};
+const Q=[
+["🟢","Which was the first process model introduced?",["Spiral","Waterfall","Iterative","Prototyping"],1,"Waterfall is the earliest SDLC approach."],
+["🟢","The four fundamental process activities are:",["Plan, Code, Test, Ship","Specification, Development, Validation, Evolution","Design, Build, Test, Deploy","Analysis, Coding, Review, Release"],1,"Models differ in how these four are organized and interleaved."],
+["🟢","In Waterfall, phases:",["Overlap freely","Are completed one at a time with no overlap","Repeat in loops","Run in parallel"],1,"Each phase must finish (and be signed off) before the next."],
+["🟢","Unit testing is done in which Waterfall phase?",["Requirements","System Design","Implementation","Maintenance"],2,"Units are developed and tested individually in Implementation."],
+["🟢","A prototype is:",["A finished product","A partial implementation with all external interfaces","Only a document","A test plan"],1,"Partial implementation showing the external interfaces."],
+["🟢","The Spiral model is mainly designed around:",["Cost cutting","Risk handling","Speed","Documentation avoidance"],1,"Continuous documentation and evaluation of risk."],
+["🟡","Maintenance in Waterfall is triggered by:",["Marketing","Customer change requests or defects found in live use","Unit tests","New developers"],1,"Both customer change requests and live defects."],
+["🟡","Which project suits Waterfall best?",["Large, risky, changing requirements","Small projects with well-understood requirements","Safety-critical projects","Exploratory research"],1,"Rigid model works when requirements are stable."],
+["🟡","Which is a Waterfall disadvantage?",["Easy to manage","Hard to go back and change after testing begins","Clear deliverables","Easy to understand"],1,"Late changes are very difficult."],
+["🟡","Prototyping addresses which difficulty?",["Cost estimation","Requirements difficulty","Deployment","Maintenance"],1,"By example, iterative requirements stage."],
+["🟡","After customer evaluation in prototyping comes:",["Maintenance","Design refinement","Deployment","Unit testing"],1,"Then loop, finally full-scale development."],
+["🟡","Full-scale development in the prototyping model consists of:",["Spiral loops","Remaining stages of the traditional waterfall model","Only testing","Nothing"],1,"The remaining waterfall stages."],
+["🟡","“Waste work” in prototyping refers to:",["Extra meetings","Substandard quality prototypes that must be discarded","Overtime","Large teams"],1,"Prototypes are thrown together and discarded."],
+["🟡","Spiral model combines:",["Waterfall and Iterative","Prototyping and Waterfall","Agile and XP","Prototype and RAD"],1,"Features of prototyping and waterfall."],
+["🟡","Step 1 of each Spiral layer is:",["Assess risks","Determine objectives","Develop","Review"],1,"Objectives, constraints, alternatives, risks."],
+["🟡","If user-interface risks dominate in the Spiral model, use:",["Formal methods","Evolutionary prototyping","Waterfall","No model"],1,"UI risk → evolutionary prototyping."],
+["🟡","If safety is the major risk, use:",["Waterfall","Formal methods","Prototyping","Iterative"],1,"Safety risk → formal methods."],
+["🔴","If integration is the big risk in Spiral, use:",["Formal methods","Waterfall model","Prototyping","Iterative"],1,"Integration problems → waterfall."],
+["🔴","Why is Spiral called a “meta-model”?",["It is the oldest","It describes how to carry out stages, not what the stages are","It has many loops","It skips risk"],1,"It guides process execution rather than fixing stages."],
+["🔴","Which is NOT a Spiral disadvantage?",["Heavyweight overhead","Needs experienced team","Identifies problems early","Not for beginners"],2,"Early problem finding is a strength, giving high quality."],
+["🔴","Spiral step 4 (Review and Plan) decides:",["Release date","Whether another spiral layer is needed and plans the next","Team size","Customer payment"],1,"Evaluate results; draw up plans for next layer."],
+["🔴","The Iterative model’s subset should:",["Replace the full spec","Satisfy immediate user needs and serve as training for customers and learning for developers","Be discarded","Be risk-free"],1,"A vehicle of training and learning."],
+["🔴","Iterative model works best with:",["Large parallel teams","Relatively small teams","One-person projects only","No architecture"],1,"No large-scale parallel development."],
+["🔴","Iterative disadvantage related to design:",["No testing","Requires early overall architecture that is hard to change","No feedback","Too slow to start"],1,"Early architecture needed."],
+["🔴","Which model is described as “heavy weight” due to documentation and meetings?",["Waterfall","Spiral","Prototyping","Iterative"],1,"Every spiral layer needs lots of documentation and meetings."]];
+let sc=0,dn=0;const qs=$("#qs");
+function build(){qs.innerHTML="";sc=dn=0;$("#sc").textContent="";Q.forEach((q,i)=>{const d=document.createElement("div");d.className="card";d.innerHTML=`<b>${i+1}. ${q[0]} ${q[1]}</b>`;q[2].forEach((o,j)=>{const b=document.createElement("button");b.className="opt";b.textContent=String.fromCharCode(65+j)+". "+o;b.onclick=()=>{if(d.dataset.d)return;d.dataset.d=1;dn++;if(j==q[3])sc++;b.classList.add(j==q[3]?"ok":"no");d.querySelectorAll(".opt")[q[3]].classList.add("ok");e.classList.add("show");$("#sc").textContent=`Score ${sc}/${dn} of ${Q.length}`};d.appendChild(b)});const e=document.createElement("div");e.className="ex";e.innerHTML="💡 "+q[4];d.appendChild(e);qs.appendChild(d)})}
+$("#rs").onclick=build;build();
+const W=[
+["Short: Define a software development process and list the four fundamental activities.","A method for developing software that organizes the effort into separate tasks and steps, so large systems can be built by many people in an organized, manageable and trackable way. Four activities: Specification (requirements, functionality, constraints), Development (build to the spec), Validation (does what the customer wants), Evolution (adapt to changing needs). Models differ in how they organize and interleave these."],
+["Short: List the Waterfall phases and one advantage and one disadvantage.","Requirements, System Design, Implementation (unit testing), Integration and Testing, Deployment, Maintenance. Advantage: simple, easy to manage because each phase has deliverables and review; works for small projects with well-understood requirements. Disadvantage: very hard to change something once in testing; unsuitable when requirements are likely to change."],
+["Long: Explain the Prototyping model, its steps and its disadvantages.","Prototyping adds an iterative, by-example requirements stage: a prototype (partial implementation with all external interfaces) is shown to users, whose feedback gradually refines the real requirements. Steps: requirements gathering and analysis (less stringent than waterfall), quick design, build prototype, customer evaluation, design refinement (loop), then full-scale development (remaining waterfall stages). Disadvantages: waste work (prototypes built with substandard quality controls and discarded even if they solved problems) and incomplete prototypes (complex systems cannot be prototyped fully, so parts may miss critical requirements at integration)."],
+["Long: Describe the Spiral model: purpose, four steps per layer, and disadvantages.","Spiral combines prototyping and waterfall, adds risk handling, and suits large, expensive, complicated projects. Each layer: (1) Determine objectives, constraints, alternatives and risks; (2) Assess and reduce risks via detailed analysis and e.g. prototypes; (3) Develop and validate using a model chosen by dominant risk (UI → evolutionary prototyping, safety → formal methods, integration → waterfall); (4) Review and plan: evaluate, decide if another layer is needed, plan the next. Disadvantages: heavyweight (documentation and meetings, slow), a meta-model not a real development model, depends on risk analysis by a very experienced team, not for beginners."],
+["Long: Compare Waterfall, Prototyping, Spiral and Iterative and recommend which to use for (a) a small project with stable requirements, (b) a large risky project.","Waterfall: sequential, simple; Prototyping: refines unclear requirements with user feedback; Spiral: risk-driven loops; Iterative: repeated design-develop-test cycles on subsets. (a) Waterfall: small, requirements well understood, easy to manage with clear deliverables. (b) Spiral: designed for large, expensive, complicated projects with continuous risk evaluation, provided an experienced team and tolerance for overhead. Iterative suits small teams with early architecture; prototyping suits unclear requirements."]];
+$("#ws").innerHTML=W.map((w,i)=>`<details><summary>${i+1}. ${w[0]}</summary><div class="def">${w[1]}</div></details>`).join("");
+</script></body></html>
