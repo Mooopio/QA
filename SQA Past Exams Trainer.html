@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SQA Past Exams Trainer</title>
+<style>
+:root{--bg:#f4f6fb;--card:#fff;--tx:#172033;--mu:#64708a;--bd:#e3e8f2;--pr:#6366f1;--pr2:#8b5cf6;--ok:#12a36b;--okb:#e6f8f0;--bad:#e5484d;--badb:#fdecec;--wn:#d98a0b;--wnb:#fff4dd;--sh:0 8px 30px rgba(40,50,90,.08);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d1120;--card:#161c30;--tx:#e8ecf8;--mu:#93a0bf;--bd:#262e48;--okb:#0f2b22;--badb:#33161a;--wnb:#2e2410;--sh:0 8px 30px rgba(0,0,0,.4)}}
+:root[data-theme="dark"]{--bg:#0d1120;--card:#161c30;--tx:#e8ecf8;--mu:#93a0bf;--bd:#262e48;--okb:#0f2b22;--badb:#33161a;--wnb:#2e2410;--sh:0 8px 30px rgba(0,0,0,.4)}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{background:var(--bg);color:var(--tx);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;min-height:100vh;overflow-x:hidden}
+body::before,body::after{content:"";position:fixed;z-index:-1;width:48vmax;height:48vmax;border-radius:50%;filter:blur(90px);opacity:.28}
+body::before{background:var(--pr);top:-18vmax;left:-12vmax}
+body::after{background:var(--pr2);bottom:-20vmax;right:-14vmax}
+.top{position:sticky;top:0;z-index:20;backdrop-filter:blur(14px);background:color-mix(in srgb,var(--bg) 78%,transparent);border-bottom:1px solid var(--bd)}
+.top div{max-width:900px;margin:auto;padding:12px 16px;display:flex;align-items:center;gap:12px}
+.logo{font-weight:800;font-size:1.1rem;cursor:pointer;background:linear-gradient(90deg,var(--pr),var(--pr2));-webkit-background-clip:text;background-clip:text;color:transparent;flex:1}
+button{font:inherit;color:inherit;cursor:pointer}
+.ic{border:1px solid var(--bd);background:var(--card);border-radius:12px;padding:8px 12px;box-shadow:var(--sh)}
+main{max-width:900px;margin:auto;padding:20px 16px 60px}
+.hero{text-align:center;padding:34px 8px 22px}
+.hero h1{font-size:clamp(1.8rem,6vw,3rem);line-height:1.15;font-weight:850;letter-spacing:-.02em}
+.hero h1 span{background:linear-gradient(90deg,var(--pr),var(--pr2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{color:var(--mu);margin-top:10px;max-width:560px;margin-inline:auto}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));margin-top:18px}
+.ex{background:var(--card);border:1px solid var(--bd);border-radius:20px;padding:20px;box-shadow:var(--sh);cursor:pointer;text-align:left;transition:.2s;display:flex;flex-direction:column;gap:6px}
+.ex:hover{transform:translateY(-4px);border-color:var(--pr)}
+.ex b{font-size:1.25rem}.ex small{color:var(--mu)}
+.tag{align-self:flex-start;background:linear-gradient(90deg,var(--pr),var(--pr2));color:#fff;border-radius:99px;padding:2px 12px;font-size:.78rem;font-weight:700}
+.best{margin-top:8px;font-size:.88rem;color:var(--mu)}
+.bar{height:8px;background:var(--bd);border-radius:9px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--pr),var(--pr2));transition:width .4s}
+.stat{position:sticky;top:58px;z-index:10;background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:12px 16px;box-shadow:var(--sh);margin:6px 0 18px}
+.stat .row{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;font-size:.9rem;margin-bottom:8px;font-weight:600}
+.back{background:none;border:0;color:var(--pr);font-weight:700;padding:6px 0}
+h2{font-size:1.5rem;margin:6px 0 2px}.sub{color:var(--mu);font-size:.9rem}
+.q{background:var(--card);border:1px solid var(--bd);border-radius:18px;padding:18px;margin-bottom:16px;box-shadow:var(--sh)}
+.q h3{font-size:1.02rem;font-weight:650;display:flex;gap:10px}
+.n{flex:none;width:30px;height:30px;border-radius:10px;background:linear-gradient(135deg,var(--pr),var(--pr2));color:#fff;display:grid;place-items:center;font-size:.85rem;font-weight:800}
+.opts{display:grid;gap:9px;margin-top:14px}
+.o{display:flex;gap:10px;text-align:left;align-items:flex-start;background:var(--bg);border:1.5px solid var(--bd);border-radius:12px;padding:11px 13px;transition:.15s;width:100%}
+.o:hover:not(:disabled){border-color:var(--pr);transform:translateX(3px)}
+.o:disabled{cursor:default}
+.o em{font-style:normal;font-weight:800;color:var(--pr);flex:none}
+.o.ok{background:var(--okb);border-color:var(--ok)}.o.ok em{color:var(--ok)}
+.o.bad{background:var(--badb);border-color:var(--bad)}.o.bad em{color:var(--bad)}
+.fb{margin-top:12px;border-radius:12px;padding:10px 13px;font-size:.93rem;display:none}
+.fb.s{display:block}.fb.ok{background:var(--okb);color:var(--ok)}.fb.bad{background:var(--badb);color:var(--bad)}
+.fb strong{display:block;font-size:1rem}
+.nt{margin-top:8px;padding:9px 12px;border-radius:10px;background:var(--wnb);color:var(--tx);font-size:.88rem;border-left:4px solid var(--wn)}
+.nt b{color:var(--wn)}
+.res{text-align:center;background:var(--card);border:1px solid var(--bd);border-radius:22px;padding:28px 18px;box-shadow:var(--sh)}
+.res .big{font-size:3rem;font-weight:850;background:linear-gradient(90deg,var(--pr),var(--pr2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:14px}
+.pb{background:linear-gradient(90deg,var(--pr),var(--pr2));color:#fff;border:0;border-radius:12px;padding:10px 20px;font-weight:700}
+.sb{background:var(--bg);border:1px solid var(--bd);border-radius:12px;padding:10px 20px;font-weight:700}
+.pop{animation:pop .35s}@keyframes pop{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media(max-width:520px){.q{padding:14px}.stat{top:56px}}
+</style>
+</head>
+<body>
+<header class="top"><div><span class="logo" onclick="location.hash=''">SQA Exam Trainer</span><button class="ic" id="th" aria-label="Toggle theme">🌙</button></div></header>
+<main id="app"></main>
+<script>
+const Q=(q,o,a,n)=>({q,o,a,n}),T=(q,a,n)=>Q(q,["True","False"],a,n);
+const EX=[
+{id:"mid2025",t:"Mid 2025",s:"Quality Management · Dr. Sarah Naiem · Helwan University",d:[
+Q("A software fault is best described as:",["A runtime crash visible to the user","An underlying defect in the code that may cause problems","A user’s mistake when operating the system","A miscommunication in requirements"],1),
+Q("Which of the following best explains why a software defect may not always lead to a failure?",["The defect occurs only in infrequently executed code paths.","Defects are automatically corrected during execution","The testing process ensures all defects are fixed before release","Failures only occur due to user errors, not software issues"],0),
+Q("Which of the following is NOT a cause of software errors?",["Faulty requirement definition","Following coding standards","Logical design errors","Coding errors"],1),
+Q("Which of the following statements contradicts Pressman’s definition of software quality?",["Software quality is strictly dependent on explicit requirements","Implicit quality factors impact the overall user experience","Documented standards ensure consistent quality","Coding speed and project cost determine quality"],0,"?Pressman also counts implicit expectations, so “strictly explicit” contradicts him. Option D is also weak, but A is the intended answer."),
+Q("“Faulty definition of requirements” most directly leads to:",["Software that fails to meet user needs","Reduced maintenance costs","Automatic standards compliance","Better testability"],0),
+Q("Which of the following is an example of a coding error?",["A user misinterpreting a software feature","A developer writing incorrect logic that causes a null pointer exception","A test plan missing a critical user scenario","A software requirement being misunderstood"],1),
+Q("The SQA process includes:",["Planning & improvement","Monitoring","Improvement","Planning & monitoring","Planning, monitoring, and improvement"],4),
+Q("What is the likely outcome if a team focuses only on Quality Control (QC) and ignores SQA?",["Defects will be prevented from occurring from the start","The development process will improve over time","The software will meet all quality standards","Bugs will be detected & fixed, but overall quality may still suffer"],3),
+Q("Which of the following is NOT a software quality factor?",["Correctness","Usability","Complexity","Reliability"],2),
+Q("Why might software pass all test cases but still contain defects?",["Test cases don’t cover every possible execution path","Automated testing eliminates all potential issues","A passed test case guarantees defect-free software","Testing primarily focuses on security vulnerabilities"],0),
+Q("Which of the following is a product revision factor?",["Portability","Maintainability","Integrity","Usability"],1),
+Q("What is the primary goal of software quality factors?",["Software size and complexity","To reduce the number of software developers","To ensure reliability, efficiency, and maintainability","To eliminate the need for software documentation"],2),
+Q("What does software efficiency focus on?",["The optimal use of system resources","The software’s ability to function correctly","The ease of modifying the software","The security of the software"],0),
+Q("Which of the following best describes the Project Development Plan?",["A document focusing solely on software testing and validation","A plan describing schedules, resource requirements, risk evaluations, and organizational issues","A checklist for reviewing customer satisfaction","A technical specification document for the software architecture"],1),
+Q("Which describes one of the committee’s possible decisions after a Formal Design Review?",["Approve continuation only after all action items are completed and verified","Cancel the entire project immediately","Approve continuation without considering any pending issues","Reassign all project staff to a new department"],0),
+Q("Which is the best example of using software quality metrics?",["Measuring developer attendance during sprints","Comparing the number of customer meetings per week","Assessing code maintainability and defect density in a released module","Tracking company profits per project"],2),
+Q("An organization wants to embed SQA into its culture. Which action is most effective?",["Having top management ensure regular SQA training and that quality rules are applied","Delegating quality to junior staff only","Conducting SQA reviews once every five years","Outsourcing all quality tasks to vendors"],0),
+Q("Adaptive maintenance involves:",["Fixing code defects found after deployment","Adjusting software to new conditions or users without changing its core functions","Improving performance and adding new features","Conducting user training sessions"],1),
+Q("The Capability Maturity Model (CMM) is primarily used to:",["Assess and improve the maturity of software development processes","Define hardware certification criteria","Measure user interface aesthetics","Replace ISO 9000 standards"],0),
+T("SQA is product-oriented and focuses on preventing defects; QC is product-oriented and focuses on detecting defects.",1,"?SQA is process-oriented (prevention); QC is product-oriented (detection)."),
+T("A software fault can exist in the code for years without causing a failure if the faulty condition is never triggered.",0),
+T("The main purpose of a contract review is to ensure legal compliance between client and vendor, not to assess project feasibility or resource adequacy.",1),
+T("Root Cause Analysis (RCA) helps organizations prevent repeated defects by identifying the underlying reason behind them.",0),
+T("A Project Quality Plan focuses on timelines, manpower, and hardware resources rather than measurable quality goals.",1),
+T("Software reliability is defined by the system’s ability to operate without failure for a specified time and under defined conditions.",0),
+T("Configuration management is unrelated to quality assurance since it only handles version control of source code.",1),
+T("Trade-offs between quality factors (e.g., security vs. usability) are uncommon in professional software development.",1),
+T("Interoperability ensures a system can communicate and function with other systems through standard protocols.",0),
+T("The integrity factor ensures both protection from unauthorized access and prevention of data corruption.",0)
+]},
+{id:"mid2024",t:"Mid 2024",s:"QA of Information Systems (IS434) · Dr. Hanan Fahmy · 28/3/2024",d:[
+Q("______ is the hardware resources needed to perform all the functions of the software system in conformance to all other requirements.",["Integrity","Efficiency","Usability"],1),
+Q("______ consist of using mathematical models or methods to verify mathematically specified properties.",["Metrics","Formal Methods","Inspections"],1),
+Q("Memory bit “stuck” is an example of ______.",["Error","Fault","Defect"],1),
+Q("______ is the scope of staff resources needed to train a new employee and to operate the software system.",["Integrity","Efficiency","Usability"],2),
+Q("______ can occur in any of the software development phases throughout the life cycle.",["Bug","Error","Defect"],1),
+Q("Software testing activities should start ______.",["As soon as the code is written","During the design stage","As soon as possible in the development life cycle"],2),
+Q("______ is one of the technical quality parameters.",["Usability","Installability","Reliability"],2),
+Q("______ is a supporting process that provides independent assurance that all work products, activities and processes comply with the predefined plans.",["DPP","SQC","SQA"],2),
+Q("______ include methods based on requirements reviews, design reviews, scheduling and planning reviews, code walkthroughs.",["Metrics","Formal Methods","Inspections"],2),
+Q("In ______ model the whole process of software development is divided into separate phases; the outcome of one phase is the input for the next.",["Iterative","Spiral","Waterfall"],2),
+Q("______ characterize the state of the organization’s processes relative to an individual process area.",["Standards","Maturity","Capability"],2),
+Q("______ covers the fundamentals and defines a vocabulary for quality management systems.",["ISO 9001:2015","ISO 9011:2011","ISO 9000:2015"],2),
+Q("______ sets audit guidelines for quality management systems.",["ISO 9001:2015","ISO 9011:2011","ISO 9000:2015"],1,"?The real audit-guidelines standard is ISO 19011:2011. The exam writes “9011”, so B is the intended answer."),
+Q("The primary objective of formal technical reviews is to find ______ during the process so that they do not become defects after release.",["Bug","Error","Fault"],1),
+Q("The degree to which a system, component, or process meets specified requirements is ______.",["QC","SQA","ISO"],0,"?Sources disagree: this exam’s key says QC, while Mid 2021 says SQA. Memorize both and follow your doctor’s slides."),
+Q("In ______ Baldrige criteria, it examines the organization’s performance and improvement in its key business areas.",["Measurements","Process Management","Results"],2),
+Q("Software bug is an example of ______.",["Error","Fault","Defect"],1),
+Q("A software bug in a subroutine is not “visible” while the subroutine is not called. This is an example of ______.",["Error","Fault","Defect"],1,"?This question was not marked on the paper. Fault is the standard answer (a dormant defect that has not been triggered)."),
+Q("The level of process that is not used or only partially completed is ______.",["Level 2","Level 1","Level 0"],2),
+Q("In CMM, the life cycle activities of requirements analysis, design, code, and test are described in ______.",["Software Product Engineering","SQA","Software Quality Management"],0),
+Q("Typical defects that are easier to find in reviews than in dynamic testing are:",["Requirement defects","Design defects","All the previous"],2),
+Q("______ characterize the state of the organization’s processes relative to an individual process area.",["Capability level","Maturity level","ISO"],0),
+Q("______ team has cross-organization members that evaluate suggested actions.",["Kickoff","Action","Process improvement"],1),
+Q("______ is a refinement of the waterfall model designed around continuous documentation and evaluation of risk.",["Iterative model","Spiral model","Prototype model"],1),
+Q("Quantitative assessment drives continual process improvement in ______ of maturity levels.",["Level 3","Level 2","Level 5"],2),
+Q("The level of the process that is managed and geared specifically towards the organization.",["Level 1","Level 2","Level 3"],2),
+T("DPP is based only on analyze and suggest steps.",1,"DPP has three steps: analyze, suggest, and implement the prevention action."),
+T("Metrics help expose anomalous or undesirable properties that may reduce reliability and maintainability.",0),
+T("CMMI: an organization is evaluated by a team comprised of a lead appraiser.",0),
+T("Kickoff meeting will be at the end of each stage of development, to review and analyze defects that occurred in that stage in a short meeting.",1,"That is the defect causal analysis meeting, not the kickoff meeting.")
+]},
+{id:"mid2021",t:"Mid 2021",s:"Testing & Quality · Midterm 2021",d:[
+Q("A tester focuses more on the complex part of the software. Which testing principle implies this?",["Testing shows presence of defects","Pesticide Paradox","Testing is context dependent","Defect Clustering"],3),
+Q("Which of the following is NOT a maturity level in CMM?",["Repeatable","Design","Managed"],1),
+Q("Repeated testing of an already tested program, after modification, to discover defects introduced or uncovered as a result of the changes:",["Re-testing","Confirmation testing","Regression testing","Negative testing"],2),
+T("Procedure error is introduced from errors in the design documents or code comments.",1,"That is a Documentation Error."),
+Q("What is beta testing?",["Testing by potential customers at the developers’ location","Testing by potential customers at their own locations","Testing by product developers at the customers’ location","Testing by product developers at their own location"],1),
+Q("In ______ Baldrige criteria, it examines the organization’s performance and improvement in its key business area.",["Measurements","Process management","Results"],2),
+Q("When reporting faults found to developers, testers should be:",["As polite, constructive and helpful as possible","Firm about insisting that a bug is not a “feature” if it should be fixed","Diplomatic, sensitive to the way they may react to criticism","All of the above"],3),
+Q("In CMM, the life cycle activities of requirements analysis, design, code & test are described in:",["Software product engineering","SQA","Software quality management"],0),
+Q("Contract and regulation testing is a part of:",["System testing","Acceptance testing","Integration testing","Smoke testing"],1),
+Q("Which is non-functional testing?",["Performance testing","Unit testing","Regression testing","Sanity testing"],0),
+T("Kickoff meeting will be at the end of each stage of development, to review and analyze defects that occurred in that stage in a short meeting.",1,"That is the defect causal analysis meeting, not the kickoff."),
+Q("Handover of testware is a part of which phase?",["Test analysis","Test planning","Test design","Test completion"],3),
+Q("______ covers the fundamentals and defines a vocabulary for quality management systems.",["ISO 9001:2015","ISO 9011:2011","ISO 9000:2015"],2),
+T("When reporting faults to developers, testers should insist on completing testing until the faults are fixed.",0,"?This question is worded confusingly; the key says True."),
+Q("______ sets audit guidelines for quality management systems.",["ISO 9001:2015","ISO 9011:2011","ISO 9000:2015"],1,"?The real standard is ISO 19011:2011. The exam writes “9011”."),
+Q("Software testing activity should start:",["As soon as the code is written","During the design stage","When the requirements have been formally documented","As soon as possible in the development life cycle"],3),
+Q("In ______ model the whole process is divided into separate phases; the outcome of one phase acts as the input for the next.",["Iterative","Spiral","Waterfall"],2),
+Q("Where may functional testing be performed?",["At system and acceptance levels only","At all test levels","At all levels above integration testing","At the acceptance level only"],1),
+Q("______ characterize the state of the organization’s processes relative to an individual process area.",["Standards","Maturity","Capability"],2),
+Q("The degree to which a system, component, or process meets specified requirements is ______.",["QC (Quality Control)","SQA (Software Quality Assurance)","ISO"],1,"?Sources disagree: this exam says SQA, while Mid 2024 says QC. Follow your doctor’s slides.")
+]},
+{id:"seta",t:"Midterm Set A",s:"Unlabeled 30-question set (Mid 2020?)",d:[
+T("Functional testing may be performed at all test levels.",0),
+Q("______ can occur in any of the software development phases throughout the life cycle.",["Bug","Error","Defect"],1),
+T("Beta testing is testing the product developed, at the customer’s location.",0,"?Worded badly, but the intended answer is True: beta testing happens at the customer’s site (alpha testing is at the developer’s site)."),
+Q("Software testing activities should start ______.",["As soon as the code is written","During the design stage","As soon as possible in the development life cycle"],2),
+T("Regression testing is considered non-functional testing.",1),
+Q("Contract and regulation testing is part of ______.",["System testing","Integration testing","Acceptance testing"],2),
+Q("______ is one of the technical quality parameters.",["Usability","Installability","Reliability"],2),
+T("A bug is the result of a coding error.",0),
+T("DPP is a software development process for continually improving the development process.",1,"!Corrected. The original key said True, but its own explanation says DPP is not itself a development process. It is a process (analyze, suggest, implement) that improves the development process, so the statement is False."),
+Q("______ is a supporting process that provides independent assurance that all work products, activities and processes comply with the predefined plans.",["DPP (Defect Prevention Process)","SQC (Software Quality Control)","SQA (Software Quality Assurance)"],2),
+Q("In ______ model the whole process is divided into separate phases; the outcome of one phase acts as the input for the next.",["Iterative","Spiral","Waterfall"],2),
+T("Inspection includes methods based on a human review of the software artifacts.",0),
+Q("______ characterize the state of the organization’s processes relative to an individual process area.",["Standards","Maturity","Capability"],2),
+Q("______ covers the fundamentals and defines a vocabulary for quality management systems.",["ISO 9001:2015","ISO 9011:2011","ISO 9000:2015"],2),
+Q("______ sets audit guidelines for quality management systems.",["ISO 9001:2015","ISO 9011:2011","ISO 9000:2015"],1,"?The real standard is ISO 19011:2011. The exam writes “9011”."),
+T("When reporting faults to developers, testers should insist not to complete testing until the faults are fixed.",1),
+T("The iterative model attempts to reduce requirements difficulty by introducing an iterative, by-example requirements stage.",1,"?The statement is garbled in the source. That description fits the Prototype model, not the iterative model, so False is the intended answer."),
+Q("Handover of testware is part of which phase?",["Planning","Completion","Testing"],1),
+Q("______ includes methods based on using tools to count the use of features or structures in the code or other artifacts, and compare them to standards.",["ISO","Metrics","Baldrige"],1,"!Spelling fixed: the source wrote “Matrix”. The correct term is Metrics."),
+Q("Which of the following is NOT part of an SQA plan for a project?",["Evaluations to be performed","Amount of technical work","Documents to be produced by the SQA group"],1),
+Q("The primary objective of formal technical review is to find ______ during the process so that they do not become defects after release.",["Bug","Error","Fault"],1),
+T("The ISO 9000 series of standards is a program that can be used for external quality assurance purposes.",1,"?Disputed: the key says False (it is a set of documents), but many textbooks say ISO 9000 is used for external quality assurance and certification. Follow your doctor’s slides."),
+Q("Which of the following is NOT a maturity level in CMM?",["Repeatable","Design","Managed"],1,"CMM levels: Initial, Repeatable, Defined, Managed, Optimizing."),
+Q("The degree to which a system, component, or process meets specified requirements:",["QC","SQA","ISO"],0,"?Sources disagree: this key says QC, while Mid 2021 says SQA. Follow your doctor’s slides."),
+T("Failure is the inability of a software or a component to perform its required functions within specified performance requirements.",0),
+T("Procedure error is introduced from errors in the design documents or code comments.",1,"That is a Documentation Error."),
+Q("In ______ Baldrige criteria, it examines the organization’s performance and improvements in its key business areas.",["Measurements","Process Management","Results"],2),
+T("Kickoff meeting will be at the end of each stage of development, to review and analyze defects that occurred in that stage.",1,"That is the defect causal analysis meeting."),
+Q("In CMM, the life cycle activities of requirements analysis, design, code and test are described in ______.",["Software product engineering","SQA","Software quality management"],0),
+T("The waterfall model classifies all software requirements into factors.",1,"The McCall model classifies requirements into 11 factors.")
+]},
+{id:"setb",t:"Midterm Set B",s:"Unlabeled 15-question set · faults, errors & reviews",d:[
+Q("What is a software error?",["A mistake made by a programmer during development","A problem caused by hardware failure","A defect found only during testing","A failure that occurs after software deployment"],0),
+Q("What is the difference between a software fault and a software failure?",["A fault is an error in the code, while a failure happens when the fault is triggered","A failure is always caused by hardware issues, while a fault is software-related","A fault is a temporary issue, while a failure is permanent","A failure occurs only in test environments, while a fault happens in production"],0),
+Q("What happens when a software fault is triggered during execution?",["The software crashes or behaves incorrectly","The software automatically fixes itself","The fault disappears and does not cause any issues","The software runs faster"],0),
+Q("If a program has an error in its logic but has not yet been executed, what is it called?",["A software failure","A software fault","A user mistake","A hardware issue"],1),
+Q("What type of error occurs when a feature is designed incorrectly, leading to unexpected behavior?",["System Failure","Coding Error","Non-Compliance Error","Logical Design Error"],3),
+Q("Which is an example of a logical design error?",["A programmer forgets to handle an exception","A discount feature applies incorrectly due to flawed logic","A program fails due to syntax errors","A developer writes code without following naming conventions"],1),
+Q("A developer writes code without comments, making it difficult for others to understand. What type of error is this?",["Logical Design Error","Coding Error","Non-Compliance Error","Hardware Error"],2),
+Q("Which of the following is NOT a Product Revision Factor?",["Maintainability","Flexibility","Testability","Integrity"],3,"Integrity is a Product Operation factor."),
+Q("Which Product Operation Factor measures how well the software performs its intended functions?",["Efficiency","Correctness","Testability","Reusability"],1),
+Q("Who are typical members of a Design Review (DR) committee?",["Only the project leader","The project leader, department manager, chief software engineer, and heads of related departments","The marketing team and end-users","Only the software developers"],1),
+Q("What happens if action items are identified during the Design Review?",["They must be completed and inspected before proceeding to the next phase","They can be ignored if the deadline is tight","The team must restart the entire development process","They are reviewed only after the software is launched"],0),
+T("Peer reviews are conducted by superiors to ensure strict adherence to management policies.",1,"Peer reviews are done by colleagues of the same level, not by superiors."),
+T("Templates and checklists, such as test case templates and code review checklists, help reduce errors and improve efficiency.",0),
+T("Staff training and certification programs, such as ISTQB and CMMI, are not considered necessary for software quality improvement.",1),
+T("The SQA unit and software testers have the same responsibilities in ensuring software quality.",1)
+]}
+];
+const app=document.getElementById("app"),L="ABCDEFGH",best={};
+const th=document.getElementById("th"),root=document.documentElement;
+function setTheme(m){root.dataset.theme=m;th.textContent=m==="dark"?"☀️":"🌙";}
+setTheme(matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light");
+th.onclick=()=>setTheme(root.dataset.theme==="dark"?"light":"dark");
+function home(){
+ app.innerHTML=`<section class="hero pop"><h1>Ace your <span>SQA midterm</span></h1><p>Pick an exam, choose an answer, and get instant right or wrong feedback with explanations.</p></section><div class="grid">${EX.map(e=>`<button class="ex pop" onclick="location.hash='${e.id}'"><span class="tag">${e.d.length} questions</span><b>${e.t}</b><small>${e.s}</small><span class="best">${best[e.id]!=null?"Best score: "+best[e.id]+"%":"Not attempted yet"}</span></button>`).join("")}</div>`;
+ scrollTo(0,0);
+}
+function quiz(e){
+ let ans=Array(e.d.length).fill(null);
+ app.innerHTML=`<button class="back" onclick="location.hash=''">← All exams</button><h2>${e.t}</h2><p class="sub">${e.s}</p>
+ <div class="stat"><div class="row"><span id="a">Answered 0/${e.d.length}</span><span id="c">✓ 0 · ✗ 0</span></div><div class="bar"><i id="p"></i></div></div>
+ <div id="qs">${e.d.map((x,i)=>`<article class="q pop" id="q${i}"><h3><span class="n">${i+1}</span><span>${x.q}</span></h3><div class="opts">${x.o.map((o,j)=>`<button class="o" data-i="${i}" data-j="${j}"><em>${L[j]}</em><span>${o}</span></button>`).join("")}</div><div class="fb"></div></article>`).join("")}</div><div id="r"></div>`;
+ scrollTo(0,0);
+ const upd=()=>{
+  const n=ans.filter(v=>v!==null).length,ok=ans.filter((v,i)=>v===e.d[i].a).length;
+  a.textContent=`Answered ${n}/${e.d.length}`;c.textContent=`✓ ${ok} · ✗ ${n-ok}`;p.style.width=n/e.d.length*100+"%";
+  if(n===e.d.length){const pc=Math.round(ok/n*100);best[e.id]=Math.max(best[e.id]||0,pc);
+   r.innerHTML=`<div class="res pop"><div class="big">${pc}%</div><p>${ok} of ${n} correct · ${pc>=85?"Excellent! 🔥":pc>=60?"Good job, review the red ones.":"Keep practicing, you’ll get there."}</p><div class="btns"><button class="pb" onclick="quiz(EX.find(x=>x.id==='${e.id}'))">Retry</button><button class="sb" onclick="location.hash=''">All exams</button></div></div>`;
+   r.scrollIntoView({behavior:"smooth",block:"center"});}
+ };
+ document.getElementById("qs").onclick=ev=>{
+  const b=ev.target.closest(".o");if(!b)return;
+  const i=+b.dataset.i,j=+b.dataset.j,x=e.d[i];if(ans[i]!==null)return;
+  ans[i]=j;const card=document.getElementById("q"+i),bs=card.querySelectorAll(".o");
+  bs.forEach(o=>o.disabled=true);bs[x.a].classList.add("ok");
+  const good=j===x.a;if(!good)bs[j].classList.add("bad");
+  const fb=card.querySelector(".fb");fb.className="fb s "+(good?"ok":"bad");
+  let h=good?"<strong>✓ Correct!</strong>":`<strong>✗ Wrong</strong>Correct answer: ${L[x.a]}) ${x.o[x.a]}`;
+  if(x.n){const f=x.n[0]==="!",d=x.n[0]==="?";h+=`<div class="nt"><b>${f?"Corrected answer: ":d?"Note: ":"Explanation: "}</b>${f||d?x.n.slice(1):x.n}</div>`;}
+  fb.innerHTML=h;upd();
+ };
+}
+function route(){const e=EX.find(x=>"#"+x.id===location.hash);e?quiz(e):home();}
+addEventListener("hashchange",route);route();
+</script>
+</body>
+</html>
