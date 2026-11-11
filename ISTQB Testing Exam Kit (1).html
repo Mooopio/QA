@@ -1,0 +1,1477 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>ISTQB Testing Exam Kit</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: sticky top bar with section tabs, one reading column (max 920px), content in collapsible cards.
+   Color: cool paper + ink, one teal accent, yellow highlighter for exam-critical text, pass/fail semantic colors.
+   Type: Bricolage Grotesque (headings), IBM Plex Sans Arabic (body, covers Latin + Arabic), IBM Plex Mono (labels). */
+:root{
+  --bg:#F3F5F7; --surface:#FFFFFF; --surface2:#E9EEF2; --ink:#10202B; --muted:#4F606D; --line:#D0D9E0;
+  --accent:#0A6C6C; --accent-ink:#FFFFFF; --accent-soft:#D6EEEB;
+  --mark:#FFE58A; --mark-ink:#2E2400;
+  --good:#17754A; --good-soft:#DDF3E8; --bad:#B3261E; --bad-soft:#FBE4E1;
+  --warn:#7D5200; --warn-soft:#FFF0CC; --info:#2A5BB5; --info-soft:#E3ECFB;
+  --font-display:'Bricolage Grotesque','IBM Plex Sans Arabic',system-ui,sans-serif;
+  --font-body:'IBM Plex Sans Arabic','IBM Plex Sans',system-ui,-apple-system,'Segoe UI',Tahoma,sans-serif;
+  --font-mono:'IBM Plex Mono',ui-monospace,Menlo,Consolas,monospace;
+  --shadow:0 1px 2px rgba(16,32,43,.06),0 6px 18px rgba(16,32,43,.05);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0D151B; --surface:#14202A; --surface2:#1B2A36; --ink:#E7EEF3; --muted:#9BAAB6; --line:#2A3B48;
+    --accent:#4FC6BA; --accent-ink:#06211F; --accent-soft:#12343A;
+    --mark:#6B5800; --mark-ink:#FFF3C2;
+    --good:#4CC38A; --good-soft:#123425; --bad:#FF8F85; --bad-soft:#3A1816;
+    --warn:#F2C25B; --warn-soft:#352A0C; --info:#8EB4F5; --info-soft:#172A4A;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 6px 18px rgba(0,0,0,.25); color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0D151B; --surface:#14202A; --surface2:#1B2A36; --ink:#E7EEF3; --muted:#9BAAB6; --line:#2A3B48;
+  --accent:#4FC6BA; --accent-ink:#06211F; --accent-soft:#12343A;
+  --mark:#6B5800; --mark-ink:#FFF3C2;
+  --good:#4CC38A; --good-soft:#123425; --bad:#FF8F85; --bad-soft:#3A1816;
+  --warn:#F2C25B; --warn-soft:#352A0C; --info:#8EB4F5; --info-soft:#172A4A;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 6px 18px rgba(0,0,0,.25); color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.65;margin:0}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--surface);z-index:30}
+h1,h2,h3,h4{font-family:var(--font-display);line-height:1.2;margin:0;text-wrap:balance;letter-spacing:-.01em}
+p{margin:.55em 0}
+ul,ol{margin:.4em 0;padding-inline-start:1.3em}
+li{margin:.25em 0}
+a{color:var(--accent)}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px;border-radius:6px}
+mark{background:var(--mark);color:var(--mark-ink);padding:0 .25em;border-radius:3px;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+code,.mono{font-family:var(--font-mono);font-size:.88em}
+code{background:var(--surface2);padding:.05em .35em;border-radius:4px}
+
+/* chapter filter */
+.chbar{display:flex;gap:6px;align-items:center;margin:8px 0 0;padding-bottom:8px;flex-wrap:wrap}
+.chbar span{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-inline-end:4px}
+.chbar .btn{padding:4px 12px;font-size:.82rem}
+html[data-chf="2"] [data-ch="3"],html[data-chf="3"] [data-ch="2"]{display:none!important}
+.chtag{font-family:var(--font-mono);font-size:.68rem;border-radius:6px;padding:2px 7px;background:var(--accent-soft);color:var(--accent);border:1px solid var(--accent);white-space:nowrap}
+.chtag.c3{background:var(--info-soft);color:var(--info);border-color:var(--info)}
+.code{font-family:var(--font-mono);font-size:.88rem;background:var(--surface2);border:1px solid var(--line);border-radius:8px;padding:10px 12px;margin:8px 0;white-space:pre;overflow-x:auto;direction:ltr;text-align:left}
+
+/* top bar */
+.topbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--surface);border-bottom:1px solid var(--line)}
+.topin{max-width:920px;margin:0 auto;padding-block:10px 0;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.toprow{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{display:flex;flex-direction:column;min-width:0}
+.brand b{font-family:var(--font-display);font-size:1.15rem;font-weight:700;white-space:nowrap}
+.brand span{font-family:var(--font-mono);font-size:.72rem;color:var(--muted);letter-spacing:.04em;text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.iconbtn{border:1px solid var(--line);background:var(--surface2);border-radius:999px;padding:6px 14px;font-size:.85rem;font-weight:500;display:inline-flex;gap:8px;align-items:center;white-space:nowrap}
+.iconbtn:hover{border-color:var(--accent)}
+.tabs{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;margin-top:8px;padding-bottom:0}
+.tabs::-webkit-scrollbar{display:none}
+.tab{border:0;background:transparent;padding:10px 14px;font-weight:600;font-size:.92rem;color:var(--muted);border-bottom:3px solid transparent;white-space:nowrap}
+.tab:hover{color:var(--ink)}
+.tab[aria-selected="true"]{color:var(--accent);border-bottom-color:var(--accent)}
+
+/* page */
+main{max-width:920px;margin:0 auto;padding-block:24px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.panel{display:none}
+.panel.active{display:block;animation:rise .22s ease-out}
+@keyframes rise{from{opacity:.001;transform:translateY(6px)}to{opacity:1;transform:none}}
+.hero{display:grid;gap:8px;margin-bottom:18px}
+.hero h1{font-size:clamp(1.7rem,4.5vw,2.4rem)}
+.hero p{color:var(--muted);max-width:68ch;margin:0}
+.eyebrow{font-family:var(--font-mono);font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0 18px}
+.btn{border:1px solid var(--line);background:var(--surface);border-radius:8px;padding:7px 14px;font-weight:500;font-size:.88rem}
+.btn:hover{border-color:var(--accent);color:var(--accent)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn.primary:hover{color:var(--accent-ink);filter:brightness(1.08)}
+.btn[aria-pressed="true"]{background:var(--accent-soft);border-color:var(--accent);color:var(--accent)}
+
+/* cards */
+details.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;margin:0 0 14px;box-shadow:var(--shadow)}
+details.card>summary{list-style:none;cursor:pointer;padding:14px 16px;display:flex;align-items:center;gap:12px;font-family:var(--font-display);font-weight:700;font-size:1.12rem;border-radius:12px}
+details.card>summary::-webkit-details-marker{display:none}
+details.card>summary .tag{font-family:var(--font-mono);font-weight:500;font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line);border-radius:6px;padding:2px 7px;white-space:nowrap}
+details.card>summary .chev{margin-inline-start:auto;width:10px;height:10px;border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);transform:rotate(45deg);transition:transform .2s;flex:none}
+details.card[open]>summary .chev{transform:rotate(-135deg)}
+details.card[open]>summary{border-bottom:1px solid var(--line);border-bottom-left-radius:0;border-bottom-right-radius:0}
+.cbody{padding:6px 16px 16px;min-width:0}
+details[open]>.cbody{animation:rise .2s ease-out}
+.sub{margin:18px 0 6px;font-size:1.02rem;color:var(--ink)}
+.sub small{font-family:var(--font-mono);font-weight:500;color:var(--muted);font-size:.72rem;margin-inline-start:6px}
+
+/* callouts */
+.box{position:relative;border-radius:10px;padding:30px 14px 12px;margin:12px 0;background:var(--surface2);min-width:0}
+.box::before{content:attr(data-label);position:absolute;top:8px;inset-inline-start:12px;font-family:var(--font-mono);font-size:.68rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.box>:first-child{margin-top:0}.box>:last-child{margin-bottom:0}
+.box.def{background:var(--info-soft)}.box.def::before{color:var(--info)}
+.box.key{background:var(--accent-soft)}.box.key::before{color:var(--accent)}
+.box.exam{background:var(--warn-soft)}.box.exam::before{color:var(--warn)}
+.box.trap{background:var(--bad-soft)}.box.trap::before{color:var(--bad)}
+.box.mnem{background:var(--good-soft)}.box.mnem::before{color:var(--good)}
+.box.ex{background:transparent;border:1px dashed var(--line)}
+.box.slide{background:transparent;border:1px solid var(--line)}
+.box.slide::before{content:"From the slides"}
+
+/* Arabic explanation blocks */
+.ar{direction:rtl;text-align:right;font-size:1.04rem;line-height:1.95}
+.ar ul,.ar ol{padding-inline-start:1.4em}
+.ar b,.ar strong{font-weight:700}
+.en{direction:ltr;text-align:left}
+.box.ar::before{inset-inline-start:auto;inset-inline-end:12px;letter-spacing:0;font-size:.8rem;font-family:var(--font-body)}
+.ar .ltr,.ltr{direction:ltr;unicode-bidi:isolate;display:inline-block}
+
+/* tables */
+.tablewrap{overflow-x:auto;margin:10px 0;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:.92rem}
+.tablewrap.wide table{min-width:620px}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+th{background:var(--surface2);font-family:var(--font-display);font-size:.88rem}
+tr:last-child td{border-bottom:0}
+td:first-child{font-weight:600}
+td ul{margin:0;padding-inline-start:1.1em}
+
+/* grids */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px}
+.mini{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px;min-width:0}
+.mini h4{font-size:.98rem;margin-bottom:4px}
+.mini .n{font-family:var(--font-mono);font-size:.7rem;color:var(--accent);letter-spacing:.06em;text-transform:uppercase}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+.chip{font-family:var(--font-mono);font-size:.74rem;border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:2px 10px}
+.chip.hot{background:var(--accent-soft);border-color:var(--accent);color:var(--accent)}
+.flow{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:12px 0}
+.flow .node{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:8px 12px;font-weight:600;font-size:.9rem}
+.flow .node.a{background:var(--accent-soft);border-color:var(--accent);color:var(--accent)}
+.flow .node.b{background:var(--bad-soft);border-color:var(--bad);color:var(--bad)}
+.flow .arr{color:var(--muted);font-family:var(--font-mono)}
+.figure{margin:12px 0;border:1px solid var(--line);border-radius:10px;background:var(--surface);padding:10px;overflow-x:auto}
+.figure svg{display:block;width:100%;min-width:560px;height:auto}
+.figure figcaption{font-size:.84rem;color:var(--muted);margin-top:6px}
+.svgtext{fill:var(--ink);font-family:var(--font-body);font-size:13px}
+.svgbar{fill:var(--surface2);stroke:var(--line)}
+.sh-e{fill:var(--info-soft);stroke:var(--info);stroke-width:1.5}
+.sh-f{fill:var(--warn-soft);stroke:var(--warn);stroke-width:1.5}
+.sh-x{fill:var(--bad-soft);stroke:var(--bad);stroke-width:1.5}
+.ln{stroke:var(--muted);stroke-width:1.3;fill:none}
+
+/* MCQ */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin:12px 0}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.stat b{display:block;font-family:var(--font-display);font-size:1.5rem;font-variant-numeric:tabular-nums}
+.stat span{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.bar{height:8px;background:var(--surface2);border-radius:99px;overflow:hidden;margin:6px 0 2px}
+.bar i{display:block;height:100%;background:var(--accent);width:0;transition:width .35s ease}
+.q{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:0 0 14px;box-shadow:var(--shadow)}
+.qhead{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-bottom:6px}
+.qn{font-family:var(--font-mono);font-size:.78rem;font-weight:500;color:var(--muted)}
+.badge{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;border-radius:6px;padding:2px 8px;border:1px solid var(--line);color:var(--muted)}
+.badge.easy{color:var(--good);border-color:var(--good)}
+.badge.medium{color:var(--warn);border-color:var(--warn)}
+.badge.hard{color:var(--bad);border-color:var(--bad)}
+.badge.tricky{background:var(--bad-soft);color:var(--bad);border-color:var(--bad)}
+.qtext{font-weight:600;margin:4px 0 10px}
+.opts{display:grid;gap:8px}
+.opt{display:flex;gap:10px;align-items:flex-start;text-align:left;border:1px solid var(--line);background:var(--surface);border-radius:10px;padding:10px 12px;width:100%;transition:border-color .15s,background .15s}
+.opt:hover:not(:disabled){border-color:var(--accent);background:var(--accent-soft)}
+.opt .l{font-family:var(--font-mono);font-weight:500;color:var(--muted);flex:none;width:1.4em}
+.opt:disabled{cursor:default}
+.opt.right{background:var(--good-soft);border-color:var(--good)}
+.opt.right .l{color:var(--good)}
+.opt.wrong{background:var(--bad-soft);border-color:var(--bad)}
+.opt.wrong .l{color:var(--bad)}
+.opt .res{margin-inline-start:auto;font-family:var(--font-mono);font-size:.68rem;letter-spacing:.08em;font-weight:500;flex:none}
+.qfoot{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.exp{display:none;margin-top:10px}
+.exp.show{display:block;animation:rise .2s ease-out}
+.empty{padding:24px;text-align:center;color:var(--muted);border:1px dashed var(--line);border-radius:12px}
+
+/* written */
+.wq{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:0 0 14px;box-shadow:var(--shadow)}
+.wq h3{font-size:1.02rem;margin:4px 0 6px;font-family:var(--font-body);font-weight:600}
+.model{display:none;margin-top:10px;border-top:1px dashed var(--line);padding-top:10px}
+.model.show{display:block;animation:rise .2s ease-out}
+
+/* revision */
+.sheet{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px}
+.sheet .mini h4{font-size:.9rem;font-family:var(--font-mono);letter-spacing:.05em;text-transform:uppercase;color:var(--accent);font-weight:500}
+.sheet ul{padding-inline-start:1.1em;margin:.2em 0;font-size:.93rem}
+.cl{list-style:none;padding:0;margin:0;display:grid;gap:6px}
+.cl label{display:flex;gap:10px;align-items:flex-start;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--surface);cursor:pointer}
+.cl input{margin-top:.35em;accent-color:var(--accent)}
+.cl input:checked+span{text-decoration:line-through;color:var(--muted)}
+.fc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+.fc{perspective:900px;border:0;background:none;padding:0;text-align:left;min-height:130px}
+.fc .in{position:relative;width:100%;height:100%;min-height:130px;transition:transform .45s;transform-style:preserve-3d}
+.fc.flip .in{transform:rotateY(180deg)}
+.fc .f,.fc .b{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border:1px solid var(--line);border-radius:12px;padding:14px;background:var(--surface);display:flex;flex-direction:column;justify-content:center;overflow:auto;font-size:.93rem}
+.fc .f{font-weight:600}
+.fc .b{transform:rotateY(180deg);background:var(--accent-soft);border-color:var(--accent)}
+.fc small{font-family:var(--font-mono);font-size:.64rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.foot{margin-top:28px;color:var(--muted);font-size:.82rem;font-family:var(--font-mono)}
+@media (max-width:560px){
+  .brand span{display:none}
+  details.card>summary{font-size:1.02rem;padding:12px}
+  .cbody{padding:4px 12px 14px}
+  th,td{padding:8px 9px;font-size:.88rem}
+  .tab{padding:10px 11px;font-size:.88rem}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+</style>
+
+<header class="topbar">
+  <div class="topin">
+    <div class="toprow">
+      <div class="brand"><b>ISTQB Testing</b><span>Software Quality Control · Ch 2 + Ch 3 · Exam kit</span></div>
+      <button class="iconbtn" id="themeBtn" type="button" aria-label="Toggle dark and light mode"><span id="themeIcon">◐</span><span id="themeLbl">Theme</span></button>
+    </div>
+    <nav class="tabs" role="tablist" aria-label="Sections">
+      <button class="tab" role="tab" data-go="explain">Explanation</button>
+      <button class="tab" role="tab" data-go="summary">Summary</button>
+      <button class="tab" role="tab" data-go="memory">Memory Lab</button>
+      <button class="tab" role="tab" data-go="mcq">MCQs</button>
+      <button class="tab" role="tab" data-go="written">Written</button>
+      <button class="tab" role="tab" data-go="revision">Revision Sheet</button>
+    </nav>
+    <div class="chbar" role="group" aria-label="Chapter filter">
+      <span>Show</span>
+      <button class="btn" data-chf="all" aria-pressed="true">Both chapters</button>
+      <button class="btn" data-chf="2" aria-pressed="false">Ch 2 · Testing in the SDLC</button>
+      <button class="btn" data-chf="3" aria-pressed="false">Ch 3 · Static Testing</button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ============================ EXPLANATION ============================ -->
+<section class="panel" id="p-explain" aria-labelledby="h-explain">
+  <div class="hero">
+    <div class="eyebrow">Phase 1 · Deep understanding</div>
+    <h1 id="h-explain">Explanation, concept by concept</h1>
+    <p>Every slide of both chapters is covered. Slide wording is in English (that is what you write in the exam); the Egyptian-Arabic parts give the intuition and analogy.</p>
+  </div>
+  <div class="toolbar">
+    <button class="btn" data-expand="p-explain" data-state="open">Expand all</button>
+    <button class="btn" data-expand="p-explain" data-state="close">Collapse all</button>
+  </div>
+
+  <details class="card" open data-ch="2">
+    <summary><span class="chtag">Ch 2</span> 0 · Chapter 2 in one story <span class="tag">Roadmap</span><i class="chev"></i></summary>
+    <div class="cbody">
+      <div class="box key ar" data-label="الخلاصة" dir="rtl" lang="ar"><p>الـ testing مش مرحلة في آخر المشروع. في أي <b>SDLC model</b> فيه اختبار جنب كل نشاط تطوير. الـ testing بينقسم على <b>5 مستويات (Test Levels)</b> من الأصغر للأكبر، وكل مستوى ليه هدف وأساس (basis) وحاجة بيختبرها (object) وعيوب مميزة ومسؤول. وبعدين فيه <b>أنواع (Test Types)</b> بتتطبق على كل المستويات: functional، non-functional، black/white box، وبعد أي تغيير: confirmation و regression.</p></div>
+      <div class="flow"><span class="node">SDLC models</span><span class="arr">→</span><span class="node a">5 Test levels</span><span class="arr">→</span><span class="node a">Test types</span><span class="arr">→</span><span class="node b">Change? Confirmation + Regression</span></div>
+      <div class="flow"><span class="node">Component</span><span class="arr">→</span><span class="node">Component integration</span><span class="arr">→</span><span class="node">System</span><span class="arr">→</span><span class="node">System integration</span><span class="arr">→</span><span class="node">Acceptance</span></div>
+    </div>
+  </details>
+
+  <details class="card" open data-ch="2">
+    <summary><span class="chtag">Ch 2</span> 1 · Software development lifecycle models <span class="tag">2.1</span><i class="chev"></i></summary>
+    <div class="cbody">
+      <div class="box def en" data-label="Definition"><p>A software development lifecycle model describes the <mark>types of activity performed at each stage</mark> in a software development project, and <mark>how the activities relate to one another logically and chronologically</mark>.</p></div>
+      <div class="box slide en" data-label="Software development and software testing">
+        <p>It is an important part of a tester's role to be familiar with the common SDLC models so that appropriate test activities can take place. In <b>any</b> SDLC model, characteristics of good testing are:</p>
+        <ol>
+          <li>For every development activity, there is a <b>corresponding test activity</b>.</li>
+          <li>Each test level has <b>test objectives specific to that level</b>.</li>
+          <li>Test analysis and design for a given test level <b>begin during the corresponding development activity</b>.</li>
+          <li>Testers participate in discussions to define and refine requirements and design, and are involved in <b>reviewing work products</b> (requirements, design, user stories…) <b>as soon as drafts are available</b>.</li>
+        </ol>
+        <p>The syllabus categorizes models as: <b>Sequential development models</b> and <b>Iterative and incremental development models</b>.</p>
+      </div>
+      <div class="ar" dir="rtl" lang="ar">
+        <p><b>SDLC model</b> = خطة الرحلة: إيه الأنشطة في كل مرحلة وترتيبها. المهم للـ tester: <b>الاختبار مش بيستنى الكود</b>. من أول ما الـ requirements تتكتب كمسودة، الـ tester بيشارك ويراجع (ده ربط مباشر بالـ static testing في Ch 3).</p>
+      </div>
+
+      <h3 class="sub">Sequential models: Waterfall and V-model</h3>
+      <div class="box slide en" data-label="From the slides">
+        <p>A <b>sequential development model</b> describes the process as a <mark>linear, sequential flow of activities</mark>. Any phase should begin when the previous phase is complete. In theory there is no overlap of phases, but in practice it is beneficial to have early feedback from the following phase.</p>
+        <p><b>Waterfall:</b> development proceeds through successive phases. <b>Reviews and test preparation can begin early</b>, while <b>dynamic testing requires executable software</b>.</p>
+        <p><b>V-model:</b> explicitly <mark>links development activities with corresponding test levels</mark>. Test analysis and design begin alongside the related development activities. It includes test levels for each development phase, which further supports <b>early testing</b>.</p>
+        <p>Sequential models deliver software with the <b>complete set of features</b>, but typically require <b>months or years</b> for delivery to stakeholders and users.</p>
+      </div>
+      <div class="ar" dir="rtl" lang="ar">
+        <div class="box ex ar" data-label="تشبيه"><p><b>Waterfall</b> = سلم نازل: متنزلش درجة غير لما تخلّص اللي فوقها. <b>V-model</b> = نفس السلم، بس كل درجة نزول (تطوير) ليها درجة طلوع قصادها (اختبار): requirements ↔ acceptance، design ↔ system، وهكذا. الشكل حرف V وكل جنب بيقابل التاني.</p></div>
+        <p>نقطة مهمة: في Waterfall الـ <b>dynamic testing</b> محتاج software شغّال، لكن <b>الـ reviews وتحضير الاختبار</b> ممكن يبدأوا بدري.</p>
+      </div>
+
+      <h3 class="sub">Iterative and incremental models</h3>
+      <div class="box slide en" data-label="From the slides">
+        <ul>
+          <li><b>Incremental development:</b> establishing requirements, designing, building and testing a system <mark>in pieces</mark>, so the software’s features <b>grow incrementally</b>. Increment sizes vary: some methods have larger pieces, some smaller.</li>
+          <li><b>Iterative development:</b> groups of features are specified, designed, built and tested together <mark>in a series of cycles</mark>, often of a fixed duration. Iterations may change features from earlier iterations, and project scope.</li>
+          <li><b>Iterative</b> refines a solution through repeated cycles. <b>Incremental</b> adds capabilities in successive increments. A project <b>may combine both</b>.</li>
+        </ul>
+      </div>
+      <div class="ar" dir="rtl" lang="ar">
+        <div class="box ex ar" data-label="تشبيه"><p><b>Incremental</b> = تبني بيت أوضة أوضة: كل مرة بتضيف حتة جديدة. <b>Iterative</b> = ترسم لوحة وبتعدّل فيها كل دورة لحد ما تتحسن. وممكن تعمل الاتنين: تضيف أوضة جديدة ومعاها تعدّل في اللي اتبنى.</p></div>
+      </div>
+      <div class="tablewrap"><table>
+        <thead><tr><th></th><th>Sequential</th><th>Incremental</th><th>Iterative</th></tr></thead>
+        <tbody>
+          <tr><td>Idea</td><td>Linear flow; next phase starts after previous completes</td><td>Build/test system in pieces; features grow</td><td>Series of cycles refining the solution</td></tr>
+          <tr><td>Delivery</td><td>Complete feature set, months or years</td><td>Successive increments</td><td>Fixed-duration cycles; may change earlier features and scope</td></tr>
+          <tr><td>Examples</td><td>Waterfall, V-model</td><td>(pieces added)</td><td>(repeated refinement)</td></tr>
+        </tbody></table></div>
+      <div class="box mnem" data-label="Mnemonic"><p><b>Waterfall = water flows one way. V-model = Verify each side. Incremental = “add”. Iterative = “re-do/refine”.</b> Four good-testing rules: <b>C-O-B-P</b> = <b>C</b>orresponding activity, <b>O</b>bjectives per level, <b>B</b>egin early (test analysis/design), <b>P</b>articipate in reviews.</p></div>
+      <div class="box trap" data-label="Trap"><p>“No overlap of phases” is true <b>in theory</b> for sequential models; in practice early feedback from the next phase is beneficial. And do not say Waterfall can’t start any testing until the end: <b>reviews and test preparation can begin early</b>, only <b>dynamic</b> testing needs executable software.</p></div>
+    </div>
+  </details>
+
+  <details class="card" open data-ch="2">
+    <summary><span class="chtag">Ch 2</span> 2 · Test levels: the big picture <span class="tag">2.2</span><i class="chev"></i></summary>
+    <div class="cbody">
+      <div class="box def en" data-label="Definition">
+        <ul><li>Test levels are <mark>groups of test activities that are organized and managed together</mark>.</li><li>Each test level is an <b>instance of the test process</b>.</li><li>Test levels are related to other activities within the SDLC.</li></ul>
+      </div>
+      <div class="box slide en" data-label="Levels and attributes">
+        <p><b>Levels in the syllabus:</b> Component · Component Integration · System · System Integration · Acceptance.</p>
+        <p><b>Each level is characterized by:</b> (1) specific objectives (reducing risk, finding defects, verifying specified behaviour, building confidence in the test object’s quality), (2) test basis, (3) test object, (4) typical defects and failures, (5) specific approaches and responsibilities.</p>
+        <p><b>Environment:</b> every level needs a suitable test environment. In acceptance testing, a <b>production-like</b> environment is ideal; in component testing, developers typically use <b>their own development environment</b>.</p>
+      </div>
+      <div class="ar" dir="rtl" lang="ar">
+        <div class="box ex ar" data-label="تشبيه جامع"><p>تصنيع عربية: <b>Component</b> = تختبر البوجي لوحده. <b>Component integration</b> = الموتور مع ناقل الحركة (التفاعل بينهم). <b>System</b> = العربية كلها على الطريق. <b>System integration</b> = العربية مع الأنظمة الخارجية (محطة الشحن/السيستم بتاع الدفع). <b>Acceptance</b> = العميل بيجرّبها قبل ما يستلم. كل مرحلة أكبر من اللي قبلها.</p></div>
+      </div>
+      <div class="tablewrap wide"><table>
+        <thead><tr><th>Level</th><th>Focus</th><th>Typical responsibility</th></tr></thead>
+        <tbody>
+          <tr><td>1 Component (unit)</td><td>Components in isolation</td><td>Developer who wrote the code</td></tr>
+          <tr><td>2 Component integration</td><td>Interfaces and interactions between components</td><td>Often developers</td></tr>
+          <tr><td>3 System</td><td>Overall behavior of the entire system, end to end, functional + non-functional</td><td>May be an independent test team</td></tr>
+          <tr><td>4 System integration</td><td>Interfaces to other systems and external services</td><td>Generally testers</td></tr>
+          <tr><td>5 Acceptance</td><td>Validation and readiness for deployment; meets users’ business needs</td><td>Customers, business users, product owners, operators</td></tr>
+        </tbody></table></div>
+      <div class="box mnem" data-label="Mnemonic"><p><b>C-CI-S-SI-A</b> → “<b>C</b>ats <b>C</b>an’t <b>I</b>gnore <b>S</b>illy <b>S</b>ounds, <b>I</b>nstantly <b>A</b>larmed”. The attribute list <b>O-B-O-D-A</b> = <b>O</b>bjectives, <b>B</b>asis, <b>O</b>bject, <b>D</b>efects, <b>A</b>pproaches/responsibilities.</p></div>
+    </div>
+  </details>
+
+  <details class="card" open data-ch="2">
+    <summary><span class="chtag">Ch 2</span> 3 · Component (unit) testing <span class="tag">Level 1</span><i class="chev"></i></summary>
+    <div class="cbody">
+      <div class="box def en" data-label="Definition"><p><b>Component testing</b> (also known as <b>unit testing</b>) focuses on testing components <mark>in isolation</mark>. It often requires specific support, such as <b>test harnesses</b> or <b>unit test frameworks</b>.</p></div>
+      <div class="grid">
+        <div class="mini"><div class="n">Test basis</div><ul><li>Detailed design</li><li>Code</li><li>Data model</li><li>Component specifications</li></ul></div>
+        <div class="mini"><div class="n">Test objects</div><ul><li>Components, units or modules</li><li>Code and data structures</li><li>Classes</li><li>Database modules</li></ul></div>
+        <div class="mini"><div class="n">Typical defects and failures</div><ul><li>Incorrect functionality (not as described in design specifications)</li><li>Data flow problems</li><li>Incorrect code and logic</li></ul></div>
+        <div class="mini"><div class="n">Approach / responsibility</div><p>Usually performed by <b>the developer who wrote the code</b>.</p></div>
+      </div>
+      <div class="ar" dir="rtl" lang="ar"><p>الـ <b>isolation</b> هو الكلمة المفتاح: بتعزل الـ component عن باقي السيستم (وبتستخدم test harness أو unit test framework بدل الأجزاء التانية). عشان كده الـ developer نفسه هو اللي بيعمله في الغالب، وبيستخدم بيئة التطوير بتاعته.</p></div>
+    </div>
+  </details>
+
+  <details class="card" open data-ch="2">
+    <summary><span class="chtag">Ch 2</span> 4 · Component integration testing <span class="tag">Level 2</span><i class="chev"></i></summary>
+    <div class="cbody">
+      <div class="box def en" data-label="Definition"><p><b>Component integration testing</b> (also known as <b>unit integration testing</b>) focuses on testing the <mark>interfaces and interactions between components</mark>. It is heavily dependent on the <b>integration strategy</b>: <b>bottom-up</b>, <b>top-down</b> or <b>big-bang</b>.</p></div>
+      <div class="grid">
+        <div class="mini"><div class="n">Test basis</div><ul><li>Software and system design</li><li>Sequence diagrams</li><li>Interface and communication protocol specifications</li><li>Use cases</li><li>Architecture at component or system level</li></ul></div>
+        <div class="mini"><div class="n">Test objects</div><ul><li>Subsystems</li><li>Databases</li><li>Infrastructure</li><li>Interfaces</li><li>APIs</li><li>Microservices</li></ul></div>
+        <div class="mini"><div class="n">Approach / responsibility</div><p>Often the responsibility of <b>developers</b>.</p></div>
+      </div>
+      <div class="ar" dir="rtl" lang="ar"><p>هنا مش بتسأل “كل component شغال لوحده؟” (ده الـ component testing) لكن <b>“لما يتكلموا مع بعض بيتفاهموا؟”</b>. الـ integration strategies: <b>bottom-up</b> (من تحت لفوق)، <b>top-down</b> (من فوق لتحت)، <b>big-bang</b> (توصّل كل حاجة مرة واحدة).</p></div>
+      <div class="box trap" data-label="Trap"><p>Component integration = interfaces <b>between components inside</b> the system. System integration (below) = interfaces to <b>other systems and external services</b>.</p></div>
+    </div>
+  </details>
+
+  <details class="card" open data-ch="2">
+    <summary><span class="chtag">Ch 2</span> 5 · System testing <span class="tag">Level 3</span><i class="chev"></i></summary>
+    <div class="cbody">
+      <div class="box def en" data-label="Definition"><p>System testing focuses on the <mark>overall behavior and capabilities of an entire system or product</mark>, often including <b>functional testing of end-to-end tasks</b> and the <b>non-functional testing of quality characteristics</b>. For some non-functional characteristics (e.g., <b>usability</b>) it is preferable to test on a <b>complete system in a representative test environment</b>. Using <b>simulations of subsystems</b> is also possible.</p></div>
+      <div class="grid">
+        <div class="mini"><div class="n">Test basis</div><ul><li>System and software requirement specifications (functional and non-functional)</li><li>Risk analysis reports</li><li>Use cases</li><li>Epics and user stories</li><li>Models of system behavior</li><li>State diagrams</li><li>System and user manuals</li></ul></div>
+        <div class="mini"><div class="n">Test objects</div><ul><li>Applications</li><li>Hardware/software systems</li><li>Operating systems</li><li>System under test (SUT)</li><li>System configuration and configuration data</li></ul></div>
+        <div class="mini"><div class="n">Typical defects and failures</div><ul><li>Incorrect calculations</li><li>Incorrect or unexpected functional or non-functional behavior</li><li>Incorrect control and/or data flows within the system</li><li>Failure to properly and completely carry out end-to-end functional tasks</li><li>Failure to work properly in the production environment(s)</li><li>Failure to work as described in system and user manuals</li></ul></div>
+        <div class="mini"><div class="n">Approach / responsibility</div><p>Focus on the overall, end-to-end behavior as a whole, functional and non-functional. May be performed by an <b>independent test team</b>, and is related to <b>specifications for the system</b>.</p></div>
+      </div>
+      <div class="ar" dir="rtl" lang="ar"><p>الـ system testing بيبص للسيستم <b>كصندوق واحد من أوله لآخره</b> (end-to-end)، ومش بس “بيعمل إيه” لكن كمان “بيعمل بجودة إيه” (non-functional). الاختبار على بيئة تشبه الحقيقية، وممكن تستخدم <b>simulations</b> لأجزاء مش متاحة.</p></div>
+    </div>
+  </details>
+
+  <details class="card" open data-ch="2">
+    <summary><span class="chtag">Ch 2</span> 6 · System integration testing <span class="tag">Level 4</span><i class="chev"></i></summary>
+    <div class="cbody">
+      <div class="box def en" data-label="Definition"><p>System integration testing focuses on testing the <mark>interfaces of the system under test and other systems and external services</mark>. <b>Example:</b> check registration with the external payment system.</p></div>
+      <div class="grid">
+        <div class="mini"><div class="n">Typical defects and failures</div><ul><li>Inconsistent message structures between systems</li><li>Incorrect data, missing data, or incorrect data encoding</li><li>Interface mismatch</li><li>Failures in communication between systems</li><li>Unhandled or improperly handled communication failures between systems</li></ul></div>
+        <div class="mini"><div class="n">Approach / responsibility</div><p>Needs suitable test environments, preferably <b>similar to the operational environment</b>. Generally the responsibility of <b>testers</b>.</p></div>
+      </div>
+      <div class="ar" dir="rtl" lang="ar"><p>المثال اللي في السلايد: التسجيل (registration) بيكلّم <b>سيستم دفع خارجي</b>. مش بتختبر السيستم بتاعك لوحده، بتختبر <b>الوصلة بينه وبين برّه</b>. العيوب النموذجية كلها عن الرسايل والداتا والـ interfaces.</p></div>
+    </div>
+  </details>
+
+  <details class="card" open data-ch="2">
+    <summary><span class="chtag">Ch 2</span> 7 · Acceptance testing <span class="tag">Level 5</span><i class="chev"></i></summary>
+    <div class="cbody">
+      <div class="box def en" data-label="Definition"><p>Acceptance testing focuses on <mark>validation and on demonstrating readiness for deployment</mark>, which means the system <b>fulfills the user’s business needs</b>. Main forms: <b>UAT</b> · <b>operational acceptance testing (OAT)</b> · <b>contractual</b> &amp; <b>regulatory</b> acceptance testing · <b>alpha</b> &amp; <b>beta</b> testing.</p></div>
+      <div class="tablewrap wide"><table>
+        <thead><tr><th>Form</th><th>Who / where</th><th>What / objective</th></tr></thead>
+        <tbody>
+          <tr><td>User acceptance testing (UAT)</td><td>Users, in a real or simulated operational environment</td><td>Validate <b>fitness for use</b> by intended users. Build confidence that users can use the system to meet their needs, fulfill requirements and perform business processes with <b>minimum difficulty, cost and risk</b>.</td></tr>
+          <tr><td>Operational acceptance testing (OAT)</td><td>Operations or systems administration staff, usually in a (simulated) production environment</td><td>Operational aspects: backup and restore; installing, uninstalling, upgrading; disaster recovery; user management; maintenance tasks; data load and migration tasks; security vulnerability checks; performance testing. Objective: confidence that operators/admins can keep the system working properly, <b>even under exceptional or difficult conditions</b>.</td></tr>
+          <tr><td>Contractual acceptance testing</td><td>Often users or independent testers</td><td>Against a <b>contract’s acceptance criteria</b> for custom-developed software.</td></tr>
+          <tr><td>Regulatory acceptance testing</td><td>Often users or independent testers; results sometimes witnessed or audited by regulatory agencies</td><td>Against regulations to be adhered to (government, legal, safety). Objective of both contractual and regulatory: confidence that <b>compliance</b> has been achieved.</td></tr>
+          <tr><td>Alpha testing</td><td>At the <b>developing organization’s site</b>, not by the development team but by potential/existing customers, operators or an independent test team</td><td>Typically for <b>COTS</b> software; feedback before marketing.</td></tr>
+          <tr><td>Beta testing</td><td>Potential/existing customers and/or operators at <b>their own locations</b>; may come after alpha or <b>without any alpha</b></td><td>Feedback before market release; confidence under normal everyday conditions; detect defects related to conditions/environments that are hard for the development team to replicate.</td></tr>
+        </tbody></table></div>
+      <div class="grid">
+        <div class="mini"><div class="n">Test basis</div><ul><li>Business processes</li><li>User or business requirements</li><li>Regulations, legal contracts and standards</li><li>Use cases</li><li>System requirements</li><li>System or user documentation</li><li>Installation procedures</li><li>Risk analysis reports</li></ul></div>
+        <div class="mini"><div class="n">Typical test objects</div><ul><li>System under test</li><li>System configuration and configuration data</li><li>Business processes for a fully integrated system</li><li>Recovery systems and hot sites (business continuity and disaster recovery testing)</li><li>Operational and maintenance processes</li><li>Forms · Reports</li><li>Existing and converted production data</li></ul></div>
+        <div class="mini"><div class="n">Typical defects and failures</div><ul><li>System workflows do not meet business or user requirements</li><li>Business rules not implemented correctly</li><li>System does not satisfy contractual or regulatory requirements</li><li>Non-functional failures: security vulnerabilities, inadequate performance efficiency under high loads, improper operation on a supported platform</li></ul></div>
+        <div class="mini"><div class="n">Approach / responsibility</div><p>Often the responsibility of <b>customers, business users, product owners or operators</b>; other stakeholders may be involved. Ideally performed by the <b>intended users</b>.</p></div>
+      </div>
+      <div class="ar" dir="rtl" lang="ar">
+        <div class="box ex ar" data-label="تشبيه"><p><b>UAT</b> = الزبون بيجرّب العربية ويشوف تناسبه. <b>OAT</b> = ورشة الصيانة بتتأكد إنها تقدر تشغّلها وتعمل backup وتصلّحها. <b>Contractual</b> = بتطابق بنود العقد. <b>Regulatory</b> = بتطابق القانون. <b>Alpha</b> = العملاء بيجرّبوا <b>عندنا</b> في الشركة. <b>Beta</b> = العملاء بيجرّبوا <b>عندهم في بيوتهم</b>.</p></div>
+      </div>
+      <div class="box mnem" data-label="Mnemonic"><p>Forms: <b>U-O-C-R-A-B</b> → “<b>U</b>ncle <b>O</b>mar <b>C</b>ooks <b>R</b>ice <b>A</b>nd <b>B</b>eans”. Alpha = <b>A</b>t <b>A</b>uthor’s site. Beta = <b>B</b>uyer’s <b>B</b>ase.</p></div>
+      <div class="box trap" data-label="Trap"><p>Alpha is <b>not</b> performed by the development team: it is at the developer’s site, but by customers/operators or an independent team. Beta does <b>not</b> require alpha first. Alpha/beta are for <b>COTS</b>; contractual is for <b>custom-developed</b> software. Acceptance is about <b>validation</b>.</p></div>
+    </div>
+  </details>
+
+  <details class="card" open data-ch="2">
+    <summary><span class="chtag">Ch 2</span> 8 · Test types: functional, non-functional, black-box, white-box <span class="tag">2.3</span><i class="chev"></i></summary>
+    <div class="cbody">
+      <div class="box def en" data-label="Definition"><p>A <b>test type</b> is a group of test activities aimed at testing <mark>specific characteristics</mark> of a software system, or a part of it, based on specific test objectives. <b>All</b> the mentioned test types can be applied to <b>all test levels</b>, although the focus differs at each level.</p></div>
+      <div class="grid">
+        <div class="mini"><div class="n">Functional testing</div>
+          <p>Evaluates the <b>functions</b> the system should perform: <mark>“what”</mark> the system should do. Requirements may be in business requirements specifications, epics, user stories, use cases, functional specifications, or <b>undocumented</b>. Performed at <b>all levels</b> (e.g., component tests based on a component specification). Considers behavior, so <b>black-box techniques</b> may be used.</p></div>
+        <div class="mini"><div class="n">Non-functional testing</div>
+          <p>Evaluates characteristics such as: <b>Performance efficiency · Compatibility · Usability</b> (interaction capability) <b>· Reliability · Security · Maintainability · Portability</b> (flexibility) <b>· Safety</b>. It tests <mark>“how well”</mark> the system behaves. Can and often should be done at <b>all levels, as early as possible</b>. Black-box techniques may be used.</p></div>
+      </div>
+      <div class="ar" dir="rtl" lang="ar"><div class="box ex ar" data-label="تشبيه"><p>الآلة الحاسبة: <b>Functional</b> = بتجمع 2+2 صح؟ (<b>إيه</b> بتعمل). <b>Non-functional</b> = بتجمع بسرعة؟ آمنة؟ سهلة؟ بتشتغل على كل الأجهزة؟ (<b>قد إيه كويس</b> بتعمل).</p></div></div>
+      <div class="box slide en" data-label="Black-box and white-box">
+        <p><b>Black-box testing</b> is <mark>specification-based</mark>: derives tests from documentation not related to the internal structure of the test object. Main objective: checking the system’s behavior against its specifications.</p>
+        <p><b>White-box testing</b> is <mark>structure-based</mark>: derives tests from the system’s implementation or internal structure (code, architecture, work flows, data flows). Main objective: to <b>cover the underlying structure</b> by the tests to an acceptable level.</p>
+      </div>
+      <div class="ar" dir="rtl" lang="ar"><p><b>Black-box</b> = صندوق مقفول: بتجرّب من بره وبتقارن بالـ specification. <b>White-box</b> = صندوق شفاف: شايف الكود والـ flows، وهدفك تغطي الـ structure.</p></div>
+      <div class="box mnem" data-label="Mnemonic"><p>The 8 non-functional: <b>P-C-U-R-S-M-P-S</b> → “<b>P</b>lease <b>C</b>heck <b>U</b>sers’ <b>R</b>eal <b>S</b>afety, <b>M</b>aintenance, <b>P</b>ortability, <b>S</b>ecurity”. (Performance, Compatibility, Usability, Reliability, Security, Maintainability, Portability, Safety.) <b>Functional = WHAT. Non-functional = HOW WELL.</b></p></div>
+    </div>
+  </details>
+
+  <details class="card" open data-ch="2">
+    <summary><span class="chtag">Ch 2</span> 9 · Confirmation and regression testing <span class="tag">2.3</span><i class="chev"></i></summary>
+    <div class="cbody">
+      <div class="box slide en" data-label="From the slides">
+        <p>Changes are made to a component or system either to <b>enhance</b> it (new feature) or to <b>fix</b> it (remove a defect). Testing should then include <b>confirmation testing and regression testing</b>, needed on <b>all test levels</b> if defects are fixed and/or changes are made at that level.</p>
+      </div>
+      <div class="box def en" data-label="Confirmation testing"><p>Confirms that an <mark>original defect has been successfully fixed</mark>. Depending on risk: (1) execute all tests that previously failed due to the defect, or (2) add new tests to cover changes needed to fix the defect. If time or money is short, it might be restricted to <b>exercising the test steps that should reproduce the failure</b> and checking that the failure does not occur.</p></div>
+      <div class="box def en" data-label="Regression testing"><p>Confirms that <mark>no adverse consequences have been caused by a change</mark>, including a fix that has already been confirmation tested. They could affect the <b>same component</b>, <b>other components in the same system</b>, or <b>other connected systems</b>. It may also relate to the <b>environment</b>. It is advisable first to perform an <b>impact analysis</b> to recognize the extent of regression testing; impact analysis shows which parts of the software could be affected.</p></div>
+      <div class="ar" dir="rtl" lang="ar"><div class="box ex ar" data-label="تشبيه"><p>سبّاك صلّح صنبور بيسرّب. <b>Confirmation</b> = تفتح الصنبور وتتأكد إن التسريب نفسه اتصلّح. <b>Regression</b> = تتأكد إن التصليح ما كسرش المواسير التانية أو ضغط المية في الشقة كلها. وقبلها بتعمل <b>impact analysis</b>: إيه الأجزاء اللي ممكن تتأثر.</p></div></div>
+      <div class="tablewrap"><table><thead><tr><th></th><th>Confirmation</th><th>Regression</th></tr></thead><tbody>
+        <tr><td>Question</td><td>Is the original defect fixed?</td><td>Did the change break anything else?</td></tr>
+        <tr><td>Scope</td><td>The defect and its failing tests</td><td>Same component, other components, other systems, environment</td></tr>
+        <tr><td>Helper</td><td>Re-run previously failed tests / add tests</td><td>Impact analysis first</td></tr>
+      </tbody></table></div>
+      <div class="box ex" data-label="Extra topics: good to know"><p>The slide lists these for extra reading: <b>Test-driven development (TDD)</b> · <b>Acceptance Test-Driven Development (ATDD)</b> · <b>Behavior-Driven Development (BDD)</b> · <b>DevOps, CI/CD</b>.</p></div>
+      <div class="box trap" data-label="Trap"><p>Confirmation = “is <i>this</i> fix good?”. Regression = “did the fix hurt <i>other</i> things?”. Regression is not limited to the changed component, and it can also cover the environment.</p></div>
+    </div>
+  </details>
+
+  <!-- ===== Chapter 3 ===== -->
+  <details class="card" open data-ch="3">
+    <summary><span class="chtag c3">Ch 3</span> 10 · Chapter 3 in one story <span class="tag">Roadmap</span><i class="chev"></i></summary>
+    <div class="cbody">
+      <div class="box key ar" data-label="الخلاصة" dir="rtl" lang="ar"><p><b>Static testing</b> = تفحص الـ work product (requirement، design، كود، test case) <b>من غير ما تشغّل البرنامج</b>. بتتعمل بطريقتين: <b>Reviews</b> (ناس بتفكر وتناقش) و<b>Static analysis</b> (أدوات بتفحص حسب قواعد). بتلاقي عيوب بدري ورخيصة. الـ review ليه <b>5 أنشطة</b> و<b>أدوار</b> و<b>4 أنواع</b> بدرجات formality مختلفة. وكل ده بيشتغل جنب الـ dynamic testing مش بدله.</p></div>
+      <div class="flow"><span class="node a">Static testing</span><span class="arr">=</span><span class="node">Reviews</span><span class="arr">+</span><span class="node">Static analysis</span><span class="arr">|</span><span class="node b">vs Dynamic testing</span></div>
+    </div>
+  </details>
+
+  <details class="card" open data-ch="3">
+    <summary><span class="chtag c3">Ch 3</span> 11 · What is static testing? <span class="tag">Basics</span><i class="chev"></i></summary>
+    <div class="cbody">
+      <div class="box def en" data-label="Definition">
+        <ul><li>Examine a work product <mark>without executing the software under test</mark>.</li><li><b>People</b> can review documents, designs, source code, project documentation, contracts, models and test cases.</li><li><b>Tools</b> can analyse suitably structured work products.</li><li>The analysis tool may run while the software being examined does not.</li></ul>
+        <p><i>Example: read a registration rule and identify a contradiction before coding.</i></p>
+      </div>
+      <div class="ar" dir="rtl" lang="ar"><div class="box ex ar" data-label="تشبيه"><p>مراجعة مسودة الامتحان قبل الطباعة: بتقراها وبتلاقي سؤالين متناقضين من غير ما حد يحل الامتحان. ده static. لما الطلبة يحلوا الامتحان فعلاً ده dynamic.</p></div></div>
+
+      <h3 class="sub">Verification and validation</h3>
+      <div class="grid">
+        <div class="mini"><div class="n">Verification</div><p><b>Does the work product meet its specified rules?</b></p><p><i>Example: does the design match the approved 18-credit limit?</i></p></div>
+        <div class="mini"><div class="n">Validation</div><p><b>Does the proposed rule meet the users’ actual needs?</b></p><p><i>Example: do graduating students need an agreed exception?</i></p></div>
+      </div>
+      <div class="ar" dir="rtl" lang="ar"><p><b>Verification</b> = “بنبني الحاجة <b>صح</b> حسب القواعد؟” <b>Validation</b> = “القاعدة نفسها <b>صح</b> للمستخدمين؟”. ولاحظ في المثال: التصميم مطابق للـ 18 credit (verified)، بس لسه ممكن الطلبة المتخرجين يحتاجوا استثناء (validation).</p></div>
+
+      <h3 class="sub">Work products we can examine</h3>
+      <div class="tablewrap"><table><thead><tr><th>Work product</th><th>Illustrative review question</th></tr></thead><tbody>
+        <tr><td>Requirement or user story</td><td>Is the permitted credit limit clear and consistent?</td></tr>
+        <tr><td>Design or interface specification</td><td>Do the caller and receiver agree on the student ID format?</td></tr>
+        <tr><td>Source code</td><td>Does the condition implement the agreed limit?</td></tr>
+        <tr><td>Test case or test plan</td><td>Is an expected outcome or important risk missing?</td></tr>
+      </tbody></table></div>
+      <p><i>Reviews need understandable material. Tools need a structure they can analyse.</i></p>
+      <div class="box mnem" data-label="Mnemonic"><p><b>Verification = “Value the Rules”</b> (matches specified rules). <b>Validation = “Values the Users”</b> (meets users’ needs).</p></div>
+    </div>
+  </details>
+
+  <details class="card" open data-ch="3">
+    <summary><span class="chtag c3">Ch 3</span> 12 · Reviews vs static analysis <span class="tag">Tools and people</span><i class="chev"></i></summary>
+    <div class="cbody">
+      <div class="tablewrap"><table><thead><tr><th></th><th>Reviews</th><th>Static analysis</th></tr></thead><tbody>
+        <tr><td>Who</td><td>People inspect and discuss the work product</td><td>Tools check structured material against rules</td></tr>
+        <tr><td>Strength</td><td>Domain knowledge and judgement</td><td>People still assess the relevance of tool findings</td></tr>
+        <tr><td>Example</td><td>A reviewer questions an unclear prerequisite rule</td><td>Reports an unused variable</td></tr>
+      </tbody></table></div>
+      <div class="box slide en" data-label="Static analysis in daily development">
+        <ul><li>An analyzer checks source code or another structured work product.</li><li>It can flag <b>unused values, unreachable code, complexity, or risky patterns</b>.</li><li>A <b>CI pipeline</b> can run these checks whenever developers submit changes.</li><li>It does <b>not</b> need executable test cases or application execution.</li><li>People interpret findings and decide what action each one needs.</li></ul>
+        <p><b>Valid syntax can still implement the wrong business rule.</b></p>
+      </div>
+      <div class="ar" dir="rtl" lang="ar"><p>الأداة زي “المدقق الإملائي”: بتمسك الغلطات الميكانيكية بسرعة، بس مش هتعرف إن الجملة معناها غلط. عشان كده <b>الناس لسه بتقيّم</b> النتايج، والـ review بيمسك المعنى (business rule).</p></div>
+    </div>
+  </details>
+
+  <details class="card" open data-ch="3">
+    <summary><span class="chtag c3">Ch 3</span> 13 · Worked examples: requirement review and code review <span class="tag">Examples</span><i class="chev"></i></summary>
+    <div class="cbody">
+      <h3 class="sub">Review a requirement: three kinds of problem</h3>
+      <div class="grid">
+        <div class="mini"><div class="n">Ambiguity</div><p>“The registration page should respond quickly.”</p><p><i>What response time and workload would count as acceptable?</i></p></div>
+        <div class="mini"><div class="n">Contradiction</div><p>R1: Accept totals up to and including 18 credits.<br>R2: Reject totals of 18 credits or more.</p><p><i>They disagree at exactly 18.</i></p></div>
+        <div class="mini"><div class="n">Missing information</div><p>“Send a password-reset link.”</p><p><i>When should the link expire, and can it be reused?</i></p></div>
+      </div>
+      <p><i>Clarify the intended rules before developers and testers make different assumptions.</i></p>
+      <h3 class="sub">Review the code</h3>
+      <p><b>Agreed requirement:</b> accept a valid registration when the total is at most 18 credits.</p>
+      <div class="code">bool canRegister(int total) {
+  return total &lt; 18;
+}</div>
+      <p><b>Review finding:</b> the comparison <b>excludes 18</b>. The agreed boundary requires <code>&lt;= 18</code>. <i>Reading the code reveals the defect. Executing with 18 can reveal its failure.</i></p>
+      <div class="ar" dir="rtl" lang="ar"><p>لاحظ الفرق بين المصطلحات: القراءة بتكشف الـ <b>defect</b> (العيب في الكود <code>&lt; 18</code>)، والتنفيذ بـ 18 بيكشف الـ <b>failure</b> (السلوك الغلط). ده نفس error → fault → failure من الشابتر الأول، وكمان نفس نوع boundary error (&gt; مقابل &gt;=).</p></div>
+    </div>
+  </details>
+
+  <details class="card" open data-ch="3">
+    <summary><span class="chtag c3">Ch 3</span> 14 · Static vs dynamic testing and what static finds <span class="tag">Comparison</span><i class="chev"></i></summary>
+    <div class="cbody">
+      <div class="tablewrap wide"><table><thead><tr><th>Aspect</th><th>Static testing</th><th>Dynamic testing</th></tr></thead><tbody>
+        <tr><td>Execution</td><td>Examine the work product</td><td>Execute the software under test</td></tr>
+        <tr><td>Registration example</td><td>Read the incorrect <code>&lt; 18</code> condition</td><td>Run a registration with 18 credits</td></tr>
+        <tr><td>Typical evidence</td><td>A directly identified defect or anomaly</td><td>Observed behaviour, including a possible failure</td></tr>
+        <tr><td>Useful quality view</td><td>Clarity, consistency, maintainability</td><td>Runtime behaviour and measured response time</td></tr>
+      </tbody></table></div>
+      <p><b>Use both.</b> A document review cannot measure the running system’s response time.</p>
+      <h3 class="sub">Defects found through static testing</h3>
+      <div class="tablewrap"><table><thead><tr><th>Work product</th><th>Example finding</th></tr></thead><tbody>
+        <tr><td>Requirements</td><td>Two rules require opposite outcomes at 18 credits.</td></tr>
+        <tr><td>Design</td><td>Several modules duplicate the same changing business rule.</td></tr>
+        <tr><td>Source code</td><td>A statement follows an unconditional return.</td></tr>
+        <tr><td>Coding standards</td><td>Names violate the agreed naming convention.</td></tr>
+        <tr><td>Interface specification</td><td>Caller sends student ID as text. Receiver expects a number.</td></tr>
+        <tr><td>Security</td><td>Potentially unsafe handling of input.</td></tr>
+        <tr><td>Test basis coverage</td><td>No test checks an approved acceptance criterion.</td></tr>
+      </tbody></table></div>
+      <p><i>Some defects are easier or cheaper to identify by examining the product. A review can expose a missing test without running the application.</i></p>
+      <div class="ar" dir="rtl" lang="ar"><p>الخلاصة: <b>static</b> بيلمس الـ <b>وضوح والاتساق وقابلية الصيانة</b> وبيمسك الغلطة نفسها. <b>dynamic</b> بيلمس <b>السلوك وقت التشغيل وزمن الاستجابة</b>. محتاج الاتنين.</p></div>
+    </div>
+  </details>
+
+  <details class="card" open data-ch="3">
+    <summary><span class="chtag c3">Ch 3</span> 15 · Why static testing is valuable; early and frequent feedback <span class="tag">Benefits</span><i class="chev"></i></summary>
+    <div class="cbody">
+      <ul>
+        <li>Find <b>unclear or conflicting rules</b> before they spread into design, code, and tests.</li>
+        <li>Find problems in work products that <b>cannot be executed</b>.</li>
+        <li>Improve <b>shared understanding</b> between users, analysts, developers, and testers.</li>
+        <li><b>Reduce avoidable rework</b> while recognising the effort needed for reviews.</li>
+      </ul>
+      <p><i>Example: resolve the 18-credit contradiction once, before several modules implement it.</i></p>
+      <div class="grid">
+        <div class="mini"><div class="n">Early question</div><p>Before coding, a student-services representative explains when advisor approval is required.</p></div>
+        <div class="mini"><div class="n">Frequent follow-up</div><p>After the rule changes, the team reviews the revised examples and acceptance criteria.</p></div>
+        <div class="mini"><div class="n">Benefit</div><p>The team can adjust the intended behaviour before investing in the wrong solution.</p></div>
+      </div>
+      <div class="ar" dir="rtl" lang="ar"><div class="box ex ar" data-label="تشبيه"><p>تصحيح غلطة في <b>الرسمة الهندسية</b> بياخد دقيقة. تصحيحها بعد ما الحيطان اتبنت بياخد أسابيع. نفس الفكرة: المشكلة اللي اتمسكت بدري ما انتشرتش في design وcode وtests.</p></div></div>
+    </div>
+  </details>
+
+  <details class="card" open data-ch="3">
+    <summary><span class="chtag c3">Ch 3</span> 16 · The review process: five activities <span class="tag">Process</span><i class="chev"></i></summary>
+    <div class="cbody">
+      <div class="tablewrap"><table><thead><tr><th>Activity</th><th>Registration example</th></tr></thead><tbody>
+        <tr><td>1. Planning</td><td>Choose the document, scope, objective, and exit criteria.</td></tr>
+        <tr><td>2. Review initiation</td><td>Share the exact version and checklist; confirm roles.</td></tr>
+        <tr><td>3. Individual review</td><td>Reviewers record questions and possible problems.</td></tr>
+        <tr><td>4. Communication and analysis</td><td>Decide each finding’s status, owner, and action.</td></tr>
+        <tr><td>5. Fixing and reporting</td><td>Track corrections and report the review outcome.</td></tr>
+      </tbody></table></div>
+      <p><i>Tailor the process to the context and the required review formality.</i></p>
+      <div class="box mnem" data-label="Mnemonic"><p><b>P-I-I-C-F</b> → “<b>P</b>lan, <b>I</b>nitiate, <b>I</b>ndividually review, <b>C</b>ommunicate, <b>F</b>ix and report”. Arabic: <b>“خطّط، ابدأ، راجع لوحدك، ناقش، صلّح وقدّم تقرير”</b>.</p></div>
+
+      <h3 class="sub">Planning and review initiation</h3>
+      <ul>
+        <li><b>Objective and scope:</b> review only the credit-limit and prerequisite rules in document version 2.</li>
+        <li><b>Illustrative exit criteria:</b> resolve every contradiction and give each remaining action an owner.</li>
+        <li><b>Preparation:</b> invite the relevant reviewers; share the exact version, checklist, roles and review time.</li>
+      </ul>
+      <p><i>A review needs a clear target and enough preparation time.</i></p>
+
+      <h3 class="sub">Individual review: a small checklist</h3>
+      <div class="grid">
+        <div class="mini"><div class="n">Clarity</div><p>Could two readers interpret the rule differently?</p></div>
+        <div class="mini"><div class="n">Consistency</div><p>Does another rule say something incompatible?</p></div>
+        <div class="mini"><div class="n">Completeness</div><p>Are important cases or conditions missing?</p></div>
+        <div class="mini"><div class="n">Testability</div><p>Can we decide whether the expected result happened?</p></div>
+        <div class="mini"><div class="n">Traceability</div><p>Does the test set cover each agreed acceptance criterion?</p></div>
+      </div>
+      <p><i>Example finding: no test checks acceptance of exactly 18 credits.</i></p>
+      <div class="box mnem" data-label="Mnemonic"><p><b>C-C-C-T-T</b> = <b>C</b>larity, <b>C</b>onsistency, <b>C</b>ompleteness, <b>T</b>estability, <b>T</b>raceability. “<b>3 C’s and 2 T’s</b>”.</p></div>
+
+      <h3 class="sub">Anomaly or confirmed defect?</h3>
+      <div class="grid">
+        <div class="mini"><div class="n">Logged anomaly</div><p>“The reset link has no expiry time in this user story.”</p></div>
+        <div class="mini"><div class="n">Analysis</div><p>Is expiry defined in a referenced security specification, or is the requirement incomplete?</p></div>
+        <div class="mini"><div class="n">Decision and follow-up</div><p>Confirm a defect, clarify an existing rule, or close the finding with a recorded reason.</p></div>
+      </div>
+      <p><i>A suspected problem needs analysis before we treat it as a confirmed defect.</i></p>
+
+      <h3 class="sub">Fixing and reporting</h3>
+      <div class="tablewrap wide"><table><thead><tr><th>Finding</th><th>Decision</th><th>Follow-up</th></tr></thead><tbody>
+        <tr><td>Credit rules disagree at 18.</td><td>Confirmed contradiction.</td><td>Author aligns the rules; a reviewer checks the change.</td></tr>
+        <tr><td>Reset expiry seems missing.</td><td>Defined in a referenced policy.</td><td>Clarify the reference so readers can find the rule.</td></tr>
+        <tr><td>No boundary test exists.</td><td>Confirmed testware gap.</td><td>Add the agreed boundary case and review its expected result.</td></tr>
+      </tbody></table></div>
+      <p><i>Log each defect, track corrections, and accept when agreed exit criteria are met.</i></p>
+      <div class="ar" dir="rtl" lang="ar"><p>مهم: <b>anomaly</b> = حاجة “مشبوهة” اتسجلت. مش لازم تبقى defect. بنحلّلها: يا إما نأكّد إنها defect، يا إما نوضّح قاعدة موجودة أصلاً، يا إما نقفلها بسبب مسجّل. زي الطبيب: الأعراض مش تشخيص.</p></div>
+    </div>
+  </details>
+
+  <details class="card" open data-ch="3">
+    <summary><span class="chtag c3">Ch 3</span> 17 · Review roles <span class="tag">Who does what</span><i class="chev"></i></summary>
+    <div class="cbody">
+      <h3 class="sub">Examining the work</h3>
+      <div class="tablewrap wide"><table><thead><tr><th>Role</th><th>Responsibility</th><th>Classroom example</th></tr></thead><tbody>
+        <tr><td>Author</td><td>Creates and corrects the work product.</td><td>Analyst revises the credit-limit rule.</td></tr>
+        <tr><td>Reviewer</td><td>Examines the work and identifies findings.</td><td>Tester spots a missing boundary case.</td></tr>
+        <tr><td>Scribe / recorder</td><td>Collects findings and records decisions.</td><td>Team member logs each action and owner.</td></tr>
+      </tbody></table></div>
+      <p><i>One person may hold several roles where the chosen review type allows it.</i></p>
+      <h3 class="sub">Organizing the review</h3>
+      <div class="tablewrap wide"><table><thead><tr><th>Role</th><th>Responsibility</th><th>Classroom example</th></tr></thead><tbody>
+        <tr><td>Manager</td><td>Chooses review needs and provides resources.</td><td>Makes time available for the reviewers.</td></tr>
+        <tr><td>Review leader</td><td>Takes overall responsibility and organizes participation.</td><td>Selects the reviewers and schedules the review.</td></tr>
+        <tr><td>Moderator / facilitator</td><td>Helps the meeting run effectively and safely.</td><td>Keeps discussion focused and gives everyone a voice.</td></tr>
+      </tbody></table></div>
+      <p><i>The review leader organizes the review. The moderator facilitates the discussion.</i></p>
+      <div class="ar" dir="rtl" lang="ar"><div class="box ex ar" data-label="تشبيه"><p>لجنة تصحيح: <b>Author</b> = اللي كتب ورقة الإجابة، <b>Reviewer</b> = المصحّح، <b>Scribe</b> = اللي بيسجّل الملاحظات، <b>Manager</b> = اللي بيوفّر الوقت والموارد، <b>Review leader</b> = اللي بيجمع اللجنة ويحدد الميعاد، <b>Moderator</b> = اللي بيدير النقاش ويخلّيه محترم ومركّز.</p></div></div>
+      <div class="box trap" data-label="Trap"><p>Review leader ≠ moderator. Leader = <b>organizes</b> (selects reviewers, schedules). Moderator = <b>facilitates</b> the discussion. Manager provides <b>resources</b>, not the review itself.</p></div>
+      <div class="box mnem" data-label="Mnemonic"><p>Work: <b>A-R-S</b> (Author, Reviewer, Scribe). Organize: <b>M-L-M</b> (Manager, Leader, Moderator): “<b>M</b>anager gives time, <b>L</b>eader picks people, <b>M</b>oderator keeps order”.</p></div>
+    </div>
+  </details>
+
+  <details class="card" open data-ch="3">
+    <summary><span class="chtag c3">Ch 3</span> 18 · Four review types and choosing formality <span class="tag">Types</span><i class="chev"></i></summary>
+    <div class="cbody">
+      <div class="tablewrap wide"><table><thead><tr><th>Type</th><th>Distinguishing feature</th><th>Illustrative use</th><th>Main emphasis</th><th>Process / preparation</th></tr></thead><tbody>
+        <tr><td>Informal review</td><td>Flexible; formal output is not required</td><td>Ask a colleague to check a short user story</td><td>Find anomalies</td><td>No defined process or required formal output</td></tr>
+        <tr><td>Walkthrough</td><td>The author leads the explanation</td><td>Author explains the registration workflow</td><td>Explain the product, build understanding, find anomalies</td><td>Author leads; individual preparation is optional</td></tr>
+        <tr><td>Technical review</td><td>Technical reviewers work with a moderator</td><td>Agree whether a proposed interface design is suitable</td><td>Reach technical agreement and decisions</td><td>Qualified reviewers; moderator leads</td></tr>
+        <tr><td>Inspection</td><td>Most formal; defined process and metrics</td><td>Systematically examine a critical specification</td><td>Find the maximum number of anomalies</td><td>Complete generic process; collect improvement metrics</td></tr>
+      </tbody></table></div>
+      <p><i>Choose formality using the objective, work product, risks, and available resources. All four types can reveal anomalies; their purposes and structure differ.</i></p>
+      <div class="box slide en" data-label="Inspection: important details">
+        <ul><li>Follow the <b>complete generic review process</b>.</li><li>Use defined roles, preparation, and review criteria.</li><li>Collect <b>metrics</b> to improve the work process and the inspection process.</li><li><mark>The author cannot act as the review leader or scribe.</mark></li></ul>
+        <p>Review the work product. Avoid using findings to rank or blame individuals.</p>
+      </div>
+      <div class="box slide en" data-label="Choosing review formality">
+        <ul><li>Consider the objective, product complexity, criticality, and risks.</li><li>Consider the SDLC, process maturity, business domain, and team culture.</li><li>Check applicable obligations and any need for a traceable audit record.</li><li>Match the review effort to available people, time, and expertise.</li><li>A draft may receive an informal review before a more formal review.</li></ul>
+        <p><i>Example: a critical eligibility rule needs deeper scrutiny than a minor wording change.</i></p>
+      </div>
+      <div class="ar" dir="rtl" lang="ar"><div class="box ex ar" data-label="تشبيه"><p>ترتيب الرسمية: <b>Informal</b> = تسأل زميلك بسرعة. <b>Walkthrough</b> = تشرح للفريق وتاخد ملاحظات. <b>Technical review</b> = خبراء بيقرروا قرار تقني. <b>Inspection</b> = تحقيق رسمي بمنهج وأرقام لأقصى عدد عيوب. كل ما الخطورة (criticality) تزيد، كل ما نرفع الـ formality.</p></div></div>
+      <div class="box mnem" data-label="Mnemonic"><p>By formality, low to high: <b>I-W-T-I</b> → “<b>I</b> <b>W</b>ill <b>T</b>ry <b>I</b>nspection”. Key hook: <b>Walk = Writer (author) leads</b>, <b>Tech = Team of experts + moderator</b>, <b>Inspection = Intense with metrics</b>.</p></div>
+      <div class="box trap" data-label="Trap"><p>Walkthrough: author <b>leads</b>, preparation <b>optional</b>. Inspection: author <b>cannot</b> be leader or scribe. Informal: <b>no defined process</b>. Technical review: <b>moderator leads</b>, qualified reviewers, aims at <b>technical agreement</b>.</p></div>
+    </div>
+  </details>
+
+  <details class="card" open data-ch="3">
+    <summary><span class="chtag c3">Ch 3</span> 19 · Successful reviews and the practice exercise <span class="tag">Success + practice</span><i class="chev"></i></summary>
+    <div class="cbody">
+      <div class="box slide en" data-label="What makes a review successful">
+        <ul><li>Set <b>clear objectives and measurable exit criteria</b>.</li><li>Choose an <b>appropriate review type</b> and examine <b>manageable pieces</b>.</li><li>Provide <b>training, preparation time, and management support</b>.</li><li>Facilitate <b>respectful discussion about evidence</b>.</li><li>Make reviews part of a <b>culture of learning and improvement</b>.</li><li><b>Give feedback</b> to authors and stakeholders, then <b>track corrections</b>.</li></ul>
+        <p><i>Example comment: “R1 and R2 disagree at 18 credits. Which outcome is intended?”</i></p>
+      </div>
+      <h3 class="sub">Practice exercise</h3>
+      <div class="grid">
+        <div class="mini"><div class="n">Requirement</div><p>“A student may register for up to 18 credits.”</p></div>
+        <div class="mini"><div class="n">Test case draft</div><p>Input: total = 18 credits.<br>Expected result: reject registration.</p></div>
+      </div>
+      <p><b>Discuss:</b> what is inconsistent? Is reading this test case static or dynamic? Who creates the work product, and who could review it? (Assume the requirement is approved and all other eligibility checks pass.)</p>
+      <div class="box key" data-label="Suggested answers">
+        <ul><li>“Up to 18” <b>includes 18</b>, so expecting rejection conflicts with the approved rule.</li><li>Reading and comparing the requirement and test case is <b>static testing</b>.</li><li>Executing that case against the application would be <b>dynamic testing</b>.</li><li>The test-case writer is its <b>author</b>. Another tester, developer, or business expert could <b>review</b> it.</li></ul>
+        <p><i>A review can reveal a defect in the test before it creates a misleading failure report.</i></p>
+      </div>
+      <div class="box key" data-label="Key ideas to remember">
+        <ul><li>Static testing examines work products <b>without executing</b> the software under test.</li><li>Use reviews and static analysis <b>alongside</b> dynamic testing.</li><li>Analyse anomalies, agree actions, and check that corrections resolve the findings.</li><li>Choose review roles and formality to fit the <b>purpose and risk</b>.</li></ul>
+        <p><b>Simple idea: examine early, discuss clearly, and follow up.</b></p>
+      </div>
+    </div>
+  </details>
+
+  <details class="card" open>
+    <summary>20 · How both chapters connect <span class="tag">Relationships</span><i class="chev"></i></summary>
+    <div class="cbody">
+      <div class="tablewrap wide"><table><thead><tr><th>Idea</th><th>Relationship</th><th>Idea</th></tr></thead><tbody>
+        <tr><td>Good-testing rule: testers review drafts early (Ch 2)</td><td>is carried out by</td><td>Static testing / reviews (Ch 3)</td></tr>
+        <tr><td>Waterfall: reviews and test preparation can begin early (Ch 2)</td><td>works because</td><td>Static testing needs no executable software (Ch 3)</td></tr>
+        <tr><td>Dynamic testing at every level (Ch 2)</td><td>complements</td><td>Static testing (Ch 3): use both</td></tr>
+        <tr><td>Acceptance testing (Ch 2) = validation</td><td>same word as</td><td>Validation in Ch 3: do the rules meet users’ actual needs?</td></tr>
+        <tr><td>Boundary defect <code>&lt; 18</code> vs <code>&lt;= 18</code> (Ch 3)</td><td>found statically by reading; dynamically by running</td><td>Component test with input 18 (Ch 2)</td></tr>
+        <tr><td>Test case review (Ch 3)</td><td>checks the quality of</td><td>Test basis and test cases used at every level (Ch 2)</td></tr>
+        <tr><td>Regression testing (Ch 2)</td><td>may use</td><td>Impact analysis to decide scope</td></tr>
+      </tbody></table></div>
+    </div>
+  </details>
+</section>
+
+<!-- ============================ SUMMARY ============================ -->
+<section class="panel" id="p-summary" aria-labelledby="h-summary">
+  <div class="hero">
+    <div class="eyebrow">Phase 2 · Smart summary</div>
+    <h1 id="h-summary">High-yield summary</h1>
+    <p>Main idea first, then sub-points. <mark>Highlighted</mark> text is what examiners reuse almost word for word.</p>
+  </div>
+  <div class="toolbar">
+    <button class="btn" data-expand="p-summary" data-state="open">Expand all</button>
+    <button class="btn" data-expand="p-summary" data-state="close">Collapse all</button>
+  </div>
+
+  <details class="card" open data-ch="2"><summary><span class="chtag">Ch 2</span> SDLC models <span class="tag">2.1</span><i class="chev"></i></summary><div class="cbody">
+    <ul>
+      <li><b>SDLC model</b> = activities at each stage + <mark>how they relate logically and chronologically</mark></li>
+      <li><b>4 rules of good testing (any model)</b>: corresponding test activity for each dev activity · level-specific objectives · test analysis/design begin during the corresponding dev activity · testers join requirement/design discussions and review drafts early</li>
+      <li><b>Sequential</b>: linear; next phase starts after the previous completes (theory: no overlap)
+        <ul><li><b>Waterfall</b>: reviews and test preparation can start early; <mark>dynamic testing needs executable software</mark></li><li><b>V-model</b>: <mark>links each development activity to a test level</mark>; supports early testing</li><li>Delivers complete features but takes <b>months or years</b></li></ul></li>
+      <li><b>Incremental</b>: build/test in pieces, features grow · <b>Iterative</b>: cycles (often fixed length) that refine, may change earlier features and scope · may be combined</li>
+    </ul>
+  </div></details>
+
+  <details class="card" open data-ch="2"><summary><span class="chtag">Ch 2</span> Test levels <span class="tag">2.2</span><i class="chev"></i></summary><div class="cbody">
+    <ul>
+      <li><b>Test level</b> = group of test activities organized and managed together; each is an instance of the test process</li>
+      <li><b>5 levels</b>: Component · Component integration · System · System integration · Acceptance</li>
+      <li><b>Attributes</b>: objectives · test basis · test object · typical defects/failures · approaches and responsibilities</li>
+      <li>Environment: acceptance → production-like; component → developer’s own environment</li>
+    </ul>
+    <div class="tablewrap wide"><table>
+      <thead><tr><th>Level</th><th>Focus</th><th>Basis (examples)</th><th>Objects (examples)</th><th>Who</th></tr></thead>
+      <tbody>
+        <tr><td>Component (unit)</td><td>Components in isolation (harness / unit frameworks)</td><td>Detailed design, code, data model, component specs</td><td>Units, modules, classes, DB modules</td><td>Developer who wrote the code</td></tr>
+        <tr><td>Component integration</td><td>Interfaces and interactions between components; bottom-up, top-down, big-bang</td><td>Design, sequence diagrams, interface/protocol specs, use cases, architecture</td><td>Subsystems, databases, infrastructure, interfaces, APIs, microservices</td><td>Often developers</td></tr>
+        <tr><td>System</td><td>Overall end-to-end behavior, functional + non-functional</td><td>Requirement specs, risk analysis, use cases, epics/user stories, state diagrams, manuals</td><td>Applications, HW/SW systems, OS, SUT, configuration data</td><td>May be independent test team</td></tr>
+        <tr><td>System integration</td><td>Interfaces with other systems and external services (e.g., external payment)</td><td>—</td><td>—</td><td>Generally testers</td></tr>
+        <tr><td>Acceptance</td><td>Validation, readiness for deployment, user’s business needs</td><td>Business processes, user/business requirements, regulations, contracts, documentation</td><td>SUT, configuration, business processes, hot sites, forms, reports, production data</td><td>Customers, business users, product owners, operators</td></tr>
+      </tbody></table></div>
+    <h3 class="sub">Acceptance forms</h3>
+    <ul>
+      <li><b>UAT</b>: fitness for use by intended users; <b>OAT</b>: ops/admin staff (backup/restore, install/upgrade, disaster recovery, user management, maintenance, data migration, security, performance)</li>
+      <li><b>Contractual</b>: against contract criteria (custom software) · <b>Regulatory</b>: against government/legal/safety regulations</li>
+      <li><b>Alpha</b>: at developer’s site, by customers/operators/independent team (not the dev team) · <b>Beta</b>: at customers’ own locations, may occur without alpha · both for <b>COTS</b></li>
+    </ul>
+    <div class="box mnem" data-label="Trigger"><p><b>C-CI-S-SI-A</b>, and <b>U-O-C-R-A-B</b>.</p></div>
+  </div></details>
+
+  <details class="card" open data-ch="2"><summary><span class="chtag">Ch 2</span> Test types <span class="tag">2.3</span><i class="chev"></i></summary><div class="cbody">
+    <ul>
+      <li><b>Test type</b>: group of test activities for specific characteristics; applies to <mark>all test levels</mark> (focus differs)</li>
+      <li><b>Functional</b> = “<b>what</b>” the system does (requirements may be undocumented); black-box techniques</li>
+      <li><b>Non-functional</b> = “<b>how well</b>”: performance efficiency, compatibility, usability (interaction capability), reliability, security, maintainability, portability (flexibility), safety; at all levels, as early as possible</li>
+      <li><b>Black-box</b> = specification-based (check behavior vs specs) · <b>White-box</b> = structure-based (cover the underlying structure)</li>
+      <li><b>Confirmation</b>: original defect fixed? (re-run failed tests / add tests; minimal: reproduce steps) · <b>Regression</b>: no adverse consequences from a change (same component, other components, other systems, environment); do <b>impact analysis</b> first</li>
+      <li>Extra reading: TDD, ATDD, BDD, DevOps, CI/CD</li>
+    </ul>
+  </div></details>
+
+  <details class="card" open data-ch="3"><summary><span class="chtag c3">Ch 3</span> Static testing basics <span class="tag">Core</span><i class="chev"></i></summary><div class="cbody">
+    <ul>
+      <li><b>Static testing</b> = examine a work product <mark>without executing the software under test</mark>; people (reviews) and tools (static analysis)</li>
+      <li><b>Work products</b>: documents, designs, source code, project documentation, contracts, models, test cases</li>
+      <li><b>Verification</b> = meets its specified rules? · <b>Validation</b> = meets users’ actual needs?</li>
+      <li><b>Reviews</b>: people, domain knowledge and judgement · <b>Static analysis</b>: tools vs rules (unused values, unreachable code, complexity, risky patterns); can run in CI; findings still interpreted by people</li>
+      <li>Valid syntax can still implement the wrong business rule (<code>return total &lt; 18;</code> excludes 18)</li>
+      <li><b>Requirement problems</b>: ambiguity · contradiction · missing information</li>
+    </ul>
+    <div class="tablewrap"><table><thead><tr><th></th><th>Static</th><th>Dynamic</th></tr></thead><tbody>
+      <tr><td>Execution</td><td>Examine the work product</td><td>Execute the software</td></tr>
+      <tr><td>Evidence</td><td>Defect or anomaly found directly</td><td>Observed behaviour / possible failure</td></tr>
+      <tr><td>Quality view</td><td>Clarity, consistency, maintainability</td><td>Runtime behaviour, response time</td></tr>
+    </tbody></table></div>
+    <ul>
+      <li><b>Benefits</b>: find unclear/conflicting rules early · cover non-executable products · shared understanding · less rework (recognise review effort) · early and frequent stakeholder feedback</li>
+    </ul>
+  </div></details>
+
+  <details class="card" open data-ch="3"><summary><span class="chtag c3">Ch 3</span> Review process <span class="tag">5 activities</span><i class="chev"></i></summary><div class="cbody">
+    <ol>
+      <li><b>Planning</b>: document, scope, objective, exit criteria</li>
+      <li><b>Review initiation</b>: share exact version and checklist; confirm roles</li>
+      <li><b>Individual review</b>: record questions and possible problems</li>
+      <li><b>Communication and analysis</b>: decide each finding’s status, owner, action</li>
+      <li><b>Fixing and reporting</b>: track corrections, report outcome</li>
+    </ol>
+    <ul>
+      <li><b>Checklist</b>: clarity, consistency, completeness, testability, traceability</li>
+      <li><b>Anomaly ≠ defect</b>: analyse first → confirm defect / clarify existing rule / close with recorded reason</li>
+      <li><b>Roles</b>: Author, Reviewer, Scribe (examine) · Manager (resources), Review leader (organizes), Moderator (facilitates)</li>
+    </ul>
+    <div class="box mnem" data-label="Trigger"><p><b>P-I-I-C-F</b> · <b>C-C-C-T-T</b> · <b>A-R-S</b> + <b>M-L-M</b>.</p></div>
+  </div></details>
+
+  <details class="card" open data-ch="3"><summary><span class="chtag c3">Ch 3</span> Review types and success <span class="tag">High yield</span><i class="chev"></i></summary><div class="cbody">
+    <div class="tablewrap wide"><table><thead><tr><th>Type</th><th>Key feature</th><th>Emphasis</th><th>Preparation</th></tr></thead><tbody>
+      <tr><td>Informal</td><td>Flexible, no formal output</td><td>Find anomalies</td><td>No defined process</td></tr>
+      <tr><td>Walkthrough</td><td><b>Author leads</b></td><td>Explain, build understanding, find anomalies</td><td>Individual prep optional</td></tr>
+      <tr><td>Technical review</td><td>Technical reviewers + <b>moderator</b></td><td>Technical agreement and decisions</td><td>Qualified reviewers, moderator leads</td></tr>
+      <tr><td>Inspection</td><td><b>Most formal</b>, defined process and metrics</td><td>Maximum number of anomalies</td><td>Complete generic process; collect metrics</td></tr>
+    </tbody></table></div>
+    <ul>
+      <li><b>Inspection</b>: defined roles/preparation/criteria; metrics improve work process and inspection process; <mark>author cannot be review leader or scribe</mark>; never rank or blame individuals</li>
+      <li><b>Formality depends on</b>: objective, complexity, criticality, risks · SDLC, maturity, domain, culture · obligations/audit record · people, time, expertise</li>
+      <li><b>Success</b>: clear objectives + measurable exit criteria · right type, manageable pieces · training, prep time, management support · respectful, evidence-based discussion · learning culture · feedback and tracking</li>
+    </ul>
+  </div></details>
+</section>
+
+<!-- ============================ MEMORY LAB ============================ -->
+<section class="panel" id="p-memory" aria-labelledby="h-memory">
+  <div class="hero">
+    <div class="eyebrow">Phase 3 · Memory optimization</div>
+    <h1 id="h-memory">Memory lab</h1>
+    <p>Spaced repetition, chunks, mnemonics, comparison tables, and the mistakes that cost marks.</p>
+  </div>
+  <div class="toolbar">
+    <button class="btn" data-expand="p-memory" data-state="open">Expand all</button>
+    <button class="btn" data-expand="p-memory" data-state="close">Collapse all</button>
+  </div>
+
+  <details class="card" open><summary>Spaced repetition plan <span class="tag">Schedule</span><i class="chev"></i></summary><div class="cbody">
+    <div class="ar" dir="rtl" lang="ar"><p>ارجع للمعلومة <b>قبل ما تتنسي</b> بفترات بتزيد. ابدأ من يوم المذاكرة الأول (Day 0):</p></div>
+    <div class="tablewrap"><table><thead><tr><th>When</th><th>What to do</th></tr></thead><tbody>
+      <tr><td>Day 0</td><td>Read the Explanation, then close it and write the 5 levels and 4 review types from memory (30–40 min)</td></tr>
+      <tr><td>Day 1</td><td>Summary + flashcards (20 min)</td></tr>
+      <tr><td>Day 3</td><td>MCQs; redo only <b>Missed only</b> (30 min)</td></tr>
+      <tr><td>Day 7</td><td>Written questions on paper, then compare with the model answer (40 min)</td></tr>
+      <tr><td>Day 14 / night before</td><td>Night-before sheet; redraw the level table and the review-type table from memory (20 min)</td></tr>
+    </tbody></table></div>
+    <div class="box key" data-label="Rule"><p><b>Active recall beats re-reading.</b> Cover the right column of a table and fill it in yourself.</p></div>
+  </div></details>
+
+  <details class="card" open><summary>Chunking <span class="tag">Group the facts</span><i class="chev"></i></summary><div class="cbody">
+    <div class="grid">
+      <div class="mini" data-ch="2"><div class="n">Ch 2 · chunk A</div><h4>SDLC</h4><p>2 categories (sequential, iterative/incremental) · 2 sequential models (Waterfall, V) · 4 good-testing rules.</p></div>
+      <div class="mini" data-ch="2"><div class="n">Ch 2 · chunk B</div><h4>5 levels</h4><p>Small → big: <b>Component, Component integration, System, System integration, Acceptance</b>. For each: Objectives, Basis, Object, Defects, Approach.</p></div>
+      <div class="mini" data-ch="2"><div class="n">Ch 2 · chunk C</div><h4>Who tests</h4><p>Developers (component, component integration) · independent testers (system, system integration) · customers/users/operators (acceptance).</p></div>
+      <div class="mini" data-ch="2"><div class="n">Ch 2 · chunk D</div><h4>6 acceptance forms</h4><p>UAT · OAT · contractual · regulatory · alpha · beta.</p></div>
+      <div class="mini" data-ch="2"><div class="n">Ch 2 · chunk E</div><h4>Test types</h4><p>Functional (what) · Non-functional (how well, 8 characteristics) · Black/White box · Confirmation/Regression.</p></div>
+      <div class="mini" data-ch="3"><div class="n">Ch 3 · chunk F</div><h4>Static testing</h4><p>People (reviews) + tools (static analysis); verification vs validation; static vs dynamic.</p></div>
+      <div class="mini" data-ch="3"><div class="n">Ch 3 · chunk G</div><h4>Review process</h4><p>5 activities; 5 checklist items; anomaly → analysis → decision.</p></div>
+      <div class="mini" data-ch="3"><div class="n">Ch 3 · chunk H</div><h4>Roles and types</h4><p>3 + 3 roles; 4 review types; inspection rules.</p></div>
+    </div>
+  </div></details>
+
+  <details class="card" open><summary>Mnemonic bank <span class="tag">Hard concepts</span><i class="chev"></i></summary><div class="cbody">
+    <div class="tablewrap"><table><thead><tr><th>Concept</th><th>Mnemonic</th></tr></thead><tbody>
+      <tr data-ch="2"><td>Good testing (4)</td><td><b>C-O-B-P</b>: Corresponding activity, Objectives per level, Begin early, Participate in reviews</td></tr>
+      <tr data-ch="2"><td>Waterfall vs V</td><td>Waterfall = water flows one way · V = Verify each side (each dev phase ↔ test level)</td></tr>
+      <tr data-ch="2"><td>Incremental vs iterative</td><td>Incremental = <b>add</b> pieces · Iterative = <b>refine</b> cycles</td></tr>
+      <tr data-ch="2"><td>5 levels</td><td><b>C-CI-S-SI-A</b>: “small parts → joined parts → whole → whole + outside → customer”</td></tr>
+      <tr data-ch="2"><td>Level attributes (5)</td><td><b>O-B-O-D-A</b>: Objectives, Basis, Object, Defects, Approach</td></tr>
+      <tr data-ch="2"><td>6 acceptance forms</td><td><b>U-O-C-R-A-B</b>: “Uncle Omar Cooks Rice And Beans”</td></tr>
+      <tr data-ch="2"><td>Alpha vs Beta</td><td>Alpha = <b>A</b>t <b>A</b>uthor’s site · Beta = <b>B</b>uyer’s <b>B</b>ase</td></tr>
+      <tr data-ch="2"><td>Functional / non-functional</td><td><b>WHAT</b> vs <b>HOW WELL</b></td></tr>
+      <tr data-ch="2"><td>8 non-functional</td><td><b>P-C-U-R-S-M-P-S</b>: Performance, Compatibility, Usability, Reliability, Security, Maintainability, Portability, Safety</td></tr>
+      <tr data-ch="2"><td>Black vs white box</td><td>Black = spec (outside) · White = structure (inside)</td></tr>
+      <tr data-ch="2"><td>Confirmation vs regression</td><td>Confirm = “<b>this</b> fix?” · Regression = “<b>other</b> things broken?”</td></tr>
+      <tr data-ch="3"><td>Verification / validation</td><td>Verification = Value the Rules · Validation = Values the Users</td></tr>
+      <tr data-ch="3"><td>Review activities (5)</td><td><b>P-I-I-C-F</b>: Plan, Initiate, Individual review, Communicate/analyse, Fix/report</td></tr>
+      <tr data-ch="3"><td>Checklist (5)</td><td><b>C-C-C-T-T</b>: Clarity, Consistency, Completeness, Testability, Traceability</td></tr>
+      <tr data-ch="3"><td>Roles</td><td><b>A-R-S</b> + <b>M-L-M</b>: Manager gives time, Leader picks people, Moderator keeps order</td></tr>
+      <tr data-ch="3"><td>Review types by formality</td><td><b>I-W-T-I</b>: Informal → Walkthrough → Technical → Inspection</td></tr>
+    </tbody></table></div>
+  </div></details>
+
+  <details class="card" open><summary>Comparison tables <span class="tag">Look-alikes</span><i class="chev"></i></summary><div class="cbody">
+    <h3 class="sub" data-ch="2">Component integration vs system integration</h3>
+    <div class="tablewrap" data-ch="2"><table><thead><tr><th></th><th>Component integration</th><th>System integration</th></tr></thead><tbody>
+      <tr><td>Interfaces between</td><td>Components / subsystems of the system</td><td>The system and other systems / external services</td></tr>
+      <tr><td>Example</td><td>API or microservice interactions</td><td>Registration with external payment system</td></tr>
+      <tr><td>Typical defects</td><td>(interface and interaction problems)</td><td>Inconsistent message structures, interface mismatch, communication failures, bad data encoding</td></tr>
+      <tr><td>Responsibility</td><td>Often developers</td><td>Generally testers</td></tr>
+    </tbody></table></div>
+    <h3 class="sub" data-ch="2">Alpha vs beta</h3>
+    <div class="tablewrap" data-ch="2"><table><thead><tr><th></th><th>Alpha</th><th>Beta</th></tr></thead><tbody>
+      <tr><td>Where</td><td>Developing organization’s site</td><td>Customers’/operators’ own locations</td></tr>
+      <tr><td>Who</td><td>Potential/existing customers, operators, or an independent test team (not the dev team)</td><td>Potential/existing customers and/or operators</td></tr>
+      <tr><td>Order</td><td>Before beta (typically)</td><td>May follow alpha or occur without alpha</td></tr>
+      <tr><td>Used by</td><td colspan="2">Developers of COTS software wanting feedback before market release</td></tr>
+    </tbody></table></div>
+    <h3 class="sub" data-ch="2">Functional vs non-functional · black vs white</h3>
+    <div class="tablewrap" data-ch="2"><table><thead><tr><th></th><th>Functional</th><th>Non-functional</th><th>Black-box</th><th>White-box</th></tr></thead><tbody>
+      <tr><td>Question</td><td>What?</td><td>How well?</td><td>Behavior vs specification</td><td>Structure covered?</td></tr>
+      <tr><td>Based on</td><td>Functional requirements (maybe undocumented)</td><td>Quality characteristics</td><td>Documentation, not internal structure</td><td>Code, architecture, work flows, data flows</td></tr>
+    </tbody></table></div>
+    <h3 class="sub" data-ch="2">Confirmation vs regression</h3>
+    <div class="tablewrap" data-ch="2"><table><thead><tr><th></th><th>Confirmation</th><th>Regression</th></tr></thead><tbody>
+      <tr><td>Purpose</td><td>Original defect fixed</td><td>No adverse consequences of a change</td></tr>
+      <tr><td>Scope</td><td>The fixed defect</td><td>Same component, other components, other systems, environment</td></tr>
+      <tr><td>Planning aid</td><td>Re-run failed tests / new tests</td><td>Impact analysis</td></tr>
+    </tbody></table></div>
+    <h3 class="sub" data-ch="3">Verification vs validation</h3>
+    <div class="tablewrap" data-ch="3"><table><thead><tr><th></th><th>Verification</th><th>Validation</th></tr></thead><tbody>
+      <tr><td>Question</td><td>Does the work product meet its specified rules?</td><td>Does the proposed rule meet users’ actual needs?</td></tr>
+      <tr><td>Example</td><td>Design matches the approved 18-credit limit</td><td>Do graduating students need an agreed exception?</td></tr>
+    </tbody></table></div>
+    <h3 class="sub" data-ch="3">Walkthrough vs technical review vs inspection</h3>
+    <div class="tablewrap wide" data-ch="3"><table><thead><tr><th></th><th>Walkthrough</th><th>Technical review</th><th>Inspection</th></tr></thead><tbody>
+      <tr><td>Led by</td><td>Author</td><td>Moderator</td><td>Defined process; author can’t lead or scribe</td></tr>
+      <tr><td>Goal</td><td>Explain, build understanding, find anomalies</td><td>Technical agreement, decisions</td><td>Maximum number of anomalies</td></tr>
+      <tr><td>Preparation</td><td>Optional</td><td>Qualified reviewers</td><td>Complete generic process, metrics</td></tr>
+    </tbody></table></div>
+    <h3 class="sub" data-ch="3">Review leader vs moderator vs manager</h3>
+    <div class="tablewrap" data-ch="3"><table><thead><tr><th>Role</th><th>Think of it as</th></tr></thead><tbody>
+      <tr><td>Manager</td><td>Chooses review needs, provides resources</td></tr>
+      <tr><td>Review leader</td><td>Overall responsibility; selects reviewers; schedules</td></tr>
+      <tr><td>Moderator / facilitator</td><td>Runs the discussion effectively and safely</td></tr>
+    </tbody></table></div>
+  </div></details>
+
+  <details class="card" open><summary>Common mistakes and traps <span class="tag">Marks lost here</span><i class="chev"></i></summary><div class="cbody">
+    <div class="box trap" data-label="Chapter 2" data-ch="2"><ul>
+      <li>“Regression” is a <b>test type</b>, not one of the 5 <b>test levels</b>.</li>
+      <li>Waterfall: only <b>dynamic</b> testing must wait for executable software; reviews and test preparation start early.</li>
+      <li>Component integration ≠ system integration (internal components vs external systems/services).</li>
+      <li>Alpha is at the developer’s site but <b>not</b> by the dev team; beta may occur <b>without</b> alpha.</li>
+      <li>Business rules not implemented correctly appears as an <b>acceptance</b> defect; inconsistent message structures as <b>system integration</b>; data flow problems as <b>component</b>.</li>
+      <li>Test types apply to <b>all</b> levels; non-functional testing should start <b>as early as possible</b>.</li>
+      <li>Regression is not limited to the changed component, and impact analysis comes first.</li>
+    </ul></div>
+    <div class="box trap" data-label="Chapter 3" data-ch="3"><ul>
+      <li>Static testing never executes the <b>software under test</b>, but static <b>analysis tools do run</b>.</li>
+      <li>Static does <b>not replace</b> dynamic testing: it cannot measure response time.</li>
+      <li>Verification = specified rules; validation = users’ actual needs. Don’t swap them.</li>
+      <li>An <b>anomaly</b> is not automatically a <b>defect</b>: analyse it first.</li>
+      <li>Review leader <b>organizes</b>; moderator <b>facilitates</b>.</li>
+      <li>Inspection: author cannot be review leader or scribe. Walkthrough: author leads, prep optional.</li>
+      <li>Don’t use review findings to rank or blame individuals.</li>
+    </ul></div>
+  </div></details>
+</section>
+
+<!-- ============================ MCQ ============================ -->
+<section class="panel" id="p-mcq" aria-labelledby="h-mcq">
+  <div class="hero">
+    <div class="eyebrow">Phase 4 · Exam training</div>
+    <h1 id="h-mcq">Multiple-choice questions</h1>
+    <p>Click an option to lock your answer and see the explanation. Options reshuffle each visit. Use the chapter filter at the top to practise one chapter. Questions marked <b>Tricky</b> are built from the traps in the Memory Lab.</p>
+  </div>
+  <div class="stats" aria-live="polite">
+    <div class="stat"><b id="stAns">0/0</b><span>Answered</span></div>
+    <div class="stat"><b id="stCor">0</b><span>Correct</span></div>
+    <div class="stat"><b id="stPct">0%</b><span>Accuracy</span></div>
+    <div class="stat"><b id="stMiss">0</b><span>Missed</span></div>
+  </div>
+  <div class="bar" aria-hidden="true"><i id="stBar"></i></div>
+  <div class="toolbar" role="group" aria-label="Filters">
+    <button class="btn" data-f="all" aria-pressed="true">All</button>
+    <button class="btn" data-f="easy" aria-pressed="false">Easy</button>
+    <button class="btn" data-f="medium" aria-pressed="false">Medium</button>
+    <button class="btn" data-f="hard" aria-pressed="false">Hard</button>
+    <button class="btn" data-f="tricky" aria-pressed="false">Tricky</button>
+    <button class="btn" data-f="missed" aria-pressed="false">Missed only</button>
+    <button class="btn" id="mcqShuffle" type="button">Reshuffle options</button>
+    <button class="btn" id="mcqReset" type="button">Reset progress</button>
+  </div>
+  <div id="mcqList"></div>
+</section>
+
+<!-- ============================ WRITTEN ============================ -->
+<section class="panel" id="p-written" aria-labelledby="h-written">
+  <div class="hero">
+    <div class="eyebrow">Phase 4 · Exam training</div>
+    <h1 id="h-written">Written questions and model answers</h1>
+    <p>Try each answer on paper first, then reveal the model answer. Model answers are written in the structure that scores marks: define, list, example, contrast.</p>
+  </div>
+  <div class="box key" data-label="Answer template">
+    <p><b>1. Define</b> (use slide wording) → <b>2. List/structure</b> (numbered parts) → <b>3. Example</b> (slide example) → <b>4. Contrast or consequence</b> (one line). Use the exact ISTQB terms from the slides.</p>
+  </div>
+  <div class="toolbar">
+    <button class="btn" id="wShowAll" type="button">Reveal all</button>
+    <button class="btn" id="wHideAll" type="button">Hide all</button>
+  </div>
+  <h2 style="margin:16px 0 10px;font-size:1.25rem">Short-answer questions</h2>
+  <div id="wShort"></div>
+  <h2 style="margin:22px 0 10px;font-size:1.25rem">Long-form questions</h2>
+  <div id="wLong"></div>
+</section>
+
+<!-- ============================ REVISION ============================ -->
+<section class="panel" id="p-revision" aria-labelledby="h-revision">
+  <div class="hero">
+    <div class="eyebrow">Phase 5 · Rapid revision</div>
+    <h1 id="h-revision">Revision sheet</h1>
+    <p>Everything on one screen. Read it, cover it, recite it.</p>
+  </div>
+
+  <h2 style="margin:6px 0 10px;font-size:1.2rem">One-page sheet</h2>
+  <div class="sheet">
+    <div class="mini" data-ch="2"><h4>Good testing (any SDLC)</h4><ul><li>Test activity for every dev activity</li><li>Level-specific objectives</li><li>Test analysis/design start with the dev activity</li><li>Testers review drafts early</li></ul></div>
+    <div class="mini" data-ch="2"><h4>SDLC models</h4><ul><li><b>Sequential</b>: Waterfall (reviews + test prep early; dynamic testing needs executable software), V-model (dev activity ↔ test level)</li><li><b>Incremental</b>: pieces · <b>Iterative</b>: cycles</li></ul></div>
+    <div class="mini" data-ch="2"><h4>5 test levels</h4><ul><li><b>Component</b> (unit, isolation, developer)</li><li><b>Component integration</b> (interfaces between components; bottom-up/top-down/big-bang)</li><li><b>System</b> (end-to-end, functional + non-functional)</li><li><b>System integration</b> (other systems, external services; testers)</li><li><b>Acceptance</b> (validation, readiness)</li></ul></div>
+    <div class="mini" data-ch="2"><h4>Acceptance forms</h4><ul><li><b>UAT</b> users · <b>OAT</b> ops/admins · <b>Contractual</b> contract · <b>Regulatory</b> regulations</li><li><b>Alpha</b>: developer’s site, not dev team · <b>Beta</b>: own locations; COTS</li></ul></div>
+    <div class="mini" data-ch="2"><h4>Test types</h4><ul><li><b>Functional</b> = what · <b>Non-functional</b> = how well</li><li>8: performance efficiency, compatibility, usability, reliability, security, maintainability, portability, safety</li><li><b>Black-box</b> spec-based · <b>White-box</b> structure-based</li><li>Apply at all levels</li></ul></div>
+    <div class="mini" data-ch="2"><h4>After a change</h4><ul><li><b>Confirmation</b>: defect fixed?</li><li><b>Regression</b>: nothing else broken? (same/other components, other systems, environment)</li><li><b>Impact analysis</b> first</li></ul></div>
+    <div class="mini" data-ch="3"><h4>Static testing</h4><ul><li>No execution of the software under test</li><li><b>Reviews</b> (people) + <b>static analysis</b> (tools)</li><li><b>Verification</b>: meets specified rules · <b>Validation</b>: meets users’ needs</li></ul></div>
+    <div class="mini" data-ch="3"><h4>Static vs dynamic</h4><ul><li>Static: read the incorrect <code>&lt; 18</code> → clarity, consistency, maintainability</li><li>Dynamic: run with 18 credits → behaviour, failure, response time</li><li>Use both</li></ul></div>
+    <div class="mini" data-ch="3"><h4>Review process (5)</h4><ul><li>Planning · Initiation · Individual review · Communication and analysis · Fixing and reporting</li><li>Checklist: clarity, consistency, completeness, testability, traceability</li></ul></div>
+    <div class="mini" data-ch="3"><h4>Roles</h4><ul><li>Author · Reviewer · Scribe</li><li>Manager (resources) · Review leader (organizes) · Moderator (facilitates)</li></ul></div>
+    <div class="mini" data-ch="3"><h4>4 review types</h4><ul><li><b>Informal</b>: no defined process</li><li><b>Walkthrough</b>: author leads, prep optional</li><li><b>Technical</b>: moderator, qualified reviewers, agreement</li><li><b>Inspection</b>: most formal, metrics, max anomalies</li></ul></div>
+  </div>
+
+  <h2 style="margin:24px 0 10px;font-size:1.2rem">Key rules</h2>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Rule</th><th>Read it as</th></tr></thead>
+    <tbody>
+      <tr data-ch="2"><td class="mono">Test levels = Component → Component integration → System → System integration → Acceptance</td><td>Small to large; each level has objectives, basis, object, defects, approach</td></tr>
+      <tr data-ch="2"><td class="mono">Test type × Test level = all combinations</td><td>All test types can apply at all levels</td></tr>
+      <tr data-ch="2"><td class="mono">Change → Confirmation + Regression</td><td>Fix it, confirm it, then check for side effects (impact analysis)</td></tr>
+      <tr data-ch="3"><td class="mono">Static = no execution · Dynamic = execution</td><td>Use both</td></tr>
+      <tr data-ch="3"><td class="mono">Anomaly → analysis → defect / clarify / close</td><td>A suspected problem is not yet a confirmed defect</td></tr>
+      <tr data-ch="3"><td class="mono">Higher criticality/risk → higher review formality</td><td>Informal → walkthrough → technical review → inspection</td></tr>
+    </tbody></table></div>
+
+  <h2 style="margin:24px 0 10px;font-size:1.2rem">Numbers to remember</h2>
+  <div class="chips">
+    <span class="chip hot" data-ch="2">4 good-testing rules</span><span class="chip hot" data-ch="2">2 SDLC categories</span><span class="chip hot" data-ch="2">5 test levels</span><span class="chip hot" data-ch="2">5 level attributes</span><span class="chip hot" data-ch="2">3 integration strategies</span><span class="chip hot" data-ch="2">6 acceptance forms</span><span class="chip hot" data-ch="2">8 non-functional characteristics</span><span class="chip hot" data-ch="2">2 after-change tests</span>
+    <span class="chip hot" data-ch="3">5 review activities</span><span class="chip hot" data-ch="3">5 checklist items</span><span class="chip hot" data-ch="3">6 roles (3 + 3)</span><span class="chip hot" data-ch="3">4 review types</span><span class="chip hot" data-ch="3">3 requirement problems</span><span class="chip hot" data-ch="3">2 ways to examine (review, static analysis)</span><span class="chip">18 credits example</span>
+  </div>
+
+  <h2 style="margin:24px 0 10px;font-size:1.2rem">Night-before cheat sheet</h2>
+  <div class="box exam" data-label="60-second recital">
+    <p data-ch="2">“A <b>SDLC model</b> describes activities and how they relate. In any model every development activity has a test activity. <b>Sequential</b> models are Waterfall and the V-model; <b>incremental</b> adds pieces, <b>iterative</b> refines in cycles. There are <b>five test levels</b>: component, component integration, system, system integration, acceptance. Test types are functional (what), non-functional (how well), black-box, white-box, and after a change, confirmation and regression.”</p>
+    <p data-ch="3">“<b>Static testing</b> examines work products without executing the software, through <b>reviews</b> and <b>static analysis</b>. Verification checks the specified rules; validation checks users’ needs. A review has <b>five activities</b>: planning, initiation, individual review, communication and analysis, fixing and reporting. Roles are author, reviewer, scribe, manager, review leader, moderator. The four types are informal, walkthrough, technical review and inspection, the most formal.”</p>
+  </div>
+  <ul class="cl" id="checklist"></ul>
+  <div class="box trap" data-label="Last-minute traps">
+    <ul>
+      <li data-ch="2">Regression is a test <b>type</b>, not a level.</li>
+      <li data-ch="2">Alpha: developer’s site, <b>not</b> the dev team. Beta may occur <b>without</b> alpha.</li>
+      <li data-ch="2">Component integration (inside) vs system integration (outside systems).</li>
+      <li data-ch="3">Validation = users’ needs; verification = specified rules.</li>
+      <li data-ch="3">Inspection: author can’t be leader or scribe. Walkthrough: author leads.</li>
+      <li data-ch="3">Anomaly ≠ confirmed defect.</li>
+    </ul>
+  </div>
+  <div class="box key" data-label="Exam technique">
+    <ul>
+      <li><b>MCQ:</b> identify the level or review type from the clue (who/where/what), then eliminate. Watch “always”, “only”, “must”.</li>
+      <li><b>Written:</b> definition → list → example (use the 18-credit or payment-system example) → contrast. Tables for “compare”.</li>
+    </ul>
+  </div>
+
+  <h2 style="margin:24px 0 10px;font-size:1.2rem">Flashcards <small class="mono" style="color:var(--muted)">tap to flip</small></h2>
+  <div class="fc-grid" id="fcGrid"></div>
+  <p class="foot">Source: ISTQB-based course slides, Software Quality Control, Section 3 (Ch 2) and Section 4 (Ch 3). Mnemonics and analogies are study aids.</p>
+</section>
+
+</main>
+<script>
+/* MCQ: [chapter, difficulty, tricky, question, correct, [3 wrong], explanation] */
+var MCQ = [
+ /* ---------------- Chapter 2 ---------------- */
+ ["2","easy",0,"A software development lifecycle model describes:","The types of activity at each stage and how the activities relate logically and chronologically",["Only the programming languages used in a project","Only the test cases for each release","The budget approval process of the organization"],"Definition from slide: types of activity performed at each stage, and how they relate to one another logically and chronologically."],
+ ["2","medium",0,"Which statement reflects a characteristic of good testing in any SDLC model?","For every development activity, there is a corresponding test activity",["Testing starts only after coding is complete","All test levels share the same test objectives","Testers review work products only after the final release"],"Good testing: corresponding test activity per development activity; level-specific objectives; test analysis/design begin early; testers review drafts as soon as available."],
+ ["2","easy",0,"The syllabus categorizes common SDLC models as:","Sequential models, and iterative and incremental models",["Manual models and automated models","Internal models and external models","Waterfall models and agile models only"],"Two categories: sequential development models; iterative and incremental development models."],
+ ["2","easy",0,"In a sequential development model, a phase should begin when:","The previous phase is complete",["Testing has finished for the whole project","The customer asks for it at any time","All phases can start together"],"A sequential model is a linear flow; in theory there is no overlap, though early feedback from the next phase is beneficial."],
+ ["2","medium",1,"In Waterfall, which activities can begin early, while dynamic testing needs executable software?","Reviews and test preparation",["Acceptance testing and beta testing","Component testing and system testing","Regression testing and confirmation testing"],"Reviews and test preparation can begin early; only dynamic testing requires executable software."],
+ ["2","easy",0,"Which model explicitly links development activities with corresponding test levels?","The V-model",["The Waterfall model","Incremental development","Iterative development"],"The V-model links each development activity to a test level and supports early testing."],
+ ["2","medium",0,"Sequential development models typically:","Deliver the complete set of features, but need months or years for delivery",["Deliver a few features every week","Avoid reviews and documentation","Have overlapping phases by definition"],"Slide: complete set of features, but typically months or years for delivery to stakeholders and users."],
+ ["2","medium",1,"Which description fits iterative development?","Groups of features are specified, designed, built and tested together in a series of cycles, often of fixed duration",["A linear flow where no phase overlaps","Software delivered once, complete, after months or years","A system built once and never changed afterwards"],"Iterative refines a solution through repeated cycles and may change earlier features and scope. Incremental adds capabilities in successive increments."],
+ ["2","easy",1,"Which of these is NOT one of the five test levels in the syllabus?","Regression testing",["Component testing","System integration testing","Acceptance testing"],"Levels: Component, Component integration, System, System integration, Acceptance. Regression is a test type."],
+ ["2","medium",0,"Which is NOT an attribute used to characterize a test level?","The programming language of the test object",["Specific objectives","Test basis","Typical defects and failures"],"Attributes: objectives, test basis, test object, typical defects/failures, approaches and responsibilities."],
+ ["2","easy",0,"Component testing is also known as:","Unit testing",["System testing","Alpha testing","Contractual testing"],"Component testing focuses on components in isolation, often with test harnesses or unit test frameworks."],
+ ["2","medium",0,"Component testing is usually performed by:","The developer who wrote the code",["An independent regulatory agency","The end users","The operations staff"],"Specific approach/responsibility from the slide."],
+ ["2","medium",0,"Which is a typical test basis for component testing?","Detailed design",["Sequence diagrams","Epics and user stories","Business processes"],"Component basis: detailed design, code, data model, component specifications. Sequence diagrams → integration; epics/user stories → system; business processes → acceptance."],
+ ["2","medium",1,"Component integration testing focuses on:","The interfaces and interactions between components",["The interfaces to other systems and external services","End-to-end behavior of the entire system","Readiness for deployment by users"],"The second option describes system integration testing."],
+ ["2","medium",0,"Which integration strategy is NOT mentioned for component integration testing?","Round-robin",["Bottom-up","Top-down","Big-bang"],"Component integration depends heavily on the integration strategy: bottom-up, top-down or big-bang."],
+ ["2","hard",0,"Which is a typical test object for component integration testing?","APIs and microservices",["Operating systems","Recovery systems and hot sites","Forms and reports"],"Objects: subsystems, databases, infrastructure, interfaces, APIs, microservices."],
+ ["2","medium",0,"System testing focuses on:","The overall end-to-end behavior and capabilities of the entire system, functional and non-functional",["Components in isolation","Contract acceptance criteria only","Only the interfaces to external payment systems"],"System testing considers the system as a whole."],
+ ["2","hard",1,"Which defect is typical for SYSTEM testing (not another level)?","Failure to properly and completely carry out end-to-end functional tasks",["Inconsistent message structures between systems","Data flow problems inside a unit","Business rules are not implemented correctly"],"First: system. Second: system integration. Third: component. Fourth: acceptance."],
+ ["2","medium",0,"Checking registration with the external payment system is an example of:","System integration testing",["Component testing","Unit testing","Beta testing"],"System integration tests the interfaces between the system and other systems/external services."],
+ ["2","medium",0,"System integration testing is generally the responsibility of:","Testers",["Customers only","The development team who wrote the code","Regulators"],"System integration: generally testers; it needs environments similar to the operational one."],
+ ["2","hard",1,"Which pairing of test level and typical environment is correct?","Acceptance: production-like · Component: developer’s own development environment",["Acceptance: developer’s own environment · Component: production-like","Both use the production environment","Neither needs a test environment"],"Slide: every level needs a suitable environment; ideal acceptance is production-like, developers typically test components in their own."],
+ ["2","easy",0,"Acceptance testing focuses on:","Validation and demonstrating readiness for deployment, i.e., the system fulfills the user’s business needs",["Testing code in isolation","Checking interfaces between components","Measuring code coverage"],"Acceptance = validation + readiness for deployment."],
+ ["2","hard",1,"Testing of backup and restore, installing/upgrading and disaster recovery is typical of:","Operational acceptance testing (OAT)",["User acceptance testing (UAT)","Alpha testing","Component testing"],"OAT is performed by operations/systems administration staff in a (simulated) production environment."],
+ ["2","medium",0,"Contractual acceptance testing is performed against:","A contract’s acceptance criteria for custom-developed software",["Government regulations only","The tester’s own preferences","The component specifications"],"Regulatory acceptance is the one performed against government, legal or safety regulations."],
+ ["2","medium",1,"Alpha testing is performed:","At the developing organization’s site by potential or existing customers/operators or an independent test team, not the development team",["At the customer’s own site by the development team","By the developers of the code at their desks","Only after beta testing"],"Beta is performed by customers/operators at their own locations."],
+ ["2","hard",1,"Which statement about beta testing is TRUE?","It may occur without any preceding alpha testing",["It must always follow alpha testing","It is performed at the developing organization’s site","It is used mainly for custom-developed contract software"],"Alpha and beta are typically used by developers of COTS software."],
+ ["2","medium",0,"Alpha and beta testing are typically used by developers of:","Commercial off-the-shelf (COTS) software",["Embedded hardware only","Contract-specific custom software only","Operating systems only"],"They collect feedback from potential/existing users before the product is put on the market."],
+ ["2","hard",1,"Which is a typical defect found in ACCEPTANCE testing?","Business rules are not implemented correctly",["Incorrect code and logic in a unit","Interface mismatch between two systems","Data flow problems in a module"],"Acceptance defects: workflows not meeting requirements, business rules wrong, contractual/regulatory non-compliance, non-functional failures."],
+ ["2","easy",0,"Functional testing evaluates:","“What” the system should do",["“How well” the system behaves","The internal code structure only","Only the user manuals"],"Non-functional testing is “how well”."],
+ ["2","medium",0,"Portability is also known as:","Flexibility",["Interaction capability","Compatibility","Safety"],"Usability is also known as interaction capability; portability as flexibility."],
+ ["2","medium",1,"Which statement about test types is correct?","All test types can be applied to all test levels, although the focus differs",["Functional testing applies only at system level","Non-functional testing should be left to the end of the project","White-box testing applies only to acceptance testing"],"Functional at all levels; non-functional at all levels and as early as possible."],
+ ["2","medium",0,"White-box testing is:","Structure-based; its objective is to cover the underlying structure to an acceptable level",["Specification-based; it checks behavior against specifications","Only performed by end users","Based only on user manuals"],"Black-box is specification-based."],
+ ["2","medium",0,"Confirmation testing confirms that:","An original defect has been successfully fixed",["No adverse consequences were caused by a change","The system meets regulations","All components are integrated"],"The second option describes regression testing."],
+ ["2","hard",1,"When time or money is short, confirmation testing might be restricted to:","Exercising the test steps that should reproduce the failure and checking that it no longer occurs",["Skipping the test of the fix entirely","Running the complete regression suite only","Asking the customer to retest"],"Slide wording for the minimal confirmation."],
+ ["2","hard",0,"Before regression testing, it is advisable to perform:","An impact analysis, to show which parts of the software could be affected",["A beta test at customer sites","A contractual acceptance test","A walkthrough with the author"],"Regression may also relate to the environment, not just the test object."],
+
+ /* ---------------- Chapter 3 ---------------- */
+ ["3","easy",0,"Static testing means:","Examining a work product without executing the software under test",["Running the software with test data","Testing only in a production environment","Measuring response time under load"],"People review work products; tools analyse structured work products."],
+ ["3","medium",0,"Which can be examined by static testing?","A test case or test plan",["Only the running application","Only performance logs","Only compiled binaries"],"Documents, designs, source code, project documentation, contracts, models and test cases."],
+ ["3","medium",1,"“Do graduating students need an agreed exception to the 18-credit limit?” is a question of:","Validation",["Verification","Regression","Component testing"],"Validation: does the proposed rule meet the users’ actual needs?"],
+ ["3","medium",0,"“Does the design match the approved 18-credit limit?” is a question of:","Verification",["Validation","Beta testing","Operational acceptance"],"Verification: does the work product meet its specified rules?"],
+ ["3","medium",0,"How do reviews differ from static analysis?","Reviews are done by people using domain knowledge and judgement; static analysis uses tools to check structured material against rules",["Reviews run the software; static analysis does not","Static analysis needs executable test cases; reviews do not","Reviews only apply to source code"],"Static analysis does not need executable test cases or application execution."],
+ ["3","medium",0,"A tool report of an unused variable is an example of:","Static analysis",["Dynamic testing","A walkthrough","Acceptance testing"],"Static analysis flags unused values, unreachable code, complexity or risky patterns."],
+ ["3","medium",0,"A CI pipeline can use static analysis by:","Running the checks whenever developers submit changes",["Replacing all human review","Executing the application on each customer’s site","Measuring response time"],"People still interpret findings and decide action."],
+ ["3","hard",1,"A requirement says accept totals up to 18 credits; the code is <code>return total &lt; 18;</code>. What does this show?","The comparison excludes 18, so the code has a boundary defect that reading can reveal and executing with 18 can show as a failure",["The code is correct because the syntax is valid","The requirement should be changed to “less than 18”","Only dynamic testing can find this problem"],"Valid syntax can still implement the wrong business rule."],
+ ["3","medium",0,"“The registration page should respond quickly.” is an example of:","Ambiguity",["Contradiction","Missing information","A coding standard violation"],"What response time and workload count as acceptable?"],
+ ["3","medium",0,"R1: accept totals up to and including 18 credits. R2: reject totals of 18 credits or more. This is:","A contradiction",["An ambiguity","Missing information","A static analysis false alarm"],"They require opposite outcomes at exactly 18 credits."],
+ ["3","medium",0,"“Send a password-reset link” with no expiry or reuse rule is an example of:","Missing information",["Ambiguity","Contradiction","A walkthrough finding"],"When should the link expire, and can it be reused?"],
+ ["3","medium",1,"Running a registration with 18 credits against the application is:","Dynamic testing",["Static testing","A review","Static analysis"],"Dynamic testing executes the software under test; the observed behaviour may reveal a failure."],
+ ["3","medium",0,"Which quality view can dynamic testing give that a document review cannot?","Measured response time and runtime behaviour",["Clarity of a requirement","Consistency between two requirements","Naming-convention compliance"],"Use both static and dynamic testing."],
+ ["3","medium",0,"“A statement follows an unconditional return” is a defect typically found in:","Source code",["Requirements","Interface specifications","Test plans"],"A static finding in source code."],
+ ["3","medium",0,"“Caller sends student ID as text; receiver expects a number” is a defect in:","An interface specification",["A coding-standard document","A user manual","A test environment"],"Found statically in the interface specification."],
+ ["3","medium",1,"“No test checks an approved acceptance criterion” is a finding about:","Test basis coverage",["Security","Coding standards","Design duplication"],"A review can expose a missing test without running the application."],
+ ["3","easy",1,"Which is NOT a stated benefit of static testing?","It removes the need for dynamic testing",["Finds unclear or conflicting rules early","Finds problems in work products that cannot be executed","Improves shared understanding between users, analysts, developers and testers"],"The slides say use both static and dynamic testing."],
+ ["3","easy",0,"Which lists the review process activities in the correct order?","Planning, review initiation, individual review, communication and analysis, fixing and reporting",["Planning, individual review, review initiation, fixing and reporting, communication and analysis","Review initiation, planning, communication and analysis, individual review, fixing and reporting","Individual review, planning, review initiation, fixing and reporting, communication and analysis"],"P-I-I-C-F."],
+ ["3","medium",0,"Which belongs to the PLANNING activity of a review?","Choose the document, scope, objective and exit criteria",["Reviewers record questions and possible problems","Track corrections and report the outcome","Decide each finding’s status, owner and action"],"Share exact version/checklist and confirm roles belongs to review initiation."],
+ ["3","medium",1,"“Does the test set cover each agreed acceptance criterion?” is which checklist item?","Traceability",["Testability","Completeness","Consistency"],"Checklist: clarity, consistency, completeness, testability, traceability."],
+ ["3","medium",1,"A logged anomaly “The reset link has no expiry time in this user story” should be:","Analysed first: it may be a defect, or the expiry may be defined in a referenced specification",["Automatically treated as a confirmed defect","Ignored, because anomalies are never defects","Closed without a recorded reason"],"Decide: confirm a defect, clarify an existing rule, or close with a recorded reason."],
+ ["3","medium",0,"Which role collects findings and records decisions?","Scribe / recorder",["Review leader","Author","Manager"],"The author creates and corrects the work product."],
+ ["3","hard",1,"Who selects the reviewers and schedules the review?","The review leader",["The moderator","The scribe","The author"],"Review leader organizes participation; the moderator facilitates the discussion."],
+ ["3","medium",0,"Which review type is the most formal, with a defined process and metrics?","Inspection",["Informal review","Walkthrough","Technical review"],"Inspection: find the maximum number of anomalies; collect improvement metrics."],
+ ["3","medium",1,"In which review type does the author lead the explanation, with individual preparation optional?","Walkthrough",["Inspection","Technical review","Informal review"],"Walkthrough emphasis: explain, build understanding, find anomalies."],
+ ["3","hard",1,"Which statement about a technical review is correct?","Qualified technical reviewers work with a moderator to reach technical agreement and decisions",["The author leads and preparation is optional","It has no defined process or formal output","It collects metrics and is the most formal type"],"Options 2 and 3 describe walkthrough/informal and inspection."],
+ ["3","hard",0,"In an inspection, the author:","Cannot act as the review leader or scribe",["Must be the review leader","Must be the scribe","Must be the manager"],"Roles, preparation and review criteria are defined; metrics improve both the work process and the inspection process."],
+ ["3","medium",0,"Which is NOT a factor in choosing review formality according to the slides?","The font used in the document",["Objective, product complexity, criticality and risks","SDLC, process maturity, business domain and team culture","Applicable obligations and any need for a traceable audit record"],"Match the review effort to available people, time and expertise."],
+ ["3","hard",1,"Practice: requirement “A student may register for up to 18 credits.” Test case: input 18, expected result “reject”. Which is correct?","The expected result conflicts with the requirement, and reading them is static testing",["The test case is correct, because 18 is the limit","Comparing them is dynamic testing","The requirement must be wrong because it includes 18"],"“Up to 18” includes 18. Executing the case against the application would be dynamic testing."],
+ ["3","medium",0,"Which contributes to a successful review?","Clear objectives and measurable exit criteria, manageable pieces and respectful, evidence-based discussion",["Using findings to rank individuals","Reviewing the entire product in one session","Avoiding any follow-up of corrections"],"Also: training, preparation time, management support, feedback to authors and stakeholders, tracking corrections."]
+];
+
+/* Written: [chapter, type, marks, question, model answer HTML] */
+var WRITTEN = [
+ ["2","short",2,"Define a software development lifecycle model and state the characteristics of good testing in any model.",
+ `<p>A <b>software development lifecycle model</b> describes the types of activity performed at each stage of a project and how the activities relate to one another logically and chronologically.</p>
+  <p><b>Characteristics of good testing:</b></p><ol><li>For every development activity there is a corresponding test activity.</li><li>Each test level has test objectives specific to that level.</li><li>Test analysis and design for a level begin during the corresponding development activity.</li><li>Testers take part in discussions that define and refine requirements and design, and review work products as soon as drafts are available.</li></ol>`],
+ ["2","short",3,"Distinguish sequential, incremental and iterative development.",
+ `<table><thead><tr><th>Model</th><th>Description</th></tr></thead><tbody>
+  <tr><td>Sequential</td><td>Linear flow of activities; a phase begins when the previous one is complete. Delivers the complete feature set, typically after months or years. Examples: Waterfall, V-model.</td></tr>
+  <tr><td>Incremental</td><td>Requirements, design, build and test are done in pieces, so features grow incrementally. Increment size varies.</td></tr>
+  <tr><td>Iterative</td><td>Groups of features are specified, designed, built and tested together in a series of cycles, often of fixed duration. Iterations may change earlier features and project scope.</td></tr></tbody></table>
+  <p>A project may combine incremental and iterative development.</p>`],
+ ["2","short",2,"Explain how the V-model differs from Waterfall with regard to testing.",
+ `<p>In <b>Waterfall</b>, development proceeds through successive phases. Reviews and test preparation can begin early, but <b>dynamic testing requires executable software</b>.</p>
+  <p>The <b>V-model</b> explicitly links each development activity with a corresponding test level; test analysis and design begin alongside the related development activity. This supports <b>early testing</b>.</p>`],
+ ["2","short",3,"List the five test levels and the attributes that characterize each level.",
+ `<p><b>Levels:</b> component, component integration, system, system integration, acceptance.</p>
+  <p><b>Attributes:</b> specific objectives (reducing risk, finding defects, verifying specified behaviour, building confidence), test basis, test object, typical defects and failures, and specific approaches and responsibilities. Each level also needs a suitable test environment (production-like for acceptance; developers’ own environment for component testing).</p>`],
+ ["2","short",3,"Define component testing: give its test basis, test objects, typical defects and who performs it.",
+ `<p><b>Component testing</b> (unit testing) tests components in isolation, often with test harnesses or unit test frameworks.</p>
+  <ul><li><b>Basis:</b> detailed design, code, data model, component specifications.</li><li><b>Objects:</b> components, units, modules; code and data structures; classes; database modules.</li><li><b>Defects:</b> incorrect functionality, data flow problems, incorrect code and logic.</li><li><b>Performed by:</b> usually the developer who wrote the code.</li></ul>`],
+ ["2","short",3,"Differentiate component integration testing from system integration testing.",
+ `<table><thead><tr><th></th><th>Component integration</th><th>System integration</th></tr></thead><tbody>
+  <tr><td>Focus</td><td>Interfaces and interactions between components (bottom-up, top-down or big-bang strategy)</td><td>Interfaces between the system under test and other systems and external services</td></tr>
+  <tr><td>Objects</td><td>Subsystems, databases, infrastructure, interfaces, APIs, microservices</td><td>System interfaces to external services (e.g., payment system)</td></tr>
+  <tr><td>Defects</td><td>Interface and interaction problems</td><td>Inconsistent message structures, incorrect/missing data or encoding, interface mismatch, communication failures</td></tr>
+  <tr><td>Responsibility</td><td>Often developers</td><td>Generally testers</td></tr></tbody></table>`],
+ ["2","short",3,"Distinguish functional from non-functional testing and list the non-functional characteristics.",
+ `<p><b>Functional testing</b> evaluates the functions the system should perform (“what”), at all test levels, and may use black-box techniques.</p>
+  <p><b>Non-functional testing</b> evaluates “how well” the system behaves: performance efficiency, compatibility, usability (interaction capability), reliability, security, maintainability, portability (flexibility) and safety. It can and often should be done at all levels, as early as possible, and may also use black-box techniques.</p>`],
+ ["2","short",3,"Compare black-box and white-box testing.",
+ `<p><b>Black-box testing</b> is specification-based: tests are derived from documentation not related to the internal structure. Objective: check the system’s behavior against its specifications.</p>
+  <p><b>White-box testing</b> is structure-based: tests are derived from the implementation or internal structure (code, architecture, work flows, data flows). Objective: cover the underlying structure by the tests to an acceptable level.</p>`],
+ ["2","long",8,"Discuss acceptance testing: its focus, main forms, and what each form tests.",
+ `<p><b>Focus.</b> Acceptance testing focuses on validation and on demonstrating readiness for deployment, i.e., that the system fulfills the user’s business needs.</p>
+  <table><thead><tr><th>Form</th><th>Performed by / where</th><th>What it tests</th></tr></thead><tbody>
+  <tr><td>UAT</td><td>Users, real or simulated operational environment</td><td>Fitness for use by intended users; users can meet their needs and perform business processes with minimum difficulty, cost and risk</td></tr>
+  <tr><td>OAT</td><td>Operations or systems administration staff, simulated production environment</td><td>Backup and restore; installing, uninstalling, upgrading; disaster recovery; user management; maintenance tasks; data load and migration; security vulnerabilities; performance</td></tr>
+  <tr><td>Contractual</td><td>Users or independent testers</td><td>Contract’s acceptance criteria for custom-developed software</td></tr>
+  <tr><td>Regulatory</td><td>Users or independent testers; may be witnessed or audited by regulators</td><td>Government, legal or safety regulations</td></tr>
+  <tr><td>Alpha</td><td>At the developing organization’s site by customers/operators or an independent test team (not the dev team)</td><td>Feedback from potential/existing users before market release (COTS)</td></tr>
+  <tr><td>Beta</td><td>Customers/operators at their own locations; may occur without alpha</td><td>Confidence under everyday conditions; defects related to conditions hard for developers to replicate</td></tr></tbody></table>
+  <p><b>Responsibility.</b> Customers, business users, product owners or operators; ideally the intended users.</p>`],
+ ["2","long",8,"Explain the system test level and the system integration test level: focus, basis, objects, typical defects and responsibility.",
+ `<p><b>System testing</b> focuses on the overall behavior and capabilities of an entire system or product, including end-to-end functional tasks and non-functional characteristics, preferably in a representative environment (simulating subsystems is possible).</p>
+  <ul><li><b>Basis:</b> system and software requirement specifications, risk analysis reports, use cases, epics and user stories, models of system behavior, state diagrams, system and user manuals.</li><li><b>Objects:</b> applications, hardware/software systems, operating systems, SUT, configuration and configuration data.</li><li><b>Defects:</b> incorrect calculations; incorrect or unexpected functional/non-functional behavior; incorrect control or data flows; failure to complete end-to-end tasks; failure in the production environment; not working as described in manuals.</li><li><b>Responsibility:</b> may be an independent test team.</li></ul>
+  <p><b>System integration testing</b> tests the interfaces between the system under test and other systems and external services (e.g., registration with an external payment system). Defects: inconsistent message structures, incorrect/missing data or encoding, interface mismatch, communication failures, unhandled communication failures. It needs an environment similar to the operational one and is generally done by testers.</p>`],
+ ["2","long",6,"Explain confirmation testing and regression testing, and how they relate to changes.",
+ `<p>Changes are made to enhance a component/system (new feature) or to fix a defect. Testing then must include <b>confirmation</b> and <b>regression</b> testing, at every level where defects are fixed or changes made.</p>
+  <p><b>Confirmation testing</b> confirms that the original defect has been fixed: by running all tests that previously failed, and/or adding new tests for changes needed for the fix. If time or money is short, it may be limited to reproducing the failure steps and checking that the failure no longer occurs.</p>
+  <p><b>Regression testing</b> confirms that no adverse consequences were caused by a change, including a fix already confirmed. They can affect the same component, other components, other connected systems, or the environment. Do an <b>impact analysis</b> first to find which parts may be affected and so decide the extent of regression testing.</p>`],
+ ["2","long",6,"Describe the test types in the chapter and explain how they apply across the test levels.",
+ `<p>A <b>test type</b> is a group of test activities aimed at specific characteristics of a system or part of it, based on specific test objectives. <b>All</b> test types can be applied at all test levels, though focus differs.</p>
+  <ul><li><b>Functional</b> (“what”): evaluates functions described in business requirements, epics, user stories, use cases or functional specifications (or undocumented). E.g., component tests based on a component specification.</li>
+  <li><b>Non-functional</b> (“how well”): performance efficiency, compatibility, usability, reliability, security, maintainability, portability, safety; done at all levels and as early as possible.</li>
+  <li><b>Black-box</b> (specification-based) and <b>white-box</b> (structure-based) techniques derive tests.</li>
+  <li><b>Confirmation and regression</b> after changes.</li></ul>
+  <p>Extra topics: TDD, ATDD, BDD, DevOps, CI/CD.</p>`],
+
+ ["3","short",2,"Define static testing and give examples of work products it can examine.",
+ `<p><b>Static testing</b> examines a work product <b>without executing the software under test</b>. People can review documents, designs, source code, project documentation, contracts, models and test cases; tools can analyse suitably structured work products.</p>
+  <p><i>Example:</i> reading a registration rule and spotting a contradiction before coding.</p>`],
+ ["3","short",3,"Distinguish verification from validation, with an example of each.",
+ `<p><b>Verification</b>: does the work product meet its specified rules? <i>Example: does the design match the approved 18-credit limit?</i></p>
+  <p><b>Validation</b>: does the proposed rule meet the users’ actual needs? <i>Example: do graduating students need an agreed exception?</i></p>`],
+ ["3","short",3,"Compare reviews and static analysis.",
+ `<table><thead><tr><th></th><th>Reviews</th><th>Static analysis</th></tr></thead><tbody>
+  <tr><td>Performed by</td><td>People inspecting and discussing the work product</td><td>Tools checking structured material against rules</td></tr>
+  <tr><td>Strength</td><td>Domain knowledge and judgement</td><td>Fast automatic detection (unused values, unreachable code, complexity, risky patterns); can run in CI</td></tr>
+  <tr><td>Note</td><td>Finds wrong business rules</td><td>People still assess the relevance of tool findings; valid syntax can still implement the wrong rule</td></tr>
+  <tr><td>Example</td><td>Reviewer questions an unclear prerequisite rule</td><td>Report of an unused variable</td></tr></tbody></table>`],
+ ["3","short",3,"Compare static and dynamic testing using the registration example.",
+ `<table><thead><tr><th>Aspect</th><th>Static</th><th>Dynamic</th></tr></thead><tbody>
+  <tr><td>Execution</td><td>Examine the work product</td><td>Execute the software under test</td></tr>
+  <tr><td>Example</td><td>Read the incorrect <code>&lt; 18</code> condition</td><td>Run a registration with 18 credits</td></tr>
+  <tr><td>Evidence</td><td>Directly identified defect or anomaly</td><td>Observed behaviour, including a possible failure</td></tr>
+  <tr><td>Quality view</td><td>Clarity, consistency, maintainability</td><td>Runtime behaviour, measured response time</td></tr></tbody></table>
+  <p>Use both: a document review cannot measure the running system’s response time.</p>`],
+ ["3","short",3,"State the benefits of static testing.",
+ `<ul><li>Finds unclear or conflicting rules before they spread into design, code and tests.</li><li>Finds problems in work products that cannot be executed.</li><li>Improves shared understanding between users, analysts, developers and testers.</li><li>Reduces avoidable rework (while recognising the effort needed for reviews).</li><li>Supports early and frequent stakeholder feedback, so the team can adjust intended behaviour before investing in the wrong solution.</li></ul>
+  <p><i>Example:</i> resolve the 18-credit contradiction once, before several modules implement it.</p>`],
+ ["3","short",3,"List the review roles and their responsibilities.",
+ `<table><thead><tr><th>Role</th><th>Responsibility</th></tr></thead><tbody>
+  <tr><td>Author</td><td>Creates and corrects the work product</td></tr>
+  <tr><td>Reviewer</td><td>Examines the work and identifies findings</td></tr>
+  <tr><td>Scribe / recorder</td><td>Collects findings and records decisions</td></tr>
+  <tr><td>Manager</td><td>Chooses review needs and provides resources</td></tr>
+  <tr><td>Review leader</td><td>Takes overall responsibility and organizes participation (selects reviewers, schedules)</td></tr>
+  <tr><td>Moderator / facilitator</td><td>Helps the meeting run effectively and safely</td></tr></tbody></table>
+  <p>One person may hold several roles where the review type allows it.</p>`],
+ ["3","long",8,"Describe the review process activities, using the registration example.",
+ `<ol>
+  <li><b>Planning:</b> choose the document, scope, objective and exit criteria (e.g., review only the credit-limit and prerequisite rules in version 2; exit when every contradiction is resolved and each remaining action has an owner).</li>
+  <li><b>Review initiation:</b> share the exact version, checklist, roles and review time; invite relevant reviewers.</li>
+  <li><b>Individual review:</b> reviewers record questions and possible problems using a checklist: clarity, consistency, completeness, testability, traceability (e.g., no test checks acceptance of exactly 18 credits).</li>
+  <li><b>Communication and analysis:</b> decide each finding’s status, owner and action. A suspected problem (anomaly) is analysed before it is treated as a confirmed defect: confirm a defect, clarify an existing rule, or close with a recorded reason.</li>
+  <li><b>Fixing and reporting:</b> log each defect, track corrections (e.g., author aligns the credit rules and a reviewer checks the change; add the missing boundary test), report the outcome, and accept when exit criteria are met.</li></ol>
+  <p>Tailor the process to the context and the required formality.</p>`],
+ ["3","long",8,"Compare the four review types and explain how to choose the formality.",
+ `<table><thead><tr><th>Type</th><th>Feature</th><th>Emphasis</th><th>Preparation</th><th>Use</th></tr></thead><tbody>
+  <tr><td>Informal</td><td>Flexible; no formal output required</td><td>Find anomalies</td><td>No defined process</td><td>Colleague checks a short user story</td></tr>
+  <tr><td>Walkthrough</td><td>Author leads</td><td>Explain, build understanding, find anomalies</td><td>Individual preparation optional</td><td>Author explains registration workflow</td></tr>
+  <tr><td>Technical review</td><td>Technical reviewers with a moderator</td><td>Technical agreement and decisions</td><td>Qualified reviewers; moderator leads</td><td>Decide if a proposed interface design is suitable</td></tr>
+  <tr><td>Inspection</td><td>Most formal; defined process and metrics</td><td>Find the maximum number of anomalies</td><td>Complete generic process; collect improvement metrics</td><td>Systematically examine a critical specification</td></tr></tbody></table>
+  <p><b>Inspection details:</b> defined roles, preparation and criteria; metrics improve the work process and the inspection process; the author cannot be review leader or scribe; never use findings to rank or blame individuals.</p>
+  <p><b>Choosing formality:</b> objective, complexity, criticality, risks; SDLC, process maturity, business domain, team culture; obligations and any need for a traceable audit record; available people, time and expertise. A draft may get an informal review before a more formal one; a critical eligibility rule needs deeper scrutiny than a minor wording change.</p>`],
+ ["3","long",8,"Practice: Requirement “A student may register for up to 18 credits.” Test case: input total = 18, expected result: reject. (a) What is inconsistent? (b) Is reading it static or dynamic? (c) Who is the author and who could review? (d) What makes a review like this successful?",
+ `<p><b>(a)</b> “Up to 18” includes 18, so the expected rejection conflicts with the approved rule.</p>
+  <p><b>(b)</b> Reading and comparing the requirement and the test case is <b>static testing</b>; executing the case against the application would be <b>dynamic testing</b>.</p>
+  <p><b>(c)</b> The test-case writer is the <b>author</b>; another tester, developer or business expert could be the <b>reviewer</b>.</p>
+  <p><b>(d)</b> Clear objectives and measurable exit criteria; an appropriate review type and manageable pieces; training, preparation time and management support; respectful discussion about evidence; a learning culture; feedback to authors and stakeholders and tracking of corrections. Example comment: “R1 and R2 disagree at 18 credits. Which outcome is intended?”</p>
+  <p>The review exposes the defect in the test before it creates a misleading failure report.</p>`]
+];
+
+/* Flashcards: [chapter, front, back] */
+var FLASH = [
+ ["2","Define an SDLC model.","Describes the types of activity at each stage and how activities relate logically and chronologically."],
+ ["2","Four characteristics of good testing in any SDLC?","Test activity per dev activity · level-specific objectives · test analysis/design begin with the dev activity · testers review drafts early."],
+ ["2","Two categories of SDLC models?","Sequential; iterative and incremental."],
+ ["2","Waterfall and testing?","Reviews and test preparation can begin early; dynamic testing needs executable software."],
+ ["2","V-model?","Explicitly links development activities with corresponding test levels; supports early testing."],
+ ["2","Incremental vs iterative?","Incremental: features grow in pieces. Iterative: cycles that refine, may change earlier features/scope."],
+ ["2","List the 5 test levels.","Component · Component integration · System · System integration · Acceptance."],
+ ["2","5 attributes of a test level?","Objectives · test basis · test object · typical defects/failures · approaches and responsibilities."],
+ ["2","Component testing: aka, focus, who?","Unit testing; components in isolation (harness/frameworks); developer who wrote the code."],
+ ["2","Component integration: focus and strategies?","Interfaces and interactions between components; bottom-up, top-down, big-bang."],
+ ["2","System testing focus?","Overall end-to-end behavior of the entire system; functional and non-functional."],
+ ["2","System integration example?","Check registration with the external payment system."],
+ ["2","Typical system integration defects?","Inconsistent message structures, incorrect/missing data or encoding, interface mismatch, communication failures."],
+ ["2","Acceptance testing focus?","Validation and readiness for deployment; fulfills user’s business needs."],
+ ["2","Forms of acceptance testing (6)?","UAT · OAT · contractual · regulatory · alpha · beta."],
+ ["2","OAT checks?","Backup/restore, install/uninstall/upgrade, disaster recovery, user management, maintenance, data load/migration, security, performance."],
+ ["2","Alpha vs beta?","Alpha: developer’s site, by customers/operators/independent team (not dev team). Beta: customers’ own locations; may occur without alpha."],
+ ["2","Who uses alpha/beta?","Developers of COTS software, for feedback before market release."],
+ ["2","Functional vs non-functional?","Functional = “what”. Non-functional = “how well”."],
+ ["2","8 non-functional characteristics?","Performance efficiency, compatibility, usability, reliability, security, maintainability, portability, safety."],
+ ["2","Black-box vs white-box?","Black: specification-based. White: structure-based, aims to cover the structure."],
+ ["2","Confirmation vs regression?","Confirmation: original defect fixed. Regression: no adverse consequences from a change."],
+ ["2","What comes before regression testing?","Impact analysis (which parts could be affected)."],
+ ["3","Define static testing.","Examining a work product without executing the software under test (people and tools)."],
+ ["3","Verification vs validation?","Verification: meets its specified rules? Validation: meets users’ actual needs?"],
+ ["3","Reviews vs static analysis?","Reviews: people, domain knowledge. Static analysis: tools check structured material against rules."],
+ ["3","What can static analysis flag?","Unused values, unreachable code, complexity, risky patterns."],
+ ["3","3 requirement problems?","Ambiguity · contradiction · missing information."],
+ ["3","Why is <code>total &lt; 18</code> a defect?","The agreed rule is up to 18 (<= 18); the code excludes 18."],
+ ["3","Static vs dynamic: quality view?","Static: clarity, consistency, maintainability. Dynamic: runtime behaviour and response time."],
+ ["3","Benefits of static testing?","Find unclear/conflicting rules early · non-executable products · shared understanding · less rework."],
+ ["3","5 review activities?","Planning · Review initiation · Individual review · Communication and analysis · Fixing and reporting."],
+ ["3","5 checklist items?","Clarity · Consistency · Completeness · Testability · Traceability."],
+ ["3","Anomaly or confirmed defect?","Analyse first: confirm a defect, clarify an existing rule, or close with a recorded reason."],
+ ["3","Review roles?","Author, Reviewer, Scribe · Manager, Review leader, Moderator."],
+ ["3","Leader vs moderator?","Leader organizes (selects reviewers, schedules). Moderator facilitates the discussion."],
+ ["3","4 review types?","Informal · Walkthrough · Technical review · Inspection."],
+ ["3","Inspection rules?","Complete generic process, defined roles, metrics; author can’t be review leader or scribe."],
+ ["3","Walkthrough vs technical review?","Walkthrough: author leads, prep optional. Technical: qualified reviewers, moderator leads, aims at agreement."]
+];
+
+var CHECK = [
+ ["2","I can state the 4 characteristics of good testing and the 2 SDLC categories"],
+ ["2","I can contrast Waterfall, V-model, incremental and iterative"],
+ ["2","I can name the 5 test levels and their basis, objects, defects and responsibility"],
+ ["2","I can explain the 6 forms of acceptance testing (esp. alpha vs beta)"],
+ ["2","I can compare functional, non-functional, black-box, white-box"],
+ ["2","I can explain confirmation vs regression and impact analysis"],
+ ["3","I can define static testing, verification and validation"],
+ ["3","I can compare reviews with static analysis, and static with dynamic testing"],
+ ["3","I can list the 5 review activities, 5 checklist items and the 6 roles"],
+ ["3","I can compare the 4 review types and state the inspection rules"],
+ ["2","I redid every MCQ I missed until I got them right"]
+];
+
+/* ---------- ENGINE ---------- */
+(function(){
+  var $ = function(s,r){return (r||document).querySelector(s)};
+  var $$ = function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
+  var store = {
+    get:function(k){try{return window.localStorage.getItem(k)}catch(e){return null}},
+    set:function(k,v){try{window.localStorage.setItem(k,v)}catch(e){}}
+  };
+  var root = document.documentElement;
+
+  /* theme */
+  function curTheme(){return root.getAttribute('data-theme') || (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'dark':'light')}
+  function paintTheme(){var t=curTheme();$('#themeIcon').textContent=t==='dark'?'☾':'☀';$('#themeLbl').textContent=t==='dark'?'Dark':'Light'}
+  var saved=store.get('istqb-theme'); if(saved==='dark'||saved==='light') root.setAttribute('data-theme',saved);
+  $('#themeBtn').addEventListener('click',function(){var n=curTheme()==='dark'?'light':'dark';root.setAttribute('data-theme',n);store.set('istqb-theme',n);paintTheme()});
+  paintTheme();
+
+  /* routing */
+  var IDS=['explain','summary','memory','mcq','written','revision'];
+  function show(id){
+    if(IDS.indexOf(id)<0) id='explain';
+    $$('.panel').forEach(function(p){p.classList.toggle('active',p.id==='p-'+id)});
+    $$('.tab').forEach(function(t){t.setAttribute('aria-selected',t.getAttribute('data-go')===id?'true':'false')});
+    var cur=$('.tab[aria-selected="true"]'); if(cur&&cur.scrollIntoView){try{cur.scrollIntoView({block:'nearest',inline:'center'})}catch(e){}}
+    window.scrollTo(0,0);
+  }
+  $$('.tab').forEach(function(t){t.addEventListener('click',function(){var id=t.getAttribute('data-go');if(location.hash==='#'+id)show(id);else location.hash=id})});
+  window.addEventListener('hashchange',function(){show((location.hash||'').replace('#',''))});
+  show((location.hash||'').replace('#',''));
+
+  /* expand / collapse */
+  $$('[data-expand]').forEach(function(b){b.addEventListener('click',function(){
+    var open=b.getAttribute('data-state')==='open';
+    $$('details.card',$('#'+b.getAttribute('data-expand'))).forEach(function(d){d.open=open});
+  })});
+
+  /* wide tables */
+  $$('.tablewrap').forEach(function(w){
+    var t=w.querySelector('table'); if(!t) return;
+    var cols=t.querySelectorAll('thead th').length,len=(t.textContent||'').length,rows=t.querySelectorAll('tbody tr').length||1;
+    if(cols>=4||(cols>=3&&len/(rows*cols)>55)) w.classList.add('wide');
+  });
+
+  /* chapter filter */
+  var chf=store.get('istqb-ch'); if(['all','2','3'].indexOf(chf)<0) chf='all';
+  function applyCh(){
+    root.setAttribute('data-chf',chf);
+    $$('[data-chf]').forEach(function(b){if(b.classList.contains('btn'))b.setAttribute('aria-pressed',b.getAttribute('data-chf')===chf?'true':'false')});
+    if(typeof renderMCQ==='function') renderMCQ();
+  }
+  $$('.chbar [data-chf]').forEach(function(b){b.addEventListener('click',function(){chf=b.getAttribute('data-chf');store.set('istqb-ch',chf);applyCh()})});
+  function inCh(ch){return chf==='all'||chf===ch}
+
+  /* MCQ  [ch, diff, tricky, q, correct, wrongs, exp] */
+  var LET=['A','B','C','D'], KEY='istqb-mcq-v1';
+  var ans={}; try{ans=JSON.parse(store.get(KEY)||'{}')||{}}catch(e){ans={}}
+  var revealed={},order={},filt='all',label={};
+  var cnt={'2':0,'3':0}; MCQ.forEach(function(q,i){cnt[q[0]]++;label[i]='Ch'+q[0]+' · Q'+cnt[q[0]]});
+  function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t}return a}
+  function reorder(){MCQ.forEach(function(q,i){order[i]=shuffle([q[4]].concat(q[5]))})}
+  reorder();
+  function isMiss(i){return ans[i]!==undefined&&ans[i]!==MCQ[i][4]}
+  function stats(){
+    var n=0,a=0,c=0;
+    MCQ.forEach(function(q,i){if(!inCh(q[0]))return;n++;if(ans[i]!==undefined){a++;if(ans[i]===q[4])c++}});
+    $('#stAns').textContent=a+'/'+n;$('#stCor').textContent=c;$('#stMiss').textContent=a-c;
+    $('#stPct').textContent=a?Math.round(c*100/a)+'%':'0%';$('#stBar').style.width=(n?Math.round(a*100/n):0)+'%';
+  }
+  function card(i){
+    var q=MCQ[i],done=ans[i]!==undefined,sh=done||revealed[i];
+    var d=document.createElement('article');d.className='q';d.id='q'+i;
+    var h='<div class="qhead"><span class="qn">'+label[i]+'</span><span class="badge '+q[1]+'">'+q[1]+'</span>'+(q[2]?'<span class="badge tricky">Tricky</span>':'')+'</div>';
+    h+='<div class="qtext">'+q[3]+'</div><div class="opts">';
+    order[i].forEach(function(o,k){
+      var cls='opt',res='';
+      if(sh){
+        if(o===q[4]){cls+=' right';res='<span class="res" style="color:var(--good)">CORRECT</span>'}
+        else if(done&&ans[i]===o){cls+=' wrong';res='<span class="res" style="color:var(--bad)">YOUR PICK</span>'}
+      }
+      h+='<button type="button" class="'+cls+'" data-i="'+i+'" data-k="'+k+'"'+(sh?' disabled':'')+'><span class="l">'+LET[k]+'</span><span>'+o+'</span>'+res+'</button>';
+    });
+    h+='</div><div class="qfoot">';
+    if(!done) h+='<button type="button" class="btn" data-reveal="'+i+'">'+(revealed[i]?'Hide answer':'Show answer')+'</button>';
+    if(sh) h+='<button type="button" class="btn" data-exp="'+i+'">Toggle explanation</button>';
+    h+='</div><div class="exp'+(sh?' show':'')+' box '+(done&&ans[i]===q[4]?'mnem':(done?'trap':'key'))+'" data-label="'+(done?(ans[i]===q[4]?'Correct':'Not quite'):'Answer')+' · explanation"><p>'+q[6]+'</p></div>';
+    d.innerHTML=h;return d;
+  }
+  window.renderMCQ=function(){
+    var list=$('#mcqList');list.innerHTML='';var n=0;
+    MCQ.forEach(function(q,i){
+      if(!inCh(q[0]))return;
+      var ok=filt==='all'||filt===q[1]||(filt==='tricky'&&q[2])||(filt==='missed'&&isMiss(i));
+      if(ok){list.appendChild(card(i));n++}
+    });
+    if(!n)list.innerHTML='<div class="empty">'+(filt==='missed'?'No missed questions yet in this chapter selection.':'No questions in this filter.')+'</div>';
+    stats();
+  };
+  function replace(i){var o=$('#q'+i);if(o)o.replaceWith(card(i))}
+  $('#mcqList').addEventListener('click',function(e){
+    var o=e.target.closest('.opt');
+    if(o){var i=+o.getAttribute('data-i'),k=+o.getAttribute('data-k');if(ans[i]===undefined){ans[i]=order[i][k];store.set(KEY,JSON.stringify(ans));replace(i);stats()}return}
+    var r=e.target.closest('[data-reveal]');
+    if(r){var j=+r.getAttribute('data-reveal');revealed[j]=!revealed[j];replace(j);return}
+    var x=e.target.closest('[data-exp]');
+    if(x){$('#q'+x.getAttribute('data-exp')+' .exp').classList.toggle('show')}
+  });
+  $$('#p-mcq [data-f]').forEach(function(b){b.addEventListener('click',function(){
+    filt=b.getAttribute('data-f');
+    $$('#p-mcq [data-f]').forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});
+    renderMCQ();
+  })});
+  $('#mcqShuffle').addEventListener('click',function(){reorder();renderMCQ()});
+  $('#mcqReset').addEventListener('click',function(){ans={};revealed={};store.set(KEY,'{}');reorder();renderMCQ()});
+
+  /* Written  [ch,type,marks,q,a] */
+  function tbl(h){return h.replace(/<table/g,'<div class="tablewrap"><table').replace(/<\/table>/g,'</table></div>')}
+  var wc={'2s':0,'2l':0,'3s':0,'3l':0};
+  WRITTEN.forEach(function(w,i){
+    var k=w[0]+(w[1]==='short'?'s':'l'),n=++wc[k];
+    var a=document.createElement('article');a.className='wq';a.setAttribute('data-ch',w[0]);
+    a.innerHTML='<div class="qhead"><span class="chtag'+(w[0]==='3'?' c3':'')+'">Ch '+w[0]+'</span><span class="qn">'+(w[1]==='short'?'S':'L')+n+'</span><span class="badge">'+w[2]+' marks</span><span class="badge '+(w[1]==='short'?'easy':'medium')+'">'+w[1]+'</span></div>'+
+      '<h3>'+w[3]+'</h3><div class="qfoot"><button type="button" class="btn primary" data-w="'+i+'">Show model answer</button></div><div class="model" id="m'+i+'">'+tbl(w[4])+'</div>';
+    $(w[1]==='short'?'#wShort':'#wLong').appendChild(a);
+  });
+  function setW(b,on){$('#m'+b.getAttribute('data-w')).classList.toggle('show',on);b.textContent=on?'Hide model answer':'Show model answer'}
+  $('#p-written').addEventListener('click',function(e){var b=e.target.closest('[data-w]');if(!b)return;setW(b,!$('#m'+b.getAttribute('data-w')).classList.contains('show'))});
+  $('#wShowAll').addEventListener('click',function(){$$('[data-w]').forEach(function(b){setW(b,true)})});
+  $('#wHideAll').addEventListener('click',function(){$$('[data-w]').forEach(function(b){setW(b,false)})});
+
+  /* Flashcards  [ch,front,back] */
+  var g=$('#fcGrid');
+  FLASH.forEach(function(f,i){
+    var b=document.createElement('button');b.type='button';b.className='fc';b.setAttribute('data-ch',f[0]);
+    b.setAttribute('aria-label','Flashcard '+(i+1)+', tap to flip');
+    b.innerHTML='<div class="in"><div class="f"><small>Ch '+f[0]+' · question</small>'+f[1]+'</div><div class="b"><small>Answer</small>'+f[2]+'</div></div>';
+    b.addEventListener('click',function(){b.classList.toggle('flip')});
+    g.appendChild(b);
+  });
+
+  /* Checklist  [ch,text] */
+  var CK='istqb-check-v1',done={};try{done=JSON.parse(store.get(CK)||'{}')||{}}catch(e){done={}}
+  var cl=$('#checklist');
+  CHECK.forEach(function(t,i){
+    var li=document.createElement('li');li.setAttribute('data-ch',t[0]);
+    li.innerHTML='<label><input type="checkbox" id="ck'+i+'"'+(done[i]?' checked':'')+'><span>'+t[1]+'</span></label>';
+    li.querySelector('input').addEventListener('change',function(e){done[i]=e.target.checked;store.set(CK,JSON.stringify(done))});
+    cl.appendChild(li);
+  });
+
+  applyCh();
+})();
+</script>
+
+</body></html>
